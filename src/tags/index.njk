@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+title: Tags
+permalink: /tags/
+---
+<article class="page">
+  <header class="page-header">
+    <h1 class="page-title">Tags</h1>
+  </header>
+<ul class="tag-list">
+  {% for tag in collections.tagList %}
+    <li><a href="/tags/{{ tag }}/">{{ tag }}</a></li>
+  {% endfor %}
+</ul>
+</article>

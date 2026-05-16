@@ -1,0 +1,7 @@
+---
+title: "A fragment on separating style from content"
+date: "2022-07-05T06:45:45.000Z"
+slug: "separating-style-from-content"
+---
+
+<p><em>Another draft. I don't know where I was going with this one but it almost works on its own.</em></p><p>Separating style from content is pretty common in programming and web design. You have a file of 'content' that says <code>"I like turtles"</code> and a separate 'style' file somewhere that says you want it purple, in size 20 Comic Sans. Or to take a slightly more complicated example you might have a draughts game where the board state is represented by some data structure – that's the 'content' bit – and then there's some 'style' code to display it prettily, render some nice pictures of squares and pieces and so on.</p><p>This so completely bog standard that it looks obvious, 'just the way things are', so it's worth pointing out that most of the world is <em>not</em> like that. Like if you have a 20 foot tall apple tree outside your house, there isn't a 'content' part that's a generic 20 foot tree, and then a 'style' part that you can swap out for a cherry tree if you get bored. You don't set the <code>hasLeaves</code> property to <code>false</code> in winter. You just get the whole lot in one big lump. The style is mixed in with the content, all at once. It takes a lot of engineering to produce something that's separated out like that.</p>

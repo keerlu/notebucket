@@ -1,0 +1,265 @@
+Delivered-To: lucy.keer@gmail.com
+Received: by 2002:a05:6f02:839b:b0:11b:33ba:ca77 with SMTP id b27csp1473579rcf;
+        Sun, 19 Apr 2026 23:09:35 -0700 (PDT)
+X-Received: by 2002:a05:6a20:158b:b0:366:1fea:9b54 with SMTP id adf61e73a8af0-3a08d8da390mr12438692637.39.1776665374980;
+        Sun, 19 Apr 2026 23:09:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776665374; cv=none;
+        d=google.com; s=arc-20240605;
+        b=CvpJaKPCR936J/6m3MiBQh2LTPT/HdO7C7K1m8xI0W6d6XygP077eFoWyT/K4h3fsZ
+         fqwqxhKXA48kO6WcDYsVnhI880xkU7GNg4wz57lfculxUd90ovBIojhzc2SxZKV1o+6L
+         D2XnFG3n/tdhSFgt5l3DP3cJmpid1AGjWzvBUnwLD187YlsVHI9LuoJwFuA6yogkOJfj
+         0RDmQcYtWBkZFXrAtcddErdIGaJ8RdwEfUmdAlHOJL3ynvuUJKGkNYXO8G8WAYA0wR2w
+         klq4NNtWJR0AZAh7wWiyKN+POhhOp6h9tLercJIacQgnW6PwDjy19ywJz8P1xbMB71wO
+         kNGQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:subject:to:content-transfer-encoding:mime-version
+         :message-id:from:date:dkim-signature:dkim-signature;
+        bh=uZnX/QQ9sWP3WyQ/IBjIOd89I21JA1QEYiVk47C69fQ=;
+        fh=JwfsPX49LvGWpxfhnaHX/uw+gtgnOWFOmOMTfOj14JE=;
+        b=jKfCnq8SYm8XJ9mLTkNln6GKtnzez+nDIwYB71M+vtNgwAdyc++wDiRqrKeWkxNraI
+         iuWGQsy86kJ91o2irKpjJ1INumQqCWuAyJQpfYiTCHzLgV22KDi9N4V8+grJS/b1v5d8
+         9m+G9w/n3Ko4Wjo/dodcjgi+j13LRr4nM6ytxwj/F89o1xLXMhdQPKzfIUXbMEKRLR7l
+         erSKf26PsszRqDugNdW31igbrijN2f8syRq5QHvlfVxgW6hiZXwJxzL7S1nnq/1m5p9e
+         rckhPNpoFXLMhMWfHZbdNC1oBDNTZkS/VPBFBXqiw6+ssOqvTNfKgKtcmmlWAUFkk0y9
+         /wag==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@inoreader.com header.s=ws6w5gysraqw5w6wf7scokrwk5pekv6e header.b=GchAXCme;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=IGcCl2Xo;
+       spf=pass (google.com: domain of 0101019da9822ef6-2c4ea641-57b5-4786-a195-4dcecef58a40-000000@ses.inoreader.com designates 54.240.27.89 as permitted sender) smtp.mailfrom=0101019da9822ef6-2c4ea641-57b5-4786-a195-4dcecef58a40-000000@ses.inoreader.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=inoreader.com
+Return-Path: <0101019da9822ef6-2c4ea641-57b5-4786-a195-4dcecef58a40-000000@ses.inoreader.com>
+Received: from a27-89.smtp-out.us-west-2.amazonses.com (a27-89.smtp-out.us-west-2.amazonses.com. [54.240.27.89])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-c79771052bdsi14728927a12.397.2026.04.19.23.09.34
+        for <lucy.keer@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 19 Apr 2026 23:09:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 0101019da9822ef6-2c4ea641-57b5-4786-a195-4dcecef58a40-000000@ses.inoreader.com designates 54.240.27.89 as permitted sender) client-ip=54.240.27.89;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@inoreader.com header.s=ws6w5gysraqw5w6wf7scokrwk5pekv6e header.b=GchAXCme;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=IGcCl2Xo;
+       spf=pass (google.com: domain of 0101019da9822ef6-2c4ea641-57b5-4786-a195-4dcecef58a40-000000@ses.inoreader.com designates 54.240.27.89 as permitted sender) smtp.mailfrom=0101019da9822ef6-2c4ea641-57b5-4786-a195-4dcecef58a40-000000@ses.inoreader.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=inoreader.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ws6w5gysraqw5w6wf7scokrwk5pekv6e; d=inoreader.com; t=1776665374;
+	h=Date:From:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Subject;
+	bh=dPsoiXRZKmrUNAPjtjneF24mFzxQ45ZDjv01Z66oTSA=;
+	b=GchAXCmeZZ9Q6pgMlVQCjTNASG+nHYXbAHEP/XjfCC5iXP9W3HtzY/Lnv3AkYiUM
+	Y39WxpwYbcHs2BWyel4mGIuCQpPN9sliOH0QjZCvczKkMHSRgZHro2INYwYFcI9ufVA
+	Cal/uGxlnMUzZcYVTcFs8AS9KnBmxWOQYQSIIAtA=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1776665374;
+	h=Date:From:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Subject:Feedback-ID;
+	bh=dPsoiXRZKmrUNAPjtjneF24mFzxQ45ZDjv01Z66oTSA=;
+	b=IGcCl2Xo/TtWLecyQ8AiXvH4jhurPMakfBAyrQ7PYB7gxfQRyhW6zdMZQe6an6XY
+	ISPN7TfqrNKngVovbl9ttS0lIND63SwEjsrmzDJvb/A/wj1cWUYAq5uOcd21ECPzroV
+	49GvbWSfAS6fQlQ8rcUvneACEyMLBnGLrjJFmsnI=
+Date: Mon, 20 Apr 2026 06:09:34 +0000
+From: Inoreader <no-reply@inoreader.com>
+Message-ID: <0101019da9822ef6-2c4ea641-57b5-4786-a195-4dcecef58a40-000000@us-west-2.amazonses.com>
+X-Mailer: PHPMailer 6.9.2 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+To: lucy.keer@gmail.com
+Subject: "There are not going to be many more dinosaurs"
+Feedback-ID: ::1.us-west-2.jSwQrzA9cGpfEpPK0H1cVjuWGskaB8MqyKcE05V4EAg=:AmazonSES
+X-SES-Outgoing: 2026.04.20-54.240.27.89
+
+<!DOCTYPE HTML>=0A    <html>=0A        <head>=0A        <meta name=3D"x-app=
+le-disable-message-reformatting" http-equiv=3D"content-type" content=3D"tex=
+t/html; charset=3DUTF-8">=0A        <style type=3D"text/css">=0A        @im=
+port url('https://fonts.googleapis.com/css2?family=3DMerriweather:wght@400;=
+700&family=3DRoboto:wght@400;500;700&display=3Dswap');=0A        =0A       =
+ a:link {text-decoration: none; }=0A        a:hover {text-decoration: under=
+line;}=0A        a:visited {text-decoration: none;}=0A        body {margin:=
+0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;font-fa=
+mily:Roboto, Arial, Helvetica, sans-serif;background:#fefefe;color:#000305;=
+}=0A        img {border:0; height:auto;line-height: 100%;outline: none;text=
+-decoration: none;-ms-interpolation-mode: bicubic;max-width: 100%;}=0A     =
+   iframe, hr{max-width: 100% !important;}=0A        =0A        =0A        =
+iframe {display: none !important;}=0A        /* =0A        @media screen an=
+d (prefers-color-scheme: light) {=0A            body{background:#292929;col=
+or:#fefefe;}=0A            .light-mode-logo{display:none;}=0A            .d=
+ark-mode-logo{display:block;}=0A        }=0A        */=0A        @media onl=
+y screen and (max-device-width:480px){=0A            img {max-width:100% !i=
+mportant; height:auto !important;}=0A            iframe, hr{max-width: 100%=
+ !important;}=0A            iframe {display: none !important;}=0A          =
+  #header_table, #subheader_table, #content_table, #footer_table {width:100=
+% !important;border-left: 0 none !important;border-right: 0 none !important=
+;}=0A            .inner-table { width: 100% !important;}=0A        }=0A    =
+    </style>=0A        </head>=0A        <body leftmargin=3D"0" topmargin=
+=3D"0" marginwidth=3D"0" marginheight=3D"0"  style=3D"padding:16px;width: 1=
+00%;max-width: 608px;margin:0px auto;">=0A            <table class=3D"arial=
+" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;font-family:'Robo=
+to', Arial, sans-serif">=0A                <tr>=0A                    <td a=
+lign=3D"center">=0A                        <table id=3D"header_table" cellp=
+adding=3D"0" cellspacing=3D"0" style=3D"width:100%;">=0A                   =
+         <tr>=0A                                <td align=3D"left" style=3D=
+"font-size:0px;padding:10px 0px;word-break:break-word;">=0A                =
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0px=
+;">=0A                                        <tbody>=0A                   =
+                     <tr>=0A                                            <td=
+ style=3D"width:112px;">=0A                                                =
+<a href=3D"https://www.inoreader.com/" target=3D"_blank">=0A               =
+                                     <img height=3D"auto" src=3D"https://ww=
+w.inoreader.com/newsletter/images/email-logo.png" style=3D"border:0;display=
+:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:1=
+3px;" width=3D"112" />=0A                                                </=
+a>=0A                                            </td>=0A                  =
+                      </tr>=0A                                        </tbo=
+dy>=0A                                    </table>=0A                      =
+          </td>=0A                            </tr>=0A                     =
+       <tr>=0A                                <td align=3D"center" style=3D=
+"font-size:0px;padding:10px 0px;word-break:break-word;">=0A                =
+                    <p style=3D"border-top:solid 1px #efefef;font-size:1px;=
+margin:0px auto;width:100%;">=0A                                    </p>=0A=
+                                </td>=0A                            </tr>=
+=0A                        </table>=0A                        <table id=3D"=
+content_table" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;">=
+=0A                            <tr>=0A                                <td >=
+=0A                                    <table width=3D"100%" class=3D"inner=
+-table">=0A                                        <tr height=3D"20"></tr>=
+=0A                                        <tr>   =0A                      =
+                      <td width=3D"24px" align=3D"left" style=3D"vertical-a=
+lign: top;padding-top: 3px !important;">=0A                                =
+                <img src=3D"https://www.inoreader.com/camo/sIKNwYnoTPjcofk3=
+_K0ypGjWF8bEzQfxl8cZHq6O14TA,40x40,r20,b64/aHR0cHM6Ly93d3cuaW5vcmVhZGVyLmNv=
+bS9jZG4vcHJvZmlsZV9zb2NpYWxfcGljdHVyZS8xMDA2MDkxNTkyL2dvb2dsZV80MC9hNGM0ZDE=
+wZDNlNGYwNzJlNmM1ZWJjMWFlOWZkNTkwNGIyYzU1MjViZGI0YmFmZDlhMmVhNDA3YTQyYmNhZj=
+g1OTI1NjI1YWZkYzcwMjM3YzczMGQxMzViMTI4M2ZmZWY3MTI5ZmIyMmY3NTdkNjkzZjNjNThjM=
+2NjMWZjZTI0NWFjMzZhMjkzMWE4MGZmNWU0ZmMzNDlhMjU2ZWYwMGJlNjUwY2YyOTI0YjY2OGI5=
+M2RjYmQ0YTYyZDBhOWVkNzc0NTYzNjlkMWFmZWU" style=3D"width:20px;height:20px;ve=
+rtical-align:middle;" width=3D"20" height=3D"20">=0A                       =
+                     </td>=0A                                            <t=
+d>=0A                                                <span style=3D"font-si=
+ze:16px;margin:20px 0;padding-bottom:10px;font-weight:bold;">=0A           =
+                                         Lucy Keer=0A                      =
+                          </span>=0A                                       =
+         <span style=3D"font-size:16px;letter-spacing:-0.02rem;margin:20px =
+0;padding-bottom:10px;">=0A                                                =
+    shared this article with you from <a href=3D"https://www.inoreader.com/=
+article/3a9c6e778acfe324?utm_source=3Demail_sharing&utm_campaign=3Du1006091=
+592&utm_medium=3Demail" style=3D"text-decoration:underline;">Inoreader</a>=
+=0A                                                </span>=0A              =
+                              </td>=0A                                     =
+   </tr>=0A                                    </table>=0A                 =
+               </td>=0A                            </tr>=0A                =
+            <tr height=3D"20"></tr>=0A                                     =
+   <tr>=0A                                            <td>=0A              =
+                                  <table style=3D"padding: 20px;border: 1px=
+ solid #efefef;border-radius: 5px;" width=3D"100%" class=3D"inner-table">=
+=0A                                                    <tr>=0A             =
+                                           <td>=0A                         =
+                                   <div dir=3D"ltr">=0A                    =
+                                            <a href=3D"https://lucykeer.com=
+/notebucket/there-are-not-going-to-be-many-more-dinosaurs/" style=3D"font-s=
+ize:24px;line-height:28px;text-decoration:none;font-weight:bold;color: #1a2=
+433;">"There are not going to be many more dinosaurs"</a>=0A               =
+                                             </div>=0A                     =
+                                   </td>=0A                                =
+                    </tr>=0A                                               =
+     <tr>=0A                                                        <td>=0A=
+                                                            <div style=3D"m=
+argin-top:8px;">=0A                                                        =
+        <span style=3D"color: #828d9d;">via</span> <a style=3D"font-weight:=
+ normal;color: #828d9d; text-decoration: none;" href=3D"https://lucykeer.co=
+m/">Lucy Keer</a>=0A                                                       =
+     </div>=0A                                                        </td>=
+=0A                                                    </tr>=0A            =
+                                        <tr>=0A                            =
+                            <td>=0A                                        =
+                    <div class=3D"article-content" style=3D"font-size:16px;=
+margin-top:16px;line-height:28px;font-family:'Merriweather', Georgia, serif=
+;" dir=3D"ltr">=0A                                                         =
+       =0A=09=09=09=09=09=09<p class=3D"p_no_top">While I'm posting C. S. L=
+ewis quotes, two more striking ones from his lecture <a href=3D"https://www=
+.fadedpage.com/books/20150423/html.php#c1" target=3D"_blank" rel=3D"noopene=
+r" class=3D"underlink bluelink" tabindex=3D"-1">De Descriptione Temporum</a=
+>:</p><blockquote>... we have lived to see the second death of ancient lear=
+ning. In our time something which was once the possession of all educated m=
+en has shrunk to being the technical accomplishment of a few specialists. I=
+f we say that this is not total death, it may be replied that there was no =
+total death in the Dark Ages either. It could even be argued that Latin, su=
+rviving as the language of Dark Age culture, and preserving the disciplines=
+ of Law and Rhetoric, gave to some parts of the classical heritage a far mo=
+re living and integral status in the life of those ages than the academic s=
+tudies of the specialists can claim in our own. As for the area and the tem=
+po of the two deaths, if one were looking for a man who could not read Virg=
+il though his father could, he might be found more easily in the twentieth =
+century than in the fifth.</blockquote><blockquote>And now for the claim: w=
+hich sounds arrogant but, I hope, is not really so. I have said that the va=
+st change which separates you from Old Western has been gradual and is not =
+even now complete. Wide as the chasm is, those who are native to different =
+sides of it can still meet; are meeting in this room. This is quite normal =
+at times of great change. The correspondence of Henry More and Descartes is=
+ an amusing example; one would think the two men were writing in different =
+centuries. And here comes the rub. I myself belong far more to that Old Wes=
+tern order than to yours. I am going to claim that this, which in one way i=
+s a disqualification for my task, is yet in another a qualification. The di=
+squalification is obvious. You don=E2=80=99t want to be lectured on Neander=
+thal Man by a Neanderthaler, still less on dinosaurs by a dinosaur. And yet=
+, is that the whole story? If a live dinosaur dragged its slow length into =
+the laboratory, would we not all look back as we fled? What a chance to kno=
+w at last how it really moved and looked and smelled and what noises it mad=
+e! And if the Neanderthaler could talk, then, though his lecturing techniqu=
+e might leave much to be desired, should we not almost certainly learn from=
+ him some things about him which the best modern anthropologist could never=
+ have told us? He would tell us without knowing he was telling. One thing I=
+ know: I would give a great deal to hear any ancient Athenian, even a stupi=
+d one, talking about Greek tragedy. He would know in his bones so much that=
+ we seek in vain. At any moment some chance phrase might, unknown to him, s=
+how us where modern scholarship had been on the wrong track for years. Ladi=
+es and gentlemen, I stand before you somewhat as that Athenian might stand.=
+ I read as a native texts that you must read as foreigners. You see why I s=
+aid that the claim was not really arrogant; who can be proud of speaking fl=
+uently his mother tongue or knowing his way about his father=E2=80=99s hous=
+e? It is my settled conviction that in order to read Old Western literature=
+ aright you must suspend most of the responses and unlearn most of the habi=
+ts you have acquired in reading modern literature. And because this is the =
+judgement of a native, I claim that, even if the defence of my conviction i=
+s weak, the fact of my conviction is a historical datum to which you should=
+ give full weight. That way, where I fail as a critic, I may yet be useful =
+as a specimen. I would even dare to go further. Speaking not only for mysel=
+f but for all other Old Western men whom you may meet, I would say, use you=
+r specimens while you can. There are not going to be many more dinosaurs.</=
+blockquote><p>Related: <a href=3D"http://bactra.org/weblog/699.html" target=
+=3D"_blank" rel=3D"noopener" class=3D"underlink bluelink" tabindex=3D"-1">T=
+he Singularity in Our Past Light-Cone</a></p>=0A=09=09=09=09=09<div style=
+=3D"clear:both;">=0A=09=09=09=09=09</div>=0A                    =0A=0A=09=
+=09=09=0A                                                            </div>=
+=0A                                                        </td>=0A        =
+                                            </tr>=0A                       =
+                         </table>=0A                                       =
+     </td>=0A                                        </tr>=0A              =
+                  <tr height=3D"40"></tr>=0A                               =
+ <tr>=0A                                    <td>=0A                        =
+                <a href=3D"https://lucykeer.com/notebucket/there-are-not-go=
+ing-to-be-many-more-dinosaurs/" target=3D"_blank" style=3D"text-decoration:=
+none;padding:10px 24px;font-weight:500;background-color:#3d6baa;color:#ffff=
+ff;border-radius:3px;border:1px solid #3d6baa; text-align: center;font-size=
+: 16px;">View on Web</a>=0A                                    </td>=0A    =
+                            </tr>=0A                                       =
+ <tr height=3D"20"></tr>=0A                                    </table>=0A =
+                               </td>=0A                            </tr>=0A=
+                        </table>=0A                        <table id=3D"foo=
+ter_table" cellpadding=3D"0" cellspacing=3D"0" style=3D"100%">=0A          =
+                  <tr>=0A                                <td style=3D"font-=
+size: 14px;text-align: left;">=0A                                    <table=
+ width=3D"100%" class=3D"inner-table">=0A                                  =
+      <tr>=0A                                            <td>=0A           =
+                                     <p style=3D"border-top:1px solid #efef=
+ef;padding-top:24px;margin-top:24px;color: #828d9d;">=0A                   =
+                                 <a href=3D"https://www.inoreader.com?utm_s=
+ource=3Demail_sharing&utm_campaign=3Du1006091592&utm_medium=3Demail" style=
+=3D"text-decoration:none;color: #828d9d;">Inoreader</a>. Build your own new=
+sfeed. Follow us on <a href=3D"http://www.x.com/Inoreader" style=3D"text-de=
+coration:none;color: #828d9d;">Twitter</a> and <a href=3D"http://www.facebo=
+ok.com/Inoreader" style=3D"text-decoration:none;color: #828d9d;">Facebook</=
+a>.=0A                                                </p>=0A              =
+                              </td>=0A                                     =
+   </tr>=0A                                    </table>=0A                 =
+               </td>=0A                            </tr>=0A                =
+        </table>=0A                    </td>=0A                </tr>=0A    =
+        </table>=0A        </body>=0A    </html>

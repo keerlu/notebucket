@@ -1,0 +1,247 @@
+Delivered-To: lucy.keer@gmail.com
+Received: by 2002:a05:6f02:839b:b0:11b:33ba:ca77 with SMTP id b27csp1469386rcf;
+        Sun, 19 Apr 2026 23:00:16 -0700 (PDT)
+X-Received: by 2002:a05:6a20:3ca8:b0:3a2:d838:bfca with SMTP id adf61e73a8af0-3a2d8393cccmr536518637.3.1776664816328;
+        Sun, 19 Apr 2026 23:00:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776664816; cv=none;
+        d=google.com; s=arc-20240605;
+        b=j7wbmRWWCVSy2ICB+6rj8UtdoVWZJ7fX4a30A1qtkCZWrJMNQBkRKuyN2W0XMSgu6/
+         htAIjL4GtwaySTad40F6NRNNDlbT0INUVFXEEXeHOC3YY8YwbaP0gfjRdXwRJU6eyLKW
+         eFAR+ibJZB7W3yX5KRjtWBWO5p/qFhWAt98IeYVca3mu7onbm1UGgGOxWyMBS7pBiOF7
+         jobjEiKArkOa3eSw9JaJZHspheL7E4Vwv9GVFctjeI3xC2ZlSOBdWpcSpGegl7FglQTf
+         wwByOl0EvCB2Pyfefmc/A9+LQzMENJ9wNw3MpvDNhJrr12iw0FygxCtBNGzGv/XoRzeM
+         YKxw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:subject:to:content-transfer-encoding:mime-version
+         :message-id:from:date:dkim-signature:dkim-signature;
+        bh=bolHYbFXraQn/HBaeGbswcBXzn/3xlnvanb1ZBQjl58=;
+        fh=JwfsPX49LvGWpxfhnaHX/uw+gtgnOWFOmOMTfOj14JE=;
+        b=WUjpV8novHppy/fGFfmGbxlwjjnpBaHofuaGJPdk2QkuXaShBCBJQkyG0QhO61vRCN
+         QyVmLgGhIdbUjuqBemoCE6VbeptN/JBOfBhqAArDd5BMaCQ7zW3JUAJYZmZQupGeUvAC
+         EjiWxt8ApbVi3rou7XVB53r2OXS6nDsj7fw/EEkOBpOx/RxxHF+TNsf+p5RUCYc/+I8P
+         dS1FdXWy57Of9OsYq4IBY3kSdFzllAz8czsmSaAsjw9/mCfBsK2FH3nrfLa4IrRaD6kG
+         oMaX7u1JaBCUjoGcMKKMlbF7XwjKrx76AUYw8S2WZ3vvgKiijl1ciylYD3QFMhibHpVs
+         asxQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@inoreader.com header.s=ws6w5gysraqw5w6wf7scokrwk5pekv6e header.b=m2fAU2qn;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=LZNVhUTV;
+       spf=pass (google.com: domain of 0101019da979a85f-ac6b367d-644e-4d2e-98c6-378b68beaaba-000000@ses.inoreader.com designates 54.240.57.84 as permitted sender) smtp.mailfrom=0101019da979a85f-ac6b367d-644e-4d2e-98c6-378b68beaaba-000000@ses.inoreader.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=inoreader.com
+Return-Path: <0101019da979a85f-ac6b367d-644e-4d2e-98c6-378b68beaaba-000000@ses.inoreader.com>
+Received: from a57-84.smtp-out.us-west-2.amazonses.com (a57-84.smtp-out.us-west-2.amazonses.com. [54.240.57.84])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-c797cf1e977si11360642a12.79.2026.04.19.23.00.15
+        for <lucy.keer@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 19 Apr 2026 23:00:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 0101019da979a85f-ac6b367d-644e-4d2e-98c6-378b68beaaba-000000@ses.inoreader.com designates 54.240.57.84 as permitted sender) client-ip=54.240.57.84;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@inoreader.com header.s=ws6w5gysraqw5w6wf7scokrwk5pekv6e header.b=m2fAU2qn;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=LZNVhUTV;
+       spf=pass (google.com: domain of 0101019da979a85f-ac6b367d-644e-4d2e-98c6-378b68beaaba-000000@ses.inoreader.com designates 54.240.57.84 as permitted sender) smtp.mailfrom=0101019da979a85f-ac6b367d-644e-4d2e-98c6-378b68beaaba-000000@ses.inoreader.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=inoreader.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ws6w5gysraqw5w6wf7scokrwk5pekv6e; d=inoreader.com; t=1776664815;
+	h=Date:From:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Subject;
+	bh=XRnEbPs4C672nxX/VyXy1+0yZM0PpmN+jVacYjlwgJU=;
+	b=m2fAU2qn1FgEuEA7pkxJiyxsZArY9Y8WZ4AJH72yPRMFkGzkTzm44XNkb03B1qI5
+	nKPdIXTJqnDdY4q25bHtxv41BT5Wqbl1tadHI01O2hYYeywtq9xrnE4NbaxVueCU78M
+	uf1jQZx3UM7WjqGmw/aeqB8DJzDo6eYtD4iq8ILU=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1776664815;
+	h=Date:From:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Subject:Feedback-ID;
+	bh=XRnEbPs4C672nxX/VyXy1+0yZM0PpmN+jVacYjlwgJU=;
+	b=LZNVhUTVuYmVxr1y5KwrzGH5s2YSisccd+/n7sQUUwCtjd865zB/jwuBvSDIn8+T
+	InmlOmxSNm3x7acg/0MsGbz2frOZAeQk5lvi3pv5wzLzeDm0jbnGp2dNH/UU1KSi0ea
+	KEqWhH2piJD+UwxAaqls5FM/rVC4xbngOKZpa9YI=
+Date: Mon, 20 Apr 2026 06:00:15 +0000
+From: Inoreader <no-reply@inoreader.com>
+Message-ID: <0101019da979a85f-ac6b367d-644e-4d2e-98c6-378b68beaaba-000000@us-west-2.amazonses.com>
+X-Mailer: PHPMailer 6.9.2 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+To: lucy.keer@gmail.com
+Subject: =?us-ascii?Q?The_"increment_by_30_seconds_and_then_start"_mi?=
+ =?us-ascii?Q?crowave_button_is_one_of_the_all-time_great_hum?=
+ =?us-ascii?Q?an_inventions?=
+Feedback-ID: ::1.us-west-2.jSwQrzA9cGpfEpPK0H1cVjuWGskaB8MqyKcE05V4EAg=:AmazonSES
+X-SES-Outgoing: 2026.04.20-54.240.57.84
+
+<!DOCTYPE HTML>=0A    <html>=0A        <head>=0A        <meta name=3D"x-app=
+le-disable-message-reformatting" http-equiv=3D"content-type" content=3D"tex=
+t/html; charset=3DUTF-8">=0A        <style type=3D"text/css">=0A        @im=
+port url('https://fonts.googleapis.com/css2?family=3DMerriweather:wght@400;=
+700&family=3DRoboto:wght@400;500;700&display=3Dswap');=0A        =0A       =
+ a:link {text-decoration: none; }=0A        a:hover {text-decoration: under=
+line;}=0A        a:visited {text-decoration: none;}=0A        body {margin:=
+0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;font-fa=
+mily:Roboto, Arial, Helvetica, sans-serif;background:#fefefe;color:#000305;=
+}=0A        img {border:0; height:auto;line-height: 100%;outline: none;text=
+-decoration: none;-ms-interpolation-mode: bicubic;max-width: 100%;}=0A     =
+   iframe, hr{max-width: 100% !important;}=0A        =0A        =0A        =
+iframe {display: none !important;}=0A        /* =0A        @media screen an=
+d (prefers-color-scheme: light) {=0A            body{background:#292929;col=
+or:#fefefe;}=0A            .light-mode-logo{display:none;}=0A            .d=
+ark-mode-logo{display:block;}=0A        }=0A        */=0A        @media onl=
+y screen and (max-device-width:480px){=0A            img {max-width:100% !i=
+mportant; height:auto !important;}=0A            iframe, hr{max-width: 100%=
+ !important;}=0A            iframe {display: none !important;}=0A          =
+  #header_table, #subheader_table, #content_table, #footer_table {width:100=
+% !important;border-left: 0 none !important;border-right: 0 none !important=
+;}=0A            .inner-table { width: 100% !important;}=0A        }=0A    =
+    </style>=0A        </head>=0A        <body leftmargin=3D"0" topmargin=
+=3D"0" marginwidth=3D"0" marginheight=3D"0"  style=3D"padding:16px;width: 1=
+00%;max-width: 608px;margin:0px auto;">=0A            <table class=3D"arial=
+" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;font-family:'Robo=
+to', Arial, sans-serif">=0A                <tr>=0A                    <td a=
+lign=3D"center">=0A                        <table id=3D"header_table" cellp=
+adding=3D"0" cellspacing=3D"0" style=3D"width:100%;">=0A                   =
+         <tr>=0A                                <td align=3D"left" style=3D=
+"font-size:0px;padding:10px 0px;word-break:break-word;">=0A                =
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0px=
+;">=0A                                        <tbody>=0A                   =
+                     <tr>=0A                                            <td=
+ style=3D"width:112px;">=0A                                                =
+<a href=3D"https://www.inoreader.com/" target=3D"_blank">=0A               =
+                                     <img height=3D"auto" src=3D"https://ww=
+w.inoreader.com/newsletter/images/email-logo.png" style=3D"border:0;display=
+:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:1=
+3px;" width=3D"112" />=0A                                                </=
+a>=0A                                            </td>=0A                  =
+                      </tr>=0A                                        </tbo=
+dy>=0A                                    </table>=0A                      =
+          </td>=0A                            </tr>=0A                     =
+       <tr>=0A                                <td align=3D"center" style=3D=
+"font-size:0px;padding:10px 0px;word-break:break-word;">=0A                =
+                    <p style=3D"border-top:solid 1px #efefef;font-size:1px;=
+margin:0px auto;width:100%;">=0A                                    </p>=0A=
+                                </td>=0A                            </tr>=
+=0A                        </table>=0A                        <table id=3D"=
+content_table" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;">=
+=0A                            <tr>=0A                                <td >=
+=0A                                    <table width=3D"100%" class=3D"inner=
+-table">=0A                                        <tr height=3D"20"></tr>=
+=0A                                        <tr>   =0A                      =
+                      <td width=3D"24px" align=3D"left" style=3D"vertical-a=
+lign: top;padding-top: 3px !important;">=0A                                =
+                <img src=3D"https://www.inoreader.com/camo/sIKNwYnoTPjcofk3=
+_K0ypGjWF8bEzQfxl8cZHq6O14TA,40x40,r20,b64/aHR0cHM6Ly93d3cuaW5vcmVhZGVyLmNv=
+bS9jZG4vcHJvZmlsZV9zb2NpYWxfcGljdHVyZS8xMDA2MDkxNTkyL2dvb2dsZV80MC9hNGM0ZDE=
+wZDNlNGYwNzJlNmM1ZWJjMWFlOWZkNTkwNGIyYzU1MjViZGI0YmFmZDlhMmVhNDA3YTQyYmNhZj=
+g1OTI1NjI1YWZkYzcwMjM3YzczMGQxMzViMTI4M2ZmZWY3MTI5ZmIyMmY3NTdkNjkzZjNjNThjM=
+2NjMWZjZTI0NWFjMzZhMjkzMWE4MGZmNWU0ZmMzNDlhMjU2ZWYwMGJlNjUwY2YyOTI0YjY2OGI5=
+M2RjYmQ0YTYyZDBhOWVkNzc0NTYzNjlkMWFmZWU" style=3D"width:20px;height:20px;ve=
+rtical-align:middle;" width=3D"20" height=3D"20">=0A                       =
+                     </td>=0A                                            <t=
+d>=0A                                                <span style=3D"font-si=
+ze:16px;margin:20px 0;padding-bottom:10px;font-weight:bold;">=0A           =
+                                         Lucy Keer=0A                      =
+                          </span>=0A                                       =
+         <span style=3D"font-size:16px;letter-spacing:-0.02rem;margin:20px =
+0;padding-bottom:10px;">=0A                                                =
+    shared this article with you from <a href=3D"https://www.inoreader.com/=
+article/3a9c6e769579d5c6?utm_source=3Demail_sharing&utm_campaign=3Du1006091=
+592&utm_medium=3Demail" style=3D"text-decoration:underline;">Inoreader</a>=
+=0A                                                </span>=0A              =
+                              </td>=0A                                     =
+   </tr>=0A                                    </table>=0A                 =
+               </td>=0A                            </tr>=0A                =
+            <tr height=3D"20"></tr>=0A                                     =
+   <tr>=0A                                            <td>=0A              =
+                                  <table style=3D"padding: 20px;border: 1px=
+ solid #efefef;border-radius: 5px;" width=3D"100%" class=3D"inner-table">=
+=0A                                                    <tr>=0A             =
+                                           <td>=0A                         =
+                                   <div dir=3D"ltr">=0A                    =
+                                            <a href=3D"https://lucykeer.com=
+/notebucket/the-increment-by-30-seconds-and-then-start-microwave-button-is-=
+one-of-the-all-time-great-human-inventions/" style=3D"font-size:24px;line-h=
+eight:28px;text-decoration:none;font-weight:bold;color: #1a2433;">The "incr=
+ement by 30 seconds and then start" microwave button is one of the all-time=
+ great human inventions</a>=0A                                             =
+               </div>=0A                                                   =
+     </td>=0A                                                    </tr>=0A  =
+                                                  <tr>=0A                  =
+                                      <td>=0A                              =
+                              <div style=3D"margin-top:8px;">=0A           =
+                                                     <span style=3D"color: =
+#828d9d;">via</span> <a style=3D"font-weight: normal;color: #828d9d; text-d=
+ecoration: none;" href=3D"https://lucykeer.com/">Lucy Keer</a>=0A          =
+                                                  </div>=0A                =
+                                        </td>=0A                           =
+                         </tr>=0A                                          =
+          <tr>=0A                                                        <t=
+d>=0A                                                            <div class=
+=3D"article-content" style=3D"font-size:16px;margin-top:16px;line-height:28=
+px;font-family:'Merriweather', Georgia, serif;" dir=3D"ltr">=0A            =
+                                                    =0A=09=09=09=09=09=09<p=
+ class=3D"p_no_top">Hm, maybe I exaggerate a little, but I do really love i=
+t.</p><p>You know how microwaves have about a hundred stupid buttons that a=
+re labelled stuff like "Potato" and "Popcorn", and how you can ignore the w=
+hole lot and just press the one that increments the time in multiples of 30=
+ seconds and then starts cooking? (Well, maybe you also want to learn to co=
+ntrol the power level if you're feeling fancy.) I love this interaction pat=
+tern and wish it applied to more things.</p><p>My digital kitchen timer is =
+particularly stupid. It has seconds, but it increments them by 1 second eac=
+h time, because of course I always want to cook something for exactly 7 sec=
+onds, that's a very normal thing to want to do. So it's prohibitively hard =
+to time anything for 30 seconds, or 2 minutes and 30 seconds, and so I neve=
+r do it even when it would be useful.</p><p>Also, while I'm at it, why is i=
+t so hard to find a timer that beeps for a while <em>and then shuts up</em>=
+? Why do I always have to rush over to turn the stupid thing off? I can see=
+ that being useful for something where you might burn the house down, but a=
+t least half of the time I'm using it to time brewing tea. If my tea gets a=
+ bit stewed I will probably live.</p><p>And does it really have to beep tha=
+t lazy <a href=3D"https://www.reddit.com/r/musictheory/comments/hgqqq1/why_=
+are_so_many_beeps_tuned_to_b/" target=3D"_blank" rel=3D"noopener" class=3D"=
+underlink bluelink" tabindex=3D"-1">1000 Hz beep</a> that all beepy things =
+beep at, can't we have something a bit nicer?</p><p>Maybe I should rename t=
+his post to "I hate my kitchen timer, but searching for a replacement is so=
+ hassly and error-prone that I feel stuck with it". But let's focus on the =
+good I want to see in the world.</p><p>I've only covered the "increment by =
+30 seconds" part above. The "... and then start" bit isn't so important, I'=
+d forgive the lack of it in a kitchen timer, but it's a very nice convenien=
+ce feature that I really appreciate in microwaves.</p><hr><p>That's it, tha=
+t's the post. I moved to London for work six months ago and totally broke m=
+y routines for writing outside work. I'm getting back into it now, but plea=
+se bear with me while I get the engine running again with some short, stupi=
+d, or incoherent notebook posts.</p>=0A=09=09=09=09=09<div style=3D"clear:b=
+oth;">=0A=09=09=09=09=09</div>=0A                    =0A=0A=09=09=09=0A    =
+                                                        </div>=0A          =
+                                              </td>=0A                     =
+                               </tr>=0A                                    =
+            </table>=0A                                            </td>=0A=
+                                        </tr>=0A                           =
+     <tr height=3D"40"></tr>=0A                                <tr>=0A     =
+                               <td>=0A                                     =
+   <a href=3D"https://lucykeer.com/notebucket/the-increment-by-30-seconds-a=
+nd-then-start-microwave-button-is-one-of-the-all-time-great-human-invention=
+s/" target=3D"_blank" style=3D"text-decoration:none;padding:10px 24px;font-=
+weight:500;background-color:#3d6baa;color:#ffffff;border-radius:3px;border:=
+1px solid #3d6baa; text-align: center;font-size: 16px;">View on Web</a>=0A =
+                                   </td>=0A                                =
+</tr>=0A                                        <tr height=3D"20"></tr>=0A =
+                                   </table>=0A                             =
+   </td>=0A                            </tr>=0A                        </ta=
+ble>=0A                        <table id=3D"footer_table" cellpadding=3D"0"=
+ cellspacing=3D"0" style=3D"100%">=0A                            <tr>=0A   =
+                             <td style=3D"font-size: 14px;text-align: left;=
+">=0A                                    <table width=3D"100%" class=3D"inn=
+er-table">=0A                                        <tr>=0A               =
+                             <td>=0A                                       =
+         <p style=3D"border-top:1px solid #efefef;padding-top:24px;margin-t=
+op:24px;color: #828d9d;">=0A                                               =
+     <a href=3D"https://www.inoreader.com?utm_source=3Demail_sharing&utm_ca=
+mpaign=3Du1006091592&utm_medium=3Demail" style=3D"text-decoration:none;colo=
+r: #828d9d;">Inoreader</a>. Build your own newsfeed. Follow us on <a href=
+=3D"http://www.x.com/Inoreader" style=3D"text-decoration:none;color: #828d9=
+d;">Twitter</a> and <a href=3D"http://www.facebook.com/Inoreader" style=3D"=
+text-decoration:none;color: #828d9d;">Facebook</a>.=0A                     =
+                           </p>=0A                                         =
+   </td>=0A                                        </tr>=0A                =
+                    </table>=0A                                </td>=0A    =
+                        </tr>=0A                        </table>=0A        =
+            </td>=0A                </tr>=0A            </table>=0A        =
+</body>=0A    </html>

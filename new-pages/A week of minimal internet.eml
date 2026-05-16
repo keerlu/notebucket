@@ -1,0 +1,287 @@
+Delivered-To: lucy.keer@gmail.com
+Received: by 2002:a05:6f02:839b:b0:11b:33ba:ca77 with SMTP id b27csp1473807rcf;
+        Sun, 19 Apr 2026 23:10:03 -0700 (PDT)
+X-Received: by 2002:a05:6a00:ab8c:b0:829:800b:9fe with SMTP id d2e1a72fcca58-82f8c99a9a3mr12856087b3a.39.1776665403343;
+        Sun, 19 Apr 2026 23:10:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776665403; cv=none;
+        d=google.com; s=arc-20240605;
+        b=XoDikDTs/dNNrWH4jIMiQmXcQdAi5jPi1kelBTBx0Dm1ofMjbmvDrGW2KD0jWjbYbq
+         NR4vEr1PFgEwlNSH40RHATIpNxKvUQM5l5R8hl1l1CAINTGXmtG6tzoIx2e/jvmCB4F7
+         6yLDxJHFjEvq3Z23nnCcyWACeB4VU18PWmfcrLrNfsyqXA/rBjEcF3ff556SEZja89Wj
+         lMjQCLDMycUC11grnOcrLwMlwjoybBQYZAOP1x2RrazZMLwFBrpyEujkNWYxAJD2YX+D
+         SzGM/yALOJFiM8FFJQPxVKQJFAH4W6lSKP0mq8JU0ggocr7BfWcCb0uz9sviPxNqh89k
+         5g7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:subject:to:content-transfer-encoding:mime-version
+         :message-id:from:date:dkim-signature:dkim-signature;
+        bh=ozD++RJJqlKq9rEqQknJmUfBmvrHhQYxPnjiYESykww=;
+        fh=JwfsPX49LvGWpxfhnaHX/uw+gtgnOWFOmOMTfOj14JE=;
+        b=Wr09AOClA4xsPhOB4TKYUHRkY1VF+7CdRYgxbLRrbUzreubgUb0BtMxLpYYe0qkKxg
+         XUUAGy23fAyKJz6GdkOfPXVW+ik3twvsOyAa4yV7Ewbc3Yw8BHlINfct+3Cozt9Mlqkm
+         OdVYArF5CSEoRmCk8lE7F2ApGtUoy+YhgaKUqEKDRQU2PY93pfwGRv8bSmdixh4upZHo
+         iLLHsiEmhuBy1HSh748a5JQL6MYJxJORHobNtscDyFYMYoa71cwYXUryKLT60NxJcO/o
+         67kJf7tSZEGlqhcjd9bzeG0OJFw0M/0w0YsM3ha8Lvd/xgm5lpPpVgUSLsHJQ38uOFAY
+         RO6g==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@inoreader.com header.s=ws6w5gysraqw5w6wf7scokrwk5pekv6e header.b=WnWuNTHF;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=Qmwng4aO;
+       spf=pass (google.com: domain of 0101019da9829b52-f079100c-327b-4d1e-b7a2-7c1541665acd-000000@ses.inoreader.com designates 54.240.27.149 as permitted sender) smtp.mailfrom=0101019da9829b52-f079100c-327b-4d1e-b7a2-7c1541665acd-000000@ses.inoreader.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=inoreader.com
+Return-Path: <0101019da9829b52-f079100c-327b-4d1e-b7a2-7c1541665acd-000000@ses.inoreader.com>
+Received: from a27-149.smtp-out.us-west-2.amazonses.com (a27-149.smtp-out.us-west-2.amazonses.com. [54.240.27.149])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-82f8ec65e5dsi20531516b3a.248.2026.04.19.23.10.03
+        for <lucy.keer@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 19 Apr 2026 23:10:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 0101019da9829b52-f079100c-327b-4d1e-b7a2-7c1541665acd-000000@ses.inoreader.com designates 54.240.27.149 as permitted sender) client-ip=54.240.27.149;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@inoreader.com header.s=ws6w5gysraqw5w6wf7scokrwk5pekv6e header.b=WnWuNTHF;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=Qmwng4aO;
+       spf=pass (google.com: domain of 0101019da9829b52-f079100c-327b-4d1e-b7a2-7c1541665acd-000000@ses.inoreader.com designates 54.240.27.149 as permitted sender) smtp.mailfrom=0101019da9829b52-f079100c-327b-4d1e-b7a2-7c1541665acd-000000@ses.inoreader.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=inoreader.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ws6w5gysraqw5w6wf7scokrwk5pekv6e; d=inoreader.com; t=1776665402;
+	h=Date:From:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Subject;
+	bh=A5DHB7tr33+qPs/x4Ex0ZweXiELIeG/CfIVKy7wEx4M=;
+	b=WnWuNTHFm/OK7i9+1xc+j76J4Toc0R13JUVqjK93E3M9byCS05oMjFZQFUgDLLHV
+	ZRgcQ7DNxUHzAyW7uxgJsEjeCSBXiqFapyhak03dkybnirmgeKS5i83Q0lkxn1Tn+Cf
+	I/S5LHXFO6YG4GnhN6PSGqs7ilnx09ida6kXHEl4=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1776665402;
+	h=Date:From:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Subject:Feedback-ID;
+	bh=A5DHB7tr33+qPs/x4Ex0ZweXiELIeG/CfIVKy7wEx4M=;
+	b=Qmwng4aOG8SwcyWfzkVjiQZtP21b0Etoe6mPtKdzGAziBe63BKjr8RGP2s10E7Fe
+	R/Wzi8ziTFtYWLiODY7t/u1k+KYU1URsNTFp+E4TraHGPqBJMGKbe2K5ItPCxQKcMgV
+	8z3U8iY0zId8un+P+l5oVJ3r23KOPHrfQnDpxGuk=
+Date: Mon, 20 Apr 2026 06:10:02 +0000
+From: Inoreader <no-reply@inoreader.com>
+Message-ID: <0101019da9829b52-f079100c-327b-4d1e-b7a2-7c1541665acd-000000@us-west-2.amazonses.com>
+X-Mailer: PHPMailer 6.9.2 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+To: lucy.keer@gmail.com
+Subject: A week of minimal internet
+Feedback-ID: ::1.us-west-2.jSwQrzA9cGpfEpPK0H1cVjuWGskaB8MqyKcE05V4EAg=:AmazonSES
+X-SES-Outgoing: 2026.04.20-54.240.27.149
+
+<!DOCTYPE HTML>=0A    <html>=0A        <head>=0A        <meta name=3D"x-app=
+le-disable-message-reformatting" http-equiv=3D"content-type" content=3D"tex=
+t/html; charset=3DUTF-8">=0A        <style type=3D"text/css">=0A        @im=
+port url('https://fonts.googleapis.com/css2?family=3DMerriweather:wght@400;=
+700&family=3DRoboto:wght@400;500;700&display=3Dswap');=0A        =0A       =
+ a:link {text-decoration: none; }=0A        a:hover {text-decoration: under=
+line;}=0A        a:visited {text-decoration: none;}=0A        body {margin:=
+0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;font-fa=
+mily:Roboto, Arial, Helvetica, sans-serif;background:#fefefe;color:#000305;=
+}=0A        img {border:0; height:auto;line-height: 100%;outline: none;text=
+-decoration: none;-ms-interpolation-mode: bicubic;max-width: 100%;}=0A     =
+   iframe, hr{max-width: 100% !important;}=0A        =0A        =0A        =
+iframe {display: none !important;}=0A        /* =0A        @media screen an=
+d (prefers-color-scheme: light) {=0A            body{background:#292929;col=
+or:#fefefe;}=0A            .light-mode-logo{display:none;}=0A            .d=
+ark-mode-logo{display:block;}=0A        }=0A        */=0A        @media onl=
+y screen and (max-device-width:480px){=0A            img {max-width:100% !i=
+mportant; height:auto !important;}=0A            iframe, hr{max-width: 100%=
+ !important;}=0A            iframe {display: none !important;}=0A          =
+  #header_table, #subheader_table, #content_table, #footer_table {width:100=
+% !important;border-left: 0 none !important;border-right: 0 none !important=
+;}=0A            .inner-table { width: 100% !important;}=0A        }=0A    =
+    </style>=0A        </head>=0A        <body leftmargin=3D"0" topmargin=
+=3D"0" marginwidth=3D"0" marginheight=3D"0"  style=3D"padding:16px;width: 1=
+00%;max-width: 608px;margin:0px auto;">=0A            <table class=3D"arial=
+" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;font-family:'Robo=
+to', Arial, sans-serif">=0A                <tr>=0A                    <td a=
+lign=3D"center">=0A                        <table id=3D"header_table" cellp=
+adding=3D"0" cellspacing=3D"0" style=3D"width:100%;">=0A                   =
+         <tr>=0A                                <td align=3D"left" style=3D=
+"font-size:0px;padding:10px 0px;word-break:break-word;">=0A                =
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0px=
+;">=0A                                        <tbody>=0A                   =
+                     <tr>=0A                                            <td=
+ style=3D"width:112px;">=0A                                                =
+<a href=3D"https://www.inoreader.com/" target=3D"_blank">=0A               =
+                                     <img height=3D"auto" src=3D"https://ww=
+w.inoreader.com/newsletter/images/email-logo.png" style=3D"border:0;display=
+:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:1=
+3px;" width=3D"112" />=0A                                                </=
+a>=0A                                            </td>=0A                  =
+                      </tr>=0A                                        </tbo=
+dy>=0A                                    </table>=0A                      =
+          </td>=0A                            </tr>=0A                     =
+       <tr>=0A                                <td align=3D"center" style=3D=
+"font-size:0px;padding:10px 0px;word-break:break-word;">=0A                =
+                    <p style=3D"border-top:solid 1px #efefef;font-size:1px;=
+margin:0px auto;width:100%;">=0A                                    </p>=0A=
+                                </td>=0A                            </tr>=
+=0A                        </table>=0A                        <table id=3D"=
+content_table" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;">=
+=0A                            <tr>=0A                                <td >=
+=0A                                    <table width=3D"100%" class=3D"inner=
+-table">=0A                                        <tr height=3D"20"></tr>=
+=0A                                        <tr>   =0A                      =
+                      <td width=3D"24px" align=3D"left" style=3D"vertical-a=
+lign: top;padding-top: 3px !important;">=0A                                =
+                <img src=3D"https://www.inoreader.com/camo/sIKNwYnoTPjcofk3=
+_K0ypGjWF8bEzQfxl8cZHq6O14TA,40x40,r20,b64/aHR0cHM6Ly93d3cuaW5vcmVhZGVyLmNv=
+bS9jZG4vcHJvZmlsZV9zb2NpYWxfcGljdHVyZS8xMDA2MDkxNTkyL2dvb2dsZV80MC9hNGM0ZDE=
+wZDNlNGYwNzJlNmM1ZWJjMWFlOWZkNTkwNGIyYzU1MjViZGI0YmFmZDlhMmVhNDA3YTQyYmNhZj=
+g1OTI1NjI1YWZkYzcwMjM3YzczMGQxMzViMTI4M2ZmZWY3MTI5ZmIyMmY3NTdkNjkzZjNjNThjM=
+2NjMWZjZTI0NWFjMzZhMjkzMWE4MGZmNWU0ZmMzNDlhMjU2ZWYwMGJlNjUwY2YyOTI0YjY2OGI5=
+M2RjYmQ0YTYyZDBhOWVkNzc0NTYzNjlkMWFmZWU" style=3D"width:20px;height:20px;ve=
+rtical-align:middle;" width=3D"20" height=3D"20">=0A                       =
+                     </td>=0A                                            <t=
+d>=0A                                                <span style=3D"font-si=
+ze:16px;margin:20px 0;padding-bottom:10px;font-weight:bold;">=0A           =
+                                         Lucy Keer=0A                      =
+                          </span>=0A                                       =
+         <span style=3D"font-size:16px;letter-spacing:-0.02rem;margin:20px =
+0;padding-bottom:10px;">=0A                                                =
+    shared this article with you from <a href=3D"https://www.inoreader.com/=
+article/3a9c6e77ad6661d2?utm_source=3Demail_sharing&utm_campaign=3Du1006091=
+592&utm_medium=3Demail" style=3D"text-decoration:underline;">Inoreader</a>=
+=0A                                                </span>=0A              =
+                              </td>=0A                                     =
+   </tr>=0A                                    </table>=0A                 =
+               </td>=0A                            </tr>=0A                =
+            <tr height=3D"20"></tr>=0A                                     =
+   <tr>=0A                                            <td>=0A              =
+                                  <table style=3D"padding: 20px;border: 1px=
+ solid #efefef;border-radius: 5px;" width=3D"100%" class=3D"inner-table">=
+=0A                                                    <tr>=0A             =
+                                           <td>=0A                         =
+                                   <div dir=3D"ltr">=0A                    =
+                                            <a href=3D"https://lucykeer.com=
+/notebucket/a-week-of-minimal-internet/" style=3D"font-size:24px;line-heigh=
+t:28px;text-decoration:none;font-weight:bold;color: #1a2433;">A week of min=
+imal internet</a>=0A                                                       =
+     </div>=0A                                                        </td>=
+=0A                                                    </tr>=0A            =
+                                        <tr>=0A                            =
+                            <td>=0A                                        =
+                    <div style=3D"margin-top:8px;">=0A                     =
+                                           <span style=3D"color: #828d9d;">=
+via</span> <a style=3D"font-weight: normal;color: #828d9d; text-decoration:=
+ none;" href=3D"https://lucykeer.com/">Lucy Keer</a>=0A                    =
+                                        </div>=0A                          =
+                              </td>=0A                                     =
+               </tr>=0A                                                    =
+<tr>=0A                                                        <td>=0A     =
+                                                       <div class=3D"articl=
+e-content" style=3D"font-size:16px;margin-top:16px;line-height:28px;font-fa=
+mily:'Merriweather', Georgia, serif;" dir=3D"ltr">=0A                      =
+                                          =0A=09=09=09=09=09=09<p class=3D"=
+p_no_top">I normally read an enormous amount of text on the internet. Blogs=
+, newsletters, Discord, giant Hacker News threads, weird PDFs I fish up fro=
+m Google Scholar, whatever. I=E2=80=99ve tried temporarily banning myself f=
+rom specific parts (like blogs or Twitter) before but thought I=E2=80=99d t=
+ry a more drastic experiment where I couldn=E2=80=99t read <em>any</em> of =
+that stuff. So I spent one week where I was only allowed to look up directl=
+y relevant practical things, or reply to emails and messages. </p><p>I real=
+ise people love doing this sort of experiment and then writing up their bor=
+ing thoughts on it. I'll try and not make this a completely banal "phones b=
+ad" account like you've read a hundred times before, but no promises.</p><p=
+>The experiment was mostly not as hard as I expected. Well, OK, there was o=
+ne afternoon where I got intensely bored. Excerpt from the journal I kept:<=
+/p><blockquote>- After lunch and I would really like to read some crap on t=
+he internet. It=E2=80=99s not fair<br><br>- This experiment doesn=E2=80=
+=99t feel very interesting. I=E2=80=99m mainly learning that the internet i=
+s good actually and I like it<br><br>- There are 155 bristles on my hairbru=
+sh. Arranged in 7 rows, 21+22+23+23+23+22+21<br><br>- 15:00. I=E2=80=99m bo=
+red. Bored bored bored BORED. This is the most bored a person has ever been=
+. It should be illegal to be this bored</blockquote><p>Otherwise, I adapted=
+ pretty fast. My main internet text replacements were playing piano (surpri=
+singly this is extremely low activation energy, you can just sit down and g=
+et started in seconds) and reading books. I was surprised how it became alm=
+ost instantly very easy to concentrate on books when I knew there were no p=
+ossible internet distractions.</p><p>David MacIver was writing about some s=
+imilar experiments in <a href=3D"https://drmaciver.substack.com/p/how-to-re=
+ad-more-books" target=3D"_blank" rel=3D"noopener" class=3D"underlink blueli=
+nk" tabindex=3D"-1">How to read more books</a>, where he pokes fun at excus=
+es people sometimes come up with for not reading, including:</p><blockquote=
+>=E2=80=9CI can=E2=80=99t read books because my phone has rewired my brain =
+to require constant stimulus from short-form content.=E2=80=9D</blockquote>=
+<p>I didn=E2=80=99t believe this exactly, but I did sort of implicitly assu=
+me that there was <em>some</em> level of adaption to rapidly switching betw=
+een distractions that would be hard to reverse. This wasn=E2=80=99t the cas=
+e at all. As soon as I started the internet experiment and there was litera=
+lly nothing I was allowed to look up online, I stopped having the feelings =
+of wanting to check for anything new. I could just read books for two-hour =
+stretches without coming up with reasons to switch tasks. And as soon as I =
+started using the internet normally again, they came back. </p><p>My experi=
+ence matches very closely with the current environment and supporting conte=
+xt being the important thing, rather than some "rewired my brain" type of e=
+xplanation where I'd need some longish adjustment period in either directio=
+n. This is really good to know, actually. My brain still works fine!</p><hr=
+><p>So, given this, am I going to continue the experiment? Absolutely not, =
+for a couple of reasons.</p><p>First, although I definitely read more books=
+, it=E2=80=99s not obvious that the quality of what I read during the exper=
+iment was an improvement on what I'd have read otherwise. It=E2=80=99s poss=
+ible that this particular week was not very representative. There seemed to=
+ be an unusually good haul of interesting writing when I finally came back =
+to check blogs and newsletters and follow up on some links. And on the othe=
+r hand, I mostly read old Alexander Technique books of varying quality. Als=
+o, I obviously only caught up the places that were likely to be good, rathe=
+r than the giant Hacker News threads of pedants arguing.</p><p>I do think, =
+though, that the best internet text is genuinely very good. I think densely=
+-hyperlinked internet longform is a great genre, and actually better for a =
+lot of nonfiction than the book format, which tends to encourage padding wi=
+th filler text and hiding dubious citations somewhere at the back.</p><p>Se=
+cond, it was crap socially. Reading books for hours at a time with no urge =
+to switch tasks was very familiar from being a teenager, but so was the soc=
+ial and intellectual isolation. I really want to be able to talk to fellow =
+internet weirdos about things I don=E2=80=99t have much IRL outlet for. Thi=
+s links back to the first point too. Another nice feature of internet text =
+is that you can talk back!<br><br>I do want to tilt the balance a bit more =
+towards books, though. Also, it's good to clear out some of my worst habitu=
+al reading and let myself get bored for a bit, to see what I find instead. =
+So I=E2=80=99m trying to figure out something sustainable that gives me eno=
+ugh uninterrupted book-reading time while still getting me my finding-inter=
+esting-things and talking-to-weirdos vitamins. My current experiment is to =
+keep discord and other messaging going, but corral blogs and newsletters in=
+to a two hour period in the evening. As for other kinds of internet text, I=
+=E2=80=99m dropping the =E2=80=9Conly direct practical relevance=E2=80=
+=9D rule and letting myself read anything that isn=E2=80=99t one of my usua=
+l distractions. I have to go fishing around the internet rather than slippi=
+ng into standard habits.</p><p>(Also no reading those threads on Hacker New=
+s. Why was I even doing that?)</p><p>I=E2=80=99ll probably have to try one =
+or two more iterations of the rules, but I think something like this has a =
+good chance of working.</p>=0A=09=09=09=09=09<div style=3D"clear:both;">=0A=
+=09=09=09=09=09</div>=0A                    =0A=0A=09=09=09=0A             =
+                                               </div>=0A                   =
+                                     </td>=0A                              =
+                      </tr>=0A                                             =
+   </table>=0A                                            </td>=0A         =
+                               </tr>=0A                                <tr =
+height=3D"40"></tr>=0A                                <tr>=0A              =
+                      <td>=0A                                        <a hre=
+f=3D"https://lucykeer.com/notebucket/a-week-of-minimal-internet/" target=3D=
+"_blank" style=3D"text-decoration:none;padding:10px 24px;font-weight:500;ba=
+ckground-color:#3d6baa;color:#ffffff;border-radius:3px;border:1px solid #3d=
+6baa; text-align: center;font-size: 16px;">View on Web</a>=0A              =
+                      </td>=0A                                </tr>=0A     =
+                                   <tr height=3D"20"></tr>=0A              =
+                      </table>=0A                                </td>=0A  =
+                          </tr>=0A                        </table>=0A      =
+                  <table id=3D"footer_table" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"100%">=0A                            <tr>=0A               =
+                 <td style=3D"font-size: 14px;text-align: left;">=0A       =
+                             <table width=3D"100%" class=3D"inner-table">=
+=0A                                        <tr>=0A                         =
+                   <td>=0A                                                <=
+p style=3D"border-top:1px solid #efefef;padding-top:24px;margin-top:24px;co=
+lor: #828d9d;">=0A                                                    <a hr=
+ef=3D"https://www.inoreader.com?utm_source=3Demail_sharing&utm_campaign=3Du=
+1006091592&utm_medium=3Demail" style=3D"text-decoration:none;color: #828d9d=
+;">Inoreader</a>. Build your own newsfeed. Follow us on <a href=3D"http://w=
+ww.x.com/Inoreader" style=3D"text-decoration:none;color: #828d9d;">Twitter<=
+/a> and <a href=3D"http://www.facebook.com/Inoreader" style=3D"text-decorat=
+ion:none;color: #828d9d;">Facebook</a>.=0A                                 =
+               </p>=0A                                            </td>=0A =
+                                       </tr>=0A                            =
+        </table>=0A                                </td>=0A                =
+            </tr>=0A                        </table>=0A                    =
+</td>=0A                </tr>=0A            </table>=0A        </body>=0A  =
+  </html>

@@ -1,0 +1,9 @@
+---
+title: "Derrida on signatures"
+date: "2021-10-14T11:06:05.000Z"
+slug: "derrida-on-signatures"
+tags:
+  - "derrida"
+---
+
+<p>I just remembered that Derrida had something to say about signatures (as in actually signing your name on a piece of paper, not in some metaphorical sense) as an interesting genre of text. They have binding consequences in the real world, so I guess that's the 'presence'/'speech' side of things, and also they have to be recognisably 'the same' every time, so that's the 'iterability'/'writing' side.</p><p>OK, yeah, it's in <a href="https://videomole.tv/wp-content/uploads/2018/04/JD1972.pdf">Signature Event Context</a>. I'm not going to try very hard to work through this today, but this is the quote I was thinking of: </p><blockquote>In order to function, that is, to be readable, a signature must have a repeatable, iterable, imitable form; it must be able to be detached from the present and singular intention of its production.</blockquote><p>He's responding to Austin's <em><em>How to Do Things with Words</em> </em>which I've never read and don't know much about, but I know it's about speech acts, speech as having consequences out in the world rather than making assertions. Signatures would fit into that category well.</p><p>This is a mildly interesting linguistic observation:</p><blockquote>We also speak of different or remote places communicating with each other by means of a passage or opening. What takes place, in this sense, what is transmitted, communicated, does not involve phenomena of meaning or signification.</blockquote><p>Interesting because it's similar to what Brian Cantwell Smith would call the 'bumping and shoving' layer of pure causal interaction, with no 'meaning' layer on top.</p><p>I can't be bothered to make any more effort with this at the moment, but it looks promising enough that I might go back to it.</p>

@@ -1,0 +1,379 @@
+Delivered-To: lucy.keer@gmail.com
+Received: by 2002:a05:6f02:839b:b0:11b:33ba:ca77 with SMTP id b27csp1473657rcf;
+        Sun, 19 Apr 2026 23:09:45 -0700 (PDT)
+X-Received: by 2002:a05:6a00:845:b0:82f:5125:a327 with SMTP id d2e1a72fcca58-82f8c902183mr13262942b3a.27.1776665384969;
+        Sun, 19 Apr 2026 23:09:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776665384; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ObJAR/pft0jv/mHs79sLqT6px7Iq9RnND9VmBCO9NZRcvgJw98mpFQLF7qCgb7byEm
+         xhFf3DYAJUv5q8uP4v9yL2xt8ABvGZ6xQwJseDmLmQGtvoMramon2oDL4W73tXOaOEg8
+         MRWHR+kcp+YMwd61GikkRDp0zijw+agEw2+VM8HW3C3UJFqS8t6bsdJN60qRD0fLc749
+         L17h3N4PzvDJEATZ4bhbQP/mXMjnnJ8BkgG5MxntUOkl/94SWbgmvjlgI//BYS9oU8J+
+         SygPXRN7zI2MNJ7KtT0NYUqQqfVqXw9gnh6Gh2F+LdN516bxV16lzl8YFjxX6A8ybqPN
+         QI0Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:subject:to:content-transfer-encoding:mime-version
+         :message-id:from:date:dkim-signature:dkim-signature;
+        bh=S31oE2oHS/45iXlWR81Fc4+QrbQXMdKq/tRNmfKEqdM=;
+        fh=JwfsPX49LvGWpxfhnaHX/uw+gtgnOWFOmOMTfOj14JE=;
+        b=VyBpwTH9V1ffih5cyieS8IktdVcxOUBrf6+CzQmcuvPdlK9JtygGbvXGSuHPrEauSq
+         JhdiTlXH/fLu475g9QfhVWPgUYwKkGYad3LkZfKyvxSQ2xZIfgCFxxxnJNU6cVIForm2
+         +laEH6ngGb7qx44yWDQa14INXfcfTRHtATbHcZUytRmTL5BqRcHmoINtUoOMC0U8Fnof
+         4MDGqaqvBLyegbe9QFvFkDmmaFYgc5PdHQhPbWbg4FX4XOYI/sY48lefdhB7OcZ9Y7YA
+         05NaD3xeWSNrMRXT7Hl+r/0hEFk/vA6j1iBtb0pDMZ4OMs5Zn38WyA93r3uweXux9UuN
+         LCaQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@inoreader.com header.s=ws6w5gysraqw5w6wf7scokrwk5pekv6e header.b=vuZBqohi;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=df2VPpqW;
+       spf=pass (google.com: domain of 0101019da982564f-210bbee7-c282-4a7c-b978-4a3f7d591e2b-000000@ses.inoreader.com designates 54.240.27.70 as permitted sender) smtp.mailfrom=0101019da982564f-210bbee7-c282-4a7c-b978-4a3f7d591e2b-000000@ses.inoreader.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=inoreader.com
+Return-Path: <0101019da982564f-210bbee7-c282-4a7c-b978-4a3f7d591e2b-000000@ses.inoreader.com>
+Received: from a27-70.smtp-out.us-west-2.amazonses.com (a27-70.smtp-out.us-west-2.amazonses.com. [54.240.27.70])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-82f8e9f7b1csi17392907b3a.59.2026.04.19.23.09.44
+        for <lucy.keer@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 19 Apr 2026 23:09:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 0101019da982564f-210bbee7-c282-4a7c-b978-4a3f7d591e2b-000000@ses.inoreader.com designates 54.240.27.70 as permitted sender) client-ip=54.240.27.70;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@inoreader.com header.s=ws6w5gysraqw5w6wf7scokrwk5pekv6e header.b=vuZBqohi;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=df2VPpqW;
+       spf=pass (google.com: domain of 0101019da982564f-210bbee7-c282-4a7c-b978-4a3f7d591e2b-000000@ses.inoreader.com designates 54.240.27.70 as permitted sender) smtp.mailfrom=0101019da982564f-210bbee7-c282-4a7c-b978-4a3f7d591e2b-000000@ses.inoreader.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=inoreader.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ws6w5gysraqw5w6wf7scokrwk5pekv6e; d=inoreader.com; t=1776665384;
+	h=Date:From:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Subject;
+	bh=6H/yWV6xkXg/RAASTukvTx/YEusgOhCPppKCUruSndY=;
+	b=vuZBqohiJSqWsTPNCuDATwzf48ZK0aAxVsLCKOhlWNwjCt6YquOKugtHtQQK2vP4
+	6I8XkoSfbs2oGEx/5c2v4sdRIcgJIKAPUaFEVn4rcAB7+Fdr33Jc2jt5WvXjCglqxO/
+	eiqUQeiZ7ump+ickafNkIYSA5uaIDxhq08GQSwDw=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1776665384;
+	h=Date:From:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Subject:Feedback-ID;
+	bh=6H/yWV6xkXg/RAASTukvTx/YEusgOhCPppKCUruSndY=;
+	b=df2VPpqWOzhFDN9NXTwwZIXSDMuG497+xzSzhlp9oxyC0MoWHcJtQZ/zwRgB1j+/
+	wlX8Bqsp0e1iaxkt2M51DYaq7yVepC01NFxqRjeihbx8rTcjCvKBZvw2EPYAwWWTiB0
+	Fupn0n7TVl1NZrfDGm3pSrWinEgunHJr13ND+u3s=
+Date: Mon, 20 Apr 2026 06:09:44 +0000
+From: Inoreader <no-reply@inoreader.com>
+Message-ID: <0101019da982564f-210bbee7-c282-4a7c-b978-4a3f7d591e2b-000000@us-west-2.amazonses.com>
+X-Mailer: PHPMailer 6.9.2 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+To: lucy.keer@gmail.com
+Subject: Interesting bits from The Discarded Image
+Feedback-ID: ::1.us-west-2.jSwQrzA9cGpfEpPK0H1cVjuWGskaB8MqyKcE05V4EAg=:AmazonSES
+X-SES-Outgoing: 2026.04.20-54.240.27.70
+
+<!DOCTYPE HTML>=0A    <html>=0A        <head>=0A        <meta name=3D"x-app=
+le-disable-message-reformatting" http-equiv=3D"content-type" content=3D"tex=
+t/html; charset=3DUTF-8">=0A        <style type=3D"text/css">=0A        @im=
+port url('https://fonts.googleapis.com/css2?family=3DMerriweather:wght@400;=
+700&family=3DRoboto:wght@400;500;700&display=3Dswap');=0A        =0A       =
+ a:link {text-decoration: none; }=0A        a:hover {text-decoration: under=
+line;}=0A        a:visited {text-decoration: none;}=0A        body {margin:=
+0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;font-fa=
+mily:Roboto, Arial, Helvetica, sans-serif;background:#fefefe;color:#000305;=
+}=0A        img {border:0; height:auto;line-height: 100%;outline: none;text=
+-decoration: none;-ms-interpolation-mode: bicubic;max-width: 100%;}=0A     =
+   iframe, hr{max-width: 100% !important;}=0A        =0A        =0A        =
+iframe {display: none !important;}=0A        /* =0A        @media screen an=
+d (prefers-color-scheme: light) {=0A            body{background:#292929;col=
+or:#fefefe;}=0A            .light-mode-logo{display:none;}=0A            .d=
+ark-mode-logo{display:block;}=0A        }=0A        */=0A        @media onl=
+y screen and (max-device-width:480px){=0A            img {max-width:100% !i=
+mportant; height:auto !important;}=0A            iframe, hr{max-width: 100%=
+ !important;}=0A            iframe {display: none !important;}=0A          =
+  #header_table, #subheader_table, #content_table, #footer_table {width:100=
+% !important;border-left: 0 none !important;border-right: 0 none !important=
+;}=0A            .inner-table { width: 100% !important;}=0A        }=0A    =
+    </style>=0A        </head>=0A        <body leftmargin=3D"0" topmargin=
+=3D"0" marginwidth=3D"0" marginheight=3D"0"  style=3D"padding:16px;width: 1=
+00%;max-width: 608px;margin:0px auto;">=0A            <table class=3D"arial=
+" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;font-family:'Robo=
+to', Arial, sans-serif">=0A                <tr>=0A                    <td a=
+lign=3D"center">=0A                        <table id=3D"header_table" cellp=
+adding=3D"0" cellspacing=3D"0" style=3D"width:100%;">=0A                   =
+         <tr>=0A                                <td align=3D"left" style=3D=
+"font-size:0px;padding:10px 0px;word-break:break-word;">=0A                =
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0px=
+;">=0A                                        <tbody>=0A                   =
+                     <tr>=0A                                            <td=
+ style=3D"width:112px;">=0A                                                =
+<a href=3D"https://www.inoreader.com/" target=3D"_blank">=0A               =
+                                     <img height=3D"auto" src=3D"https://ww=
+w.inoreader.com/newsletter/images/email-logo.png" style=3D"border:0;display=
+:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:1=
+3px;" width=3D"112" />=0A                                                </=
+a>=0A                                            </td>=0A                  =
+                      </tr>=0A                                        </tbo=
+dy>=0A                                    </table>=0A                      =
+          </td>=0A                            </tr>=0A                     =
+       <tr>=0A                                <td align=3D"center" style=3D=
+"font-size:0px;padding:10px 0px;word-break:break-word;">=0A                =
+                    <p style=3D"border-top:solid 1px #efefef;font-size:1px;=
+margin:0px auto;width:100%;">=0A                                    </p>=0A=
+                                </td>=0A                            </tr>=
+=0A                        </table>=0A                        <table id=3D"=
+content_table" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;">=
+=0A                            <tr>=0A                                <td >=
+=0A                                    <table width=3D"100%" class=3D"inner=
+-table">=0A                                        <tr height=3D"20"></tr>=
+=0A                                        <tr>   =0A                      =
+                      <td width=3D"24px" align=3D"left" style=3D"vertical-a=
+lign: top;padding-top: 3px !important;">=0A                                =
+                <img src=3D"https://www.inoreader.com/camo/sIKNwYnoTPjcofk3=
+_K0ypGjWF8bEzQfxl8cZHq6O14TA,40x40,r20,b64/aHR0cHM6Ly93d3cuaW5vcmVhZGVyLmNv=
+bS9jZG4vcHJvZmlsZV9zb2NpYWxfcGljdHVyZS8xMDA2MDkxNTkyL2dvb2dsZV80MC9hNGM0ZDE=
+wZDNlNGYwNzJlNmM1ZWJjMWFlOWZkNTkwNGIyYzU1MjViZGI0YmFmZDlhMmVhNDA3YTQyYmNhZj=
+g1OTI1NjI1YWZkYzcwMjM3YzczMGQxMzViMTI4M2ZmZWY3MTI5ZmIyMmY3NTdkNjkzZjNjNThjM=
+2NjMWZjZTI0NWFjMzZhMjkzMWE4MGZmNWU0ZmMzNDlhMjU2ZWYwMGJlNjUwY2YyOTI0YjY2OGI5=
+M2RjYmQ0YTYyZDBhOWVkNzc0NTYzNjlkMWFmZWU" style=3D"width:20px;height:20px;ve=
+rtical-align:middle;" width=3D"20" height=3D"20">=0A                       =
+                     </td>=0A                                            <t=
+d>=0A                                                <span style=3D"font-si=
+ze:16px;margin:20px 0;padding-bottom:10px;font-weight:bold;">=0A           =
+                                         Lucy Keer=0A                      =
+                          </span>=0A                                       =
+         <span style=3D"font-size:16px;letter-spacing:-0.02rem;margin:20px =
+0;padding-bottom:10px;">=0A                                                =
+    shared this article with you from <a href=3D"https://www.inoreader.com/=
+article/3a9c6e778acfe323?utm_source=3Demail_sharing&utm_campaign=3Du1006091=
+592&utm_medium=3Demail" style=3D"text-decoration:underline;">Inoreader</a>=
+=0A                                                </span>=0A              =
+                              </td>=0A                                     =
+   </tr>=0A                                    </table>=0A                 =
+               </td>=0A                            </tr>=0A                =
+            <tr height=3D"20"></tr>=0A                                     =
+   <tr>=0A                                            <td>=0A              =
+                                  <table style=3D"padding: 20px;border: 1px=
+ solid #efefef;border-radius: 5px;" width=3D"100%" class=3D"inner-table">=
+=0A                                                    <tr>=0A             =
+                                           <td>=0A                         =
+                                   <div dir=3D"ltr">=0A                    =
+                                            <a href=3D"https://lucykeer.com=
+/notebucket/interesting-bits-from-the-discarded-image/" style=3D"font-size:=
+24px;line-height:28px;text-decoration:none;font-weight:bold;color: #1a2433;=
+">Interesting bits from The Discarded Image</a>=0A                         =
+                                   </div>=0A                               =
+                         </td>=0A                                          =
+          </tr>=0A                                                    <tr>=
+=0A                                                        <td>=0A         =
+                                                   <div style=3D"margin-top=
+:8px;">=0A                                                                <=
+span style=3D"color: #828d9d;">via</span> <a style=3D"font-weight: normal;c=
+olor: #828d9d; text-decoration: none;" href=3D"https://lucykeer.com/">Lucy =
+Keer</a>=0A                                                            </di=
+v>=0A                                                        </td>=0A      =
+                                              </tr>=0A                     =
+                               <tr>=0A                                     =
+                   <td>=0A                                                 =
+           <div class=3D"article-content" style=3D"font-size:16px;margin-to=
+p:16px;line-height:28px;font-family:'Merriweather', Georgia, serif;" dir=3D=
+"ltr">=0A                                                                =
+=0A=09=09=09=09=09=09<p class=3D"p_no_top"><br>I'm currently reading a load=
+ of C. S. Lewis (see also <a href=3D"https://bucketoverflow.substack.com/p/=
+c-s-lewis-on-ai-art" target=3D"_blank" rel=3D"noopener" class=3D"underlink =
+bluelink" tabindex=3D"-1">C. S. Lewis on AI art</a>). Here are some bits I =
+wanted to save from <em>The Discarded Image</em>, which is about the mediev=
+al understanding of the universe.</p><h2>Three walks at night</h2><p>First =
+walk. Replace abstract distance by height, and fill the spheres with ordere=
+d contents:</p><blockquote>You must go out on a starry night and walk about=
+ for half an hour trying to see the sky in terms of the old cosmology. Reme=
+mber that you now have an absolute Up and Down. The Earth is really the cen=
+tre, really the lowest place; movement to it from whatever direction is dow=
+nward movement. As a modern, you located the stars at a great distance. For=
+ distance you must now substitute that very special, and far less abstract,=
+ sort of distance which we call height; height, which speaks immediately to=
+ our muscles and nerves. The Medieval Model is vertiginous. And the fact th=
+at the height of the stars in the medieval astronomy is very small compared=
+ with their distance in the modern, will turn out not to have the kind of i=
+mportance you anticipated. For thought and imagination, ten million miles a=
+nd a thousand million are much the same. Both can be conceived (that is, we=
+ can do sums with both) and neither can be imagined; and the more imaginati=
+on we have the better we shall know this. The really important difference i=
+s that the medieval universe, while unimaginably large, was also unambiguou=
+sly finite. And one unexpected result of this is to make the smallness of E=
+arth more vividly felt. In our universe she is small, no doubt; but so are =
+the galaxies, so is everything=E2=80=94and so what? But in theirs there was=
+ an absolute standard of comparison. The furthest sphere, Dante=E2=80=99s m=
+aggior corpo is, quite simply and finally, the largest object in existence.=
+ The word =E2=80=98small=E2=80=99 as applied to Earth thus takes on a far m=
+ore absolute significance. Again, because the medieval universe is finite, =
+it has a shape, the perfect spherical shape, containing within itself an or=
+dered variety. Hence to look out on the night sky with modern eyes is like =
+looking out over a sea that fades away into mist, or looking about one in a=
+ trackless forest=E2=80=94trees forever and no horizon. To look up at the t=
+owering medieval universe is much more like looking at a great building. Th=
+e =E2=80=98space=E2=80=99 of modern astronomy may arouse terror, or bewilde=
+rment or vague reverie; the spheres of the old present us with an object in=
+ which the mind can rest, overwhelming in its greatness but satisfying in i=
+ts harmony. That is the sense in which our universe is romantic, and theirs=
+ was classical.</blockquote><p>Second walk. The universe is full of light a=
+nd music, and the darkness we see is only a shadow cast by the Earth:</p><b=
+lockquote>Nothing is more deeply impressed on the cosmic imaginings of a mo=
+dern than the idea that the heavenly bodies move in a pitch-black and dead-=
+cold vacuity. It was not so in the Medieval Model. Already in our passage f=
+rom Lucan we have seen that (on the most probable interpretation) the ascen=
+ding spirit passes into a region compared with which our terrestrial day is=
+ only a sort of night; and nowhere in medieval literature have I found any =
+suggestion that, if we could enter the translunary world, we should find ou=
+rselves in an abyss of darkness. For their system is in one sense more heli=
+ocentric than ours. The sun illuminates the whole universe. All the stars, =
+says Isidore (III, lxi) are said to have no light of their own but, like th=
+e Moon, to be illuminated by Sol. Dante in the Convivio agrees (II, xiii, 1=
+5). And as they had, I think, no conception of the part which the air plays=
+ in turning physical light into the circumambient colour-realm that we call=
+ Day, we must picture all the countless cubic miles within the vast concavi=
+ty as illuminated. Night is merely the conical shadow cast by our Earth. It=
+ extends, according to Dante (Paradiso, IX, 118) as far as to the sphere of=
+ Venus. Since the Sun moves and the Earth is stationary, we must picture th=
+is long, black finger perpetually revolving like the hand of a clock; that =
+is why Milton calls it =E2=80=98the circling canopie of Night=E2=80=99s ext=
+ended shade=E2=80=99 (Paradise Lost, III, 556). Beyond that there is no nig=
+ht; only =E2=80=98happie climes that lie where day never shuts his eye=
+=E2=80=99 (Comus, 978). When we look up at the night sky we are looking thr=
+ough darkness but not at darkness.<br><br>And secondly, as that vast (thoug=
+h finite) space is not dark, so neither is it silent. If our ears were open=
+ed we should perceive, as Henryson puts it,<br><br>every planet in his prop=
+er sphere<br>In moving makand harmony and sound<br><br>as Dante heard it.<b=
+r><br>If the reader cares to repeat the experiment, already suggested, of a=
+ nocturnal walk with the medieval astronomy in mind, he will easily feel th=
+e effect of these two last details. The =E2=80=98silence=E2=80=99 which fri=
+ghtened Pascal was, according to the Model, wholly illusory; and the sky lo=
+oks black only because we are seeing it through the dark glass of our own s=
+hadow. You must conceive yourself looking up at a world lighted, warmed, an=
+d resonant with music.</blockquote><p>Third walk. Looking in towards heaven=
+:</p><blockquote>I can hardly hope that I shall persuade the reader to yet =
+a third experimental walk by starlight. But perhaps, without actually takin=
+g the walk, he can now improve his picture of that old universe by adding s=
+uch finishing touches as this section has suggested. Whatever else a modern=
+ feels when he looks at the night sky, he certainly feels that he is lookin=
+g out=E2=80=94like one looking out from the saloon entrance on to the dark =
+Atlantic or from the lighted porch upon dark and lonely moors. But if you a=
+ccepted the Medieval Model you would feel like one looking in. The Earth is=
+ =E2=80=98outside the city wall=E2=80=99. When the sun is up he dazzles us =
+and we cannot see inside. Darkness, our own darkness, draws the veil and we=
+ catch a glimpse of the high pomps within; the vast, lighted concavity fill=
+ed with music and life. And, looking in, we do not see, like Meredith=
+=E2=80=99s Lucifer, =E2=80=98the army of unalterable law=E2=80=99, but rath=
+er the revelry of insatiable love. We are watching the activity of creature=
+s whose experience we can only lamely compare to that of one in the act of =
+drinking, his thirst delighted yet not quenched. For in them the highest of=
+ faculties is always exercised without impediment on the noblest object; wi=
+thout satiety, since they can never completely make His perfection their ow=
+n, yet never frustrated, since at every moment they approximate to Him in t=
+he fullest measure of which their nature is capable. You need not wonder th=
+at one old picture represents the Intelligence of the Primum Mobile as a gi=
+rl dancing and playing with her sphere as with a ball. Then, laying aside w=
+hatever Theology or Atheology you held before, run your mind up heaven by h=
+eaven to Him who is really the centre, to your senses the circumference, of=
+ all; the quarry whom all these untiring huntsmen pursue, the candle to who=
+m all these moths move yet are not burned.</blockquote><h2><br>Angelic inte=
+lligence</h2><p>On the division between intellect and reason:</p><blockquot=
+e>Intellectus is that in man which approximates most nearly to angelic inte=
+lligentia; it is in fact obumbrata intelligentia, clouded intelligence, or =
+a shadow of intelligence. Its relation to reason is thus described by Aquin=
+as: =E2=80=98intellect (intelligere) is the simple (i.e. indivisible, uncom=
+pounded) grasp of an intelligible truth, whereas reasoning (ratiocinari) is=
+ the progression towards an intelligible truth by going from one understood=
+ (intellecto) point to another. The difference between them is thus like th=
+e difference between rest and motion or between possession and acquisition=
+=E2=80=99 (Ia, LXXIX, art. 8). We are enjoying intellectus when we =
+=E2=80=98just see=E2=80=99 a self-evident truth; we are exercising ratio wh=
+en we proceed step by step to prove a truth which is not self-evident. A co=
+gnitive life in which all truth can be simply =E2=80=98seen=E2=80=99 would =
+be the life of an intelligentia, an angel. A life of unmitigated ratio wher=
+e nothing was simply =E2=80=98seen=E2=80=99 and all had to be proved, would=
+ presumably be impossible; for nothing can be proved if nothing is self-evi=
+dent. Man=E2=80=99s mental life is spent in laboriously connecting those fr=
+equent, but momentary, flashes of intelligentia which constitute intellectu=
+s.</blockquote><p>Right, so according to this I want to be an angel. I want=
+ to be able to "just see" everything without ever having to do the annoying=
+ work of reasoning through unintelligible intermediate steps. No stupid inf=
+erence time compute for me. I do not want to think step by step.</p><h2>Wor=
+ld as special interest</h2><p>On why medieval writers will include giant di=
+gressions on astronomy, history, natural history, medicine, on what to us s=
+eems the most flimsy pretext:</p><blockquote>The simplest explanation is, I=
+ believe, the true one. Poets and other artists depicted these things becau=
+se their minds loved to dwell on them. Other ages have not had a Model so u=
+niversally accepted as theirs, so imaginable, and so satisfying to the imag=
+ination. Marcus Aurelius wished that men would love the universe as a man c=
+an love his own city. I believe that something like this was really possibl=
+e in the period I am discussing. At least, fairly like it. The medieval and=
+ Renaissance delight in the universe was, I think, more spontaneous and aes=
+thetic, less laden with conscience and resignation, than anything the Stoic=
+al emperor had in mind. It was, though not in any Wordsworthian sense, a =
+=E2=80=98love of nature=E2=80=99.</blockquote><p>I like this suggestion tha=
+t the medieval universe is something like a shared special interest that wr=
+iters can't help themselves from boring on about:</p><blockquote>It may, fo=
+r example, explain both its most typical vice and its most typical virtue. =
+The typical vice, as we all know, is dulness; sheer, unabashed, prolonged d=
+ulness, where the author does not seem to be even trying to interest us. Th=
+e South English Legendary or Ormulum or parts of Hoccleve are good examples=
+. One sees how the belief in a world of built-in significance encourages th=
+is. The writer feels everything to be so interesting in itself that there i=
+s no need for him to make it so. The story, however badly told, will still =
+be worth telling; the truths, however badly stated, still worth stating. He=
+ expects the subject to do for him nearly everything he ought to do himself=
+. Outside literature we can still see this state of mind at work. On the lo=
+west intellectual level, people who find any one subject entirely engrossin=
+g are apt to think that any reference to it, of whatever quality, must have=
+ some value.</blockquote><p>The virtue that goes with this vice is a sense =
+of ease:</p><blockquote>What will strike him at once is the absence of stra=
+in. In the Elizabethan or Romantic examples we feel that the poet has done =
+a great deal of work; in the medieval, we are at first hardly aware of a po=
+et at all. The writing is so limpid and effortless that the story seems to =
+be telling itself. You would think, till you tried, that anyone could do th=
+e like. But in reality no story tells itself. Art is at work. But it is the=
+ art of people who, no less than the bad medieval authors, have a complete =
+confidence in the intrinsic value of their matter.</blockquote><p>To bore o=
+n about <a href=3D"https://bucketoverflow.substack.com/p/june-2024-improvis=
+e-like-its-1799" target=3D"_blank" rel=3D"noopener" class=3D"underlink blue=
+link" tabindex=3D"-1">my own current special interest</a> for a minute, the=
+re are similarities here to eighteenth century music, where composers were =
+insanely prolific in a way that sounds effortless (think Scarlatti's 505 ke=
+yboard sonatas, or Haydn writing 106 symphonies and still finding time to c=
+hurn out endless baryton pieces for his patron). This was also a period tha=
+t had an unusually rich shared world of <a href=3D"https://lucykeer.com/not=
+ebucket/minimum-viable-music/" target=3D"_blank" rel=3D"noopener" class=3D"=
+underlink bluelink" tabindex=3D"-1">standard patterns</a> that could be rec=
+ombined and elaborated on.</p>=0A=09=09=09=09=09<div style=3D"clear:both;">=
+=0A=09=09=09=09=09</div>=0A                    =0A=0A=09=09=09=0A          =
+                                                  </div>=0A                =
+                                        </td>=0A                           =
+                         </tr>=0A                                          =
+      </table>=0A                                            </td>=0A      =
+                                  </tr>=0A                                <=
+tr height=3D"40"></tr>=0A                                <tr>=0A           =
+                         <td>=0A                                        <a =
+href=3D"https://lucykeer.com/notebucket/interesting-bits-from-the-discarded=
+-image/" target=3D"_blank" style=3D"text-decoration:none;padding:10px 24px;=
+font-weight:500;background-color:#3d6baa;color:#ffffff;border-radius:3px;bo=
+rder:1px solid #3d6baa; text-align: center;font-size: 16px;">View on Web</a=
+>=0A                                    </td>=0A                           =
+     </tr>=0A                                        <tr height=3D"20"></tr=
+>=0A                                    </table>=0A                        =
+        </td>=0A                            </tr>=0A                       =
+ </table>=0A                        <table id=3D"footer_table" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"100%">=0A                            <tr>=
+=0A                                <td style=3D"font-size: 14px;text-align:=
+ left;">=0A                                    <table width=3D"100%" class=
+=3D"inner-table">=0A                                        <tr>=0A        =
+                                    <td>=0A                                =
+                <p style=3D"border-top:1px solid #efefef;padding-top:24px;m=
+argin-top:24px;color: #828d9d;">=0A                                        =
+            <a href=3D"https://www.inoreader.com?utm_source=3Demail_sharing=
+&utm_campaign=3Du1006091592&utm_medium=3Demail" style=3D"text-decoration:no=
+ne;color: #828d9d;">Inoreader</a>. Build your own newsfeed. Follow us on <a=
+ href=3D"http://www.x.com/Inoreader" style=3D"text-decoration:none;color: #=
+828d9d;">Twitter</a> and <a href=3D"http://www.facebook.com/Inoreader" styl=
+e=3D"text-decoration:none;color: #828d9d;">Facebook</a>.=0A                =
+                                </p>=0A                                    =
+        </td>=0A                                        </tr>=0A           =
+                         </table>=0A                                </td>=
+=0A                            </tr>=0A                        </table>=0A =
+                   </td>=0A                </tr>=0A            </table>=0A =
+       </body>=0A    </html>

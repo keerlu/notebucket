@@ -1,0 +1,15 @@
+# dependencies
+node_modules/
+
+# build output
+_site/
+
+# Ghost export (personal data, large file)
+*.ghost.*.json
+
+# macOS
+.DS_Store
+
+# env files (precautionary)
+.env
+.env.*

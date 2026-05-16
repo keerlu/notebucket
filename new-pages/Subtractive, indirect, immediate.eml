@@ -1,0 +1,302 @@
+Delivered-To: lucy.keer@gmail.com
+Received: by 2002:a05:6f02:839b:b0:11b:33ba:ca77 with SMTP id b27csp1473052rcf;
+        Sun, 19 Apr 2026 23:08:14 -0700 (PDT)
+X-Received: by 2002:a17:903:2654:b0:2b4:5d51:ce96 with SMTP id d9443c01a7336-2b5f9f4e6damr99155595ad.24.1776665293914;
+        Sun, 19 Apr 2026 23:08:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776665293; cv=none;
+        d=google.com; s=arc-20240605;
+        b=GlYYwez2wTyFcp6o0g4T5wSneXUGCI8DNH2A5NXymeIBTeYEqLMs1WkrnWmSNDNLhl
+         YzR4IBKPxSzIJnyXQ3mkoWF+nabOq7lcegQg9rVlGaN73NfB5DbPba4gd3PFQP9hmevr
+         hd6NjE2mc7U2L2tp3xE0j1EsCTHsauaCQwZ4qR9TE3BnAha/RzT0Sj+zGolCDovqJ0VX
+         PdgqwUVAJ9BKaYXgWVP67i5qwM7qZa7Agf6v4Dzohge3VMNGcZYAQsf77nDXq+W7Tmqn
+         G0pinLUVtlGxSilhxkTdYqdgaxC7KW/vtSLSH1yHk0l2rEJAhE6s7QEnVq67lGo7tlhS
+         /eCQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:subject:to:content-transfer-encoding:mime-version
+         :message-id:from:date:dkim-signature:dkim-signature;
+        bh=aTP0eJPfqJc6AbduLxWFtFXQmJkMaz6m74Zv61oxM7A=;
+        fh=JwfsPX49LvGWpxfhnaHX/uw+gtgnOWFOmOMTfOj14JE=;
+        b=OyRFesyHEPBizXJ8El0+CS9OLqbCBBIKwpIATLvYafJzHctGhurv2r22jZzq8krqdn
+         fMU8PNB18Cq/SmyGNqQQPu/bzmQrQzEtFuXNek/Bxr3UcJzSRRaTFd+7IwcaDnJGkt07
+         Q/SpNYdD34jB0M03r+3Bhxjbj4V4iyQ9QLt9EaieZ2WmRzE4OKxbZ8lP1+brqwoHtYrF
+         EoVw4W+fpfvJehnF6HM/02BNuAjaOGNgnITAavKQ8jDovzGkyi8XGVOC4myqGpcZvA5R
+         GllDV+9nUCoZk35rJAu9pCqQ6EqJnPJ5pslHImRSFBWJhFsXAwqwPOWZmVNJL69L+R9/
+         lJ8A==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@inoreader.com header.s=ws6w5gysraqw5w6wf7scokrwk5pekv6e header.b=BCvVzIU8;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b="rPM4/uVQ";
+       spf=pass (google.com: domain of 0101019da980f2a0-7480c1b0-9e75-444b-a674-bbb294458e48-000000@ses.inoreader.com designates 54.240.27.131 as permitted sender) smtp.mailfrom=0101019da980f2a0-7480c1b0-9e75-444b-a674-bbb294458e48-000000@ses.inoreader.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=inoreader.com
+Return-Path: <0101019da980f2a0-7480c1b0-9e75-444b-a674-bbb294458e48-000000@ses.inoreader.com>
+Received: from a27-131.smtp-out.us-west-2.amazonses.com (a27-131.smtp-out.us-west-2.amazonses.com. [54.240.27.131])
+        by mx.google.com with ESMTPS id d9443c01a7336-2b5fab94386si167865925ad.160.2026.04.19.23.08.13
+        for <lucy.keer@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 19 Apr 2026 23:08:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 0101019da980f2a0-7480c1b0-9e75-444b-a674-bbb294458e48-000000@ses.inoreader.com designates 54.240.27.131 as permitted sender) client-ip=54.240.27.131;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@inoreader.com header.s=ws6w5gysraqw5w6wf7scokrwk5pekv6e header.b=BCvVzIU8;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b="rPM4/uVQ";
+       spf=pass (google.com: domain of 0101019da980f2a0-7480c1b0-9e75-444b-a674-bbb294458e48-000000@ses.inoreader.com designates 54.240.27.131 as permitted sender) smtp.mailfrom=0101019da980f2a0-7480c1b0-9e75-444b-a674-bbb294458e48-000000@ses.inoreader.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=inoreader.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ws6w5gysraqw5w6wf7scokrwk5pekv6e; d=inoreader.com; t=1776665293;
+	h=Date:From:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Subject;
+	bh=ImcqooEClPQbm+AD84TBpVgb36q+/97gg4oBlHNA/Hc=;
+	b=BCvVzIU85UOwvSZed7I3dMJ2VBmYJ+5Z0AwQbvYNQ5G5GNwtD69URXgpGN3maGmN
+	SgLuZOElprduRsPjDCyHqa/qDRvOjSCWKRVPcOXcsNgC5tEKoS/xHObijRGulwzdjdM
+	KOfCyYeL6vH95BssU3KJ3VApUU2kZNvpOPLVnXd0=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1776665293;
+	h=Date:From:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Subject:Feedback-ID;
+	bh=ImcqooEClPQbm+AD84TBpVgb36q+/97gg4oBlHNA/Hc=;
+	b=rPM4/uVQH9W+AcxVBnBYCjFXyO0rXDtP1Q2dTCNlZ5TzOfgQoGmSbbGqr5IyESxH
+	gAf99Q7H1jxMR84k9GnjsbCQZJQccRPL1kqsG+U23fBb08F+XWwEoVKwtHnUFtnr1Hy
+	xi7yghLoNETBvg7+x2gtf9Ui52pIPEDCYEbrjLCM=
+Date: Mon, 20 Apr 2026 06:08:13 +0000
+From: Inoreader <no-reply@inoreader.com>
+Message-ID: <0101019da980f2a0-7480c1b0-9e75-444b-a674-bbb294458e48-000000@us-west-2.amazonses.com>
+X-Mailer: PHPMailer 6.9.2 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+To: lucy.keer@gmail.com
+Subject: Subtractive, indirect, immediate
+Feedback-ID: ::1.us-west-2.jSwQrzA9cGpfEpPK0H1cVjuWGskaB8MqyKcE05V4EAg=:AmazonSES
+X-SES-Outgoing: 2026.04.20-54.240.27.131
+
+<!DOCTYPE HTML>=0A    <html>=0A        <head>=0A        <meta name=3D"x-app=
+le-disable-message-reformatting" http-equiv=3D"content-type" content=3D"tex=
+t/html; charset=3DUTF-8">=0A        <style type=3D"text/css">=0A        @im=
+port url('https://fonts.googleapis.com/css2?family=3DMerriweather:wght@400;=
+700&family=3DRoboto:wght@400;500;700&display=3Dswap');=0A        =0A       =
+ a:link {text-decoration: none; }=0A        a:hover {text-decoration: under=
+line;}=0A        a:visited {text-decoration: none;}=0A        body {margin:=
+0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;font-fa=
+mily:Roboto, Arial, Helvetica, sans-serif;background:#fefefe;color:#000305;=
+}=0A        img {border:0; height:auto;line-height: 100%;outline: none;text=
+-decoration: none;-ms-interpolation-mode: bicubic;max-width: 100%;}=0A     =
+   iframe, hr{max-width: 100% !important;}=0A        =0A        =0A        =
+iframe {display: none !important;}=0A        /* =0A        @media screen an=
+d (prefers-color-scheme: light) {=0A            body{background:#292929;col=
+or:#fefefe;}=0A            .light-mode-logo{display:none;}=0A            .d=
+ark-mode-logo{display:block;}=0A        }=0A        */=0A        @media onl=
+y screen and (max-device-width:480px){=0A            img {max-width:100% !i=
+mportant; height:auto !important;}=0A            iframe, hr{max-width: 100%=
+ !important;}=0A            iframe {display: none !important;}=0A          =
+  #header_table, #subheader_table, #content_table, #footer_table {width:100=
+% !important;border-left: 0 none !important;border-right: 0 none !important=
+;}=0A            .inner-table { width: 100% !important;}=0A        }=0A    =
+    </style>=0A        </head>=0A        <body leftmargin=3D"0" topmargin=
+=3D"0" marginwidth=3D"0" marginheight=3D"0"  style=3D"padding:16px;width: 1=
+00%;max-width: 608px;margin:0px auto;">=0A            <table class=3D"arial=
+" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;font-family:'Robo=
+to', Arial, sans-serif">=0A                <tr>=0A                    <td a=
+lign=3D"center">=0A                        <table id=3D"header_table" cellp=
+adding=3D"0" cellspacing=3D"0" style=3D"width:100%;">=0A                   =
+         <tr>=0A                                <td align=3D"left" style=3D=
+"font-size:0px;padding:10px 0px;word-break:break-word;">=0A                =
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0px=
+;">=0A                                        <tbody>=0A                   =
+                     <tr>=0A                                            <td=
+ style=3D"width:112px;">=0A                                                =
+<a href=3D"https://www.inoreader.com/" target=3D"_blank">=0A               =
+                                     <img height=3D"auto" src=3D"https://ww=
+w.inoreader.com/newsletter/images/email-logo.png" style=3D"border:0;display=
+:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:1=
+3px;" width=3D"112" />=0A                                                </=
+a>=0A                                            </td>=0A                  =
+                      </tr>=0A                                        </tbo=
+dy>=0A                                    </table>=0A                      =
+          </td>=0A                            </tr>=0A                     =
+       <tr>=0A                                <td align=3D"center" style=3D=
+"font-size:0px;padding:10px 0px;word-break:break-word;">=0A                =
+                    <p style=3D"border-top:solid 1px #efefef;font-size:1px;=
+margin:0px auto;width:100%;">=0A                                    </p>=0A=
+                                </td>=0A                            </tr>=
+=0A                        </table>=0A                        <table id=3D"=
+content_table" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;">=
+=0A                            <tr>=0A                                <td >=
+=0A                                    <table width=3D"100%" class=3D"inner=
+-table">=0A                                        <tr height=3D"20"></tr>=
+=0A                                        <tr>   =0A                      =
+                      <td width=3D"24px" align=3D"left" style=3D"vertical-a=
+lign: top;padding-top: 3px !important;">=0A                                =
+                <img src=3D"https://www.inoreader.com/camo/sIKNwYnoTPjcofk3=
+_K0ypGjWF8bEzQfxl8cZHq6O14TA,40x40,r20,b64/aHR0cHM6Ly93d3cuaW5vcmVhZGVyLmNv=
+bS9jZG4vcHJvZmlsZV9zb2NpYWxfcGljdHVyZS8xMDA2MDkxNTkyL2dvb2dsZV80MC9hNGM0ZDE=
+wZDNlNGYwNzJlNmM1ZWJjMWFlOWZkNTkwNGIyYzU1MjViZGI0YmFmZDlhMmVhNDA3YTQyYmNhZj=
+g1OTI1NjI1YWZkYzcwMjM3YzczMGQxMzViMTI4M2ZmZWY3MTI5ZmIyMmY3NTdkNjkzZjNjNThjM=
+2NjMWZjZTI0NWFjMzZhMjkzMWE4MGZmNWU0ZmMzNDlhMjU2ZWYwMGJlNjUwY2YyOTI0YjY2OGI5=
+M2RjYmQ0YTYyZDBhOWVkNzc0NTYzNjlkMWFmZWU" style=3D"width:20px;height:20px;ve=
+rtical-align:middle;" width=3D"20" height=3D"20">=0A                       =
+                     </td>=0A                                            <t=
+d>=0A                                                <span style=3D"font-si=
+ze:16px;margin:20px 0;padding-bottom:10px;font-weight:bold;">=0A           =
+                                         Lucy Keer=0A                      =
+                          </span>=0A                                       =
+         <span style=3D"font-size:16px;letter-spacing:-0.02rem;margin:20px =
+0;padding-bottom:10px;">=0A                                                =
+    shared this article with you from <a href=3D"https://www.inoreader.com/=
+article/3a9c6e777f9ce4fc?utm_source=3Demail_sharing&utm_campaign=3Du1006091=
+592&utm_medium=3Demail" style=3D"text-decoration:underline;">Inoreader</a>=
+=0A                                                </span>=0A              =
+                              </td>=0A                                     =
+   </tr>=0A                                    </table>=0A                 =
+               </td>=0A                            </tr>=0A                =
+            <tr height=3D"20"></tr>=0A                                     =
+   <tr>=0A                                            <td>=0A              =
+                                  <table style=3D"padding: 20px;border: 1px=
+ solid #efefef;border-radius: 5px;" width=3D"100%" class=3D"inner-table">=
+=0A                                                    <tr>=0A             =
+                                           <td>=0A                         =
+                                   <div dir=3D"ltr">=0A                    =
+                                            <a href=3D"https://lucykeer.com=
+/notebucket/subtractive-and-indirect/" style=3D"font-size:24px;line-height:=
+28px;text-decoration:none;font-weight:bold;color: #1a2433;">Subtractive, in=
+direct, immediate</a>=0A                                                   =
+         </div>=0A                                                        <=
+/td>=0A                                                    </tr>=0A        =
+                                            <tr>=0A                        =
+                                <td>=0A                                    =
+                        <div style=3D"margin-top:8px;">=0A                 =
+                                               <span style=3D"color: #828d9=
+d;">via</span> <a style=3D"font-weight: normal;color: #828d9d; text-decorat=
+ion: none;" href=3D"https://lucykeer.com/">Lucy Keer</a>=0A                =
+                                            </div>=0A                      =
+                                  </td>=0A                                 =
+                   </tr>=0A                                                =
+    <tr>=0A                                                        <td>=0A =
+                                                           <div class=3D"ar=
+ticle-content" style=3D"font-size:16px;margin-top:16px;line-height:28px;fon=
+t-family:'Merriweather', Georgia, serif;" dir=3D"ltr">=0A                  =
+                                              =0A=09=09=09=09=09=09<p class=
+=3D"p_no_top">These are some working notes on my experience of learning the=
+ Alexander Technique. I've found it hard to explain what it even is and wha=
+t I'm doing, and I also found most explanations confusing before I started.=
+ I think that part of the reason it's so unusually hard to get a grasp on i=
+s because the method for learning it is <em>subtractive</em>, <em>indirect<=
+/em>, and <em>immediate</em>. I'll explain what I mean by these terms below=
+.</p><p>Note that I am just a person having lessons and not some expert.</p=
+><h3>Subtractive</h3><p>By <em>subtractive</em>, I mean that you're learnin=
+g how to stop doing habitual things, rather than how to start doing new thi=
+ngs. It normally improves your posture, but there are no special exercises =
+you do to change your posture. Instead, the technique helps you drop your h=
+abits, and the posture you have when you drop your habits turns out to be b=
+etter.</p><p>This was unintuitive to me, to say the least. I've always been=
+ clumsy and poorly coordinated and that felt like an intrinsic thing. The i=
+dea that there was somehow a coordinated person buried underneath sounded l=
+ike the most ridiculous kind of hippie woo-woo nonsense.</p><p>But still, m=
+y movement has freed up somehow, and is lighter and easier. A lot of tensio=
+n at the back of my neck has gone away (I didn't realise quite how much ten=
+sion I was holding there). My arms swing a lot more while I walk, presumabl=
+y because my hips have loosened up and rotate more or something? I don't ha=
+ve a clue <em>how</em> I'm doing any of it, it just happens.</p><p>In contr=
+ast, if I'd deliberately tried to "improve my posture", I'd have <em>added<=
+/em> some extra thing like "trying to stand up straight", and just contribu=
+ted extra tension to the existing mess of habits. The subtractive approach =
+seems to work a lot better.</p><p>The funny thing is that I didn't go to Al=
+exander lessons to change my posture, and in fact most of my lessons have b=
+een over Zoom. I was living too far away to attend in-person classes regula=
+rly, and the main thing I wanted to work on was anxiety while talking, whic=
+h could be worked with over a video call. I'm now finally making a big dent=
+ on that anxiety, but that's pretty new, and I got the posture effects firs=
+t.</p><h3>Indirect</h3><p>Subtractive work is already hard to think about, =
+but it gets worse because the Alexander Technique is also <em>indirect</em>=
+. By indirect, I mean that you can't directly subtract away the bits you do=
+n't want, like a sculptor removing stone. There's no way to directly drop t=
+he habit, humans just don't seem to come with one. </p><p>Instead, there's =
+a layer of indirection where you learn to do something different to the hab=
+it, and then the habit somehow drops away by itself. It's kind of similar t=
+o how a car can't go directly sideways, but you can still get to a place to=
+ the side of you, you'll just have to use the controls you do have availabl=
+e to do some indirect combination of turning and moving forwards and backwa=
+rds.</p><p>The different thing you learn to do is to make your awareness ve=
+ry wide, out towards the horizon and up into the sky and down through your =
+feet. You don't want to just be statically aware that these places exist, e=
+ither, you want them to show up in such a way that you have freedom to <em>=
+go</em> to them if you chose. </p><p>I was already used to expanding my awa=
+reness from the type of sitting meditation I do, but the "freedom to" part =
+took longer to get a handle on. It's distinctive, though. If I'm having tro=
+uble getting back to that state I'll crank it up very deliberately by sayin=
+g stuff to myself like "I could turn round and go to the bus stop. I could =
+go downhill to the river. I could go to the supermarket", naming places tha=
+t are well distributed around me (it's particularly easy when I'm already o=
+utside and walking). After a few rounds of that something kicks in and I ca=
+n <em>feel</em> more aliveness in how I move.</p><p>These are the instructi=
+ons I learned, anyway. Probably it varies with the teacher. I know F. M. Al=
+exander originally had his students follow instructions like "relax the nec=
+k" and "head forward and up" and that worked too, somehow. It's all very we=
+ird!</p><h3>Immediate</h3><p>Expanding awareness is an indirect method, but=
+ <em>immediate</em> in terms of timing. You always apply it <em>right now</=
+em>. Then you lose it and apply it again.</p><p>This one is maybe not so un=
+intuitive but it's so integral to the flavour of the experience that I made=
+ it a separate point. You can't get it and keep it so you have to keep rene=
+wing it. You strengthen the intensity of the Alexander state by going there=
+ again and again and again.</p><p>One thing I found confusing when reading =
+descriptions of the Alexander Technique before I started is that there's of=
+ten so much emphasis on things like "non-doing" and "the natural state" tha=
+t I couldn't figure out what I would actually be learning. If it's that's n=
+atural, why aren't I doing it already? Why would I have to go to all these =
+lessons, and what would I be doing in them?</p><p>The answer is that you're=
+ practising expanding awareness again and again. You're not doing anything =
+directly to your habits, they will sort themselves out over time, but you a=
+re doing something. A full day of Alexander teaching is very tiring!</p><p>=
+But I do now understand why the descriptions are weird. "Subtractive, indir=
+ect, immediate" is a weird type of doing, and your default notions of how t=
+o do something will give you the wrong idea.</p><hr><p>Some background: I'v=
+e been learning Alexander Technique with Peter Nobes at the <a href=3D"http=
+s://www.alexandercentre.co.uk/" target=3D"_blank" rel=3D"noopener" class=3D=
+"underlink bluelink" tabindex=3D"-1">South Bank Alexander Centre</a>, as ad=
+vertised by Michael Ashcroft at <a href=3D"https://expandingawareness.org/"=
+ target=3D"_blank" rel=3D"noopener" class=3D"underlink bluelink" tabindex=
+=3D"-1">Expanding Awareness</a> / on <a href=3D"https://x.com/m_ashcroft" t=
+arget=3D"_blank" rel=3D"noopener" class=3D"underlink bluelink" tabindex=3D"=
+-1">Twitter</a>.</p><p>That sentence reads like an ad, and it kind of is =
+=E2=80=93 I highly recommend going there! =E2=80=93 but also it seems espec=
+ially important to state the specific teacher because the Alexander Techniq=
+ue world seems very fragmented into subgroups and the experience at other p=
+laces could be very different. I don't have any grasp at all of how the sub=
+groups vary, but I do get the idea that some teachers focus a lot more on h=
+elping with your immediate problems, while Peter's group is trying to get y=
+ou to a place where you can generate the effects for yourself. This is mayb=
+e confusing and frustrating if you just want to fix your back pain quickly,=
+ but it goes a lot deeper.</p>=0A=09=09=09=09=09<div style=3D"clear:both;">=
+=0A=09=09=09=09=09</div>=0A                    =0A=0A=09=09=09=0A          =
+                                                  </div>=0A                =
+                                        </td>=0A                           =
+                         </tr>=0A                                          =
+      </table>=0A                                            </td>=0A      =
+                                  </tr>=0A                                <=
+tr height=3D"40"></tr>=0A                                <tr>=0A           =
+                         <td>=0A                                        <a =
+href=3D"https://lucykeer.com/notebucket/subtractive-and-indirect/" target=
+=3D"_blank" style=3D"text-decoration:none;padding:10px 24px;font-weight:500=
+;background-color:#3d6baa;color:#ffffff;border-radius:3px;border:1px solid =
+#3d6baa; text-align: center;font-size: 16px;">View on Web</a>=0A           =
+                         </td>=0A                                </tr>=0A  =
+                                      <tr height=3D"20"></tr>=0A           =
+                         </table>=0A                                </td>=
+=0A                            </tr>=0A                        </table>=0A =
+                       <table id=3D"footer_table" cellpadding=3D"0" cellspa=
+cing=3D"0" style=3D"100%">=0A                            <tr>=0A           =
+                     <td style=3D"font-size: 14px;text-align: left;">=0A   =
+                                 <table width=3D"100%" class=3D"inner-table=
+">=0A                                        <tr>=0A                       =
+                     <td>=0A                                               =
+ <p style=3D"border-top:1px solid #efefef;padding-top:24px;margin-top:24px;=
+color: #828d9d;">=0A                                                    <a =
+href=3D"https://www.inoreader.com?utm_source=3Demail_sharing&utm_campaign=
+=3Du1006091592&utm_medium=3Demail" style=3D"text-decoration:none;color: #82=
+8d9d;">Inoreader</a>. Build your own newsfeed. Follow us on <a href=3D"http=
+://www.x.com/Inoreader" style=3D"text-decoration:none;color: #828d9d;">Twit=
+ter</a> and <a href=3D"http://www.facebook.com/Inoreader" style=3D"text-dec=
+oration:none;color: #828d9d;">Facebook</a>.=0A                             =
+                   </p>=0A                                            </td>=
+=0A                                        </tr>=0A                        =
+            </table>=0A                                </td>=0A            =
+                </tr>=0A                        </table>=0A                =
+    </td>=0A                </tr>=0A            </table>=0A        </body>=
+=0A    </html>

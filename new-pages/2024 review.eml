@@ -1,0 +1,318 @@
+Delivered-To: lucy.keer@gmail.com
+Received: by 2002:a05:6f02:839b:b0:11b:33ba:ca77 with SMTP id b27csp1473473rcf;
+        Sun, 19 Apr 2026 23:09:19 -0700 (PDT)
+X-Received: by 2002:a05:6a00:3c86:b0:82d:1faf:7748 with SMTP id d2e1a72fcca58-82f8c8e8bc0mr13224246b3a.33.1776665359291;
+        Sun, 19 Apr 2026 23:09:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776665359; cv=none;
+        d=google.com; s=arc-20240605;
+        b=cFmpFRH4c5sX2ikAU1IxTJonE23Ef1/N4EWzGtTc+79oQOKs9/hK9fTsP9/rSqqhaO
+         O3BzQWPtYr/BE4yOnpX2KbhZvBYWRggvCsWf4XPjmx2N344OVVpy9xRRAfZypT0XMPUk
+         HBWpExQZGh3JeTbMWcOWeqhvqNQ7Cbnvn5E6kGbgPkkiIf3MfrXa8SIkEYFW7oKcExqx
+         cEq6byPvVbVrR/oaqXpP0PvpxUnMa0u4E5BoMhiogpHchfrDrCxviULngjklv7Ci0wyd
+         zAm05a5ORTgKHRp9jvpZ10QNb6jQxgPrYJEhUvPv1U9HPPsSiyJPtT9ZA+SpKj+IBJr2
+         BwaQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:subject:to:content-transfer-encoding:mime-version
+         :message-id:from:date:dkim-signature:dkim-signature;
+        bh=rya8q4262sEGuwsyQ4bOfF8iOAa728eJJZRUu9mAK3k=;
+        fh=JwfsPX49LvGWpxfhnaHX/uw+gtgnOWFOmOMTfOj14JE=;
+        b=hX9nU7/+6bH5F+NK9kYdb9e7EEYUBo6aSvV2rUL6qlLry2FUW0BR1G8by27w1cnvMC
+         7CAPuqqEHHG2OaLPefC/THPifHTU51pBOwiIwZ4X9tHUm/RZ95yvZ+MlNxa2xMcsxjmt
+         PsOu597+bpBCRfqLO0CRPkkvDdkcjpYSZ2U3nNVOG4i/qOQo4oxaIFAZ0/NEfuqH1cyn
+         ZLeGNOI4KsWn6w9w3zUwDI9lRJI5tL03IqJNcLGwG+Zuf802yRWLQMcxKBwGWmReiCzx
+         9SmvfIMTLcMUCJk2LWOC2HumOhDRCHBXI5gv1o6smRZlwJMMrkuBdMdPnUX3U3nR2fDC
+         NEqw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@inoreader.com header.s=ws6w5gysraqw5w6wf7scokrwk5pekv6e header.b=tkr8388f;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b="VC/ebVGA";
+       spf=pass (google.com: domain of 0101019da981f1e6-26333de7-1321-4eea-8e07-c17980965ec7-000000@ses.inoreader.com designates 54.240.27.157 as permitted sender) smtp.mailfrom=0101019da981f1e6-26333de7-1321-4eea-8e07-c17980965ec7-000000@ses.inoreader.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=inoreader.com
+Return-Path: <0101019da981f1e6-26333de7-1321-4eea-8e07-c17980965ec7-000000@ses.inoreader.com>
+Received: from a27-157.smtp-out.us-west-2.amazonses.com (a27-157.smtp-out.us-west-2.amazonses.com. [54.240.27.157])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-82f8ebe9b46si19959242b3a.124.2026.04.19.23.09.19
+        for <lucy.keer@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 19 Apr 2026 23:09:19 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 0101019da981f1e6-26333de7-1321-4eea-8e07-c17980965ec7-000000@ses.inoreader.com designates 54.240.27.157 as permitted sender) client-ip=54.240.27.157;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@inoreader.com header.s=ws6w5gysraqw5w6wf7scokrwk5pekv6e header.b=tkr8388f;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b="VC/ebVGA";
+       spf=pass (google.com: domain of 0101019da981f1e6-26333de7-1321-4eea-8e07-c17980965ec7-000000@ses.inoreader.com designates 54.240.27.157 as permitted sender) smtp.mailfrom=0101019da981f1e6-26333de7-1321-4eea-8e07-c17980965ec7-000000@ses.inoreader.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=inoreader.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ws6w5gysraqw5w6wf7scokrwk5pekv6e; d=inoreader.com; t=1776665358;
+	h=Date:From:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Subject;
+	bh=OwmSUNWikgWpPJPGii3AWmY5qA5/KrRo+y897RaG70w=;
+	b=tkr8388fK4sIi/5yyTg/vDRgtYdRFkts2xhJ0kHGixbs5Row+5TphJzAs5vT0cW7
+	fOjzlZEgdWw21ICHEsq70uBDYEdRC0EVlrUHiD1KFfhyQQnH0BwCUfHmkdw0+rpxadd
+	lu/ylkqFh1oueh1r6NXRnaCqv/6sss8N+F2kTsVE=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1776665358;
+	h=Date:From:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Subject:Feedback-ID;
+	bh=OwmSUNWikgWpPJPGii3AWmY5qA5/KrRo+y897RaG70w=;
+	b=VC/ebVGAaSv1PGn73NvmzE9pv/uPlyIbfj81XBagH80NtHw7hsUF6GCX2aWegRV1
+	rWPRPVwdoWbzX/4Gg1vSkgYkat5BDpyox6CwTi5NcPJpInVncRjZf2YqH9mTBQSIWBd
+	kZ4X0UdCTORet9dMzB/+1NM721RgvNweglaMtUU8=
+Date: Mon, 20 Apr 2026 06:09:18 +0000
+From: Inoreader <no-reply@inoreader.com>
+Message-ID: <0101019da981f1e6-26333de7-1321-4eea-8e07-c17980965ec7-000000@us-west-2.amazonses.com>
+X-Mailer: PHPMailer 6.9.2 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+To: lucy.keer@gmail.com
+Subject: 2024 review
+Feedback-ID: ::1.us-west-2.jSwQrzA9cGpfEpPK0H1cVjuWGskaB8MqyKcE05V4EAg=:AmazonSES
+X-SES-Outgoing: 2026.04.20-54.240.27.157
+
+<!DOCTYPE HTML>=0A    <html>=0A        <head>=0A        <meta name=3D"x-app=
+le-disable-message-reformatting" http-equiv=3D"content-type" content=3D"tex=
+t/html; charset=3DUTF-8">=0A        <style type=3D"text/css">=0A        @im=
+port url('https://fonts.googleapis.com/css2?family=3DMerriweather:wght@400;=
+700&family=3DRoboto:wght@400;500;700&display=3Dswap');=0A        =0A       =
+ a:link {text-decoration: none; }=0A        a:hover {text-decoration: under=
+line;}=0A        a:visited {text-decoration: none;}=0A        body {margin:=
+0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;font-fa=
+mily:Roboto, Arial, Helvetica, sans-serif;background:#fefefe;color:#000305;=
+}=0A        img {border:0; height:auto;line-height: 100%;outline: none;text=
+-decoration: none;-ms-interpolation-mode: bicubic;max-width: 100%;}=0A     =
+   iframe, hr{max-width: 100% !important;}=0A        =0A        =0A        =
+iframe {display: none !important;}=0A        /* =0A        @media screen an=
+d (prefers-color-scheme: light) {=0A            body{background:#292929;col=
+or:#fefefe;}=0A            .light-mode-logo{display:none;}=0A            .d=
+ark-mode-logo{display:block;}=0A        }=0A        */=0A        @media onl=
+y screen and (max-device-width:480px){=0A            img {max-width:100% !i=
+mportant; height:auto !important;}=0A            iframe, hr{max-width: 100%=
+ !important;}=0A            iframe {display: none !important;}=0A          =
+  #header_table, #subheader_table, #content_table, #footer_table {width:100=
+% !important;border-left: 0 none !important;border-right: 0 none !important=
+;}=0A            .inner-table { width: 100% !important;}=0A        }=0A    =
+    </style>=0A        </head>=0A        <body leftmargin=3D"0" topmargin=
+=3D"0" marginwidth=3D"0" marginheight=3D"0"  style=3D"padding:16px;width: 1=
+00%;max-width: 608px;margin:0px auto;">=0A            <table class=3D"arial=
+" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;font-family:'Robo=
+to', Arial, sans-serif">=0A                <tr>=0A                    <td a=
+lign=3D"center">=0A                        <table id=3D"header_table" cellp=
+adding=3D"0" cellspacing=3D"0" style=3D"width:100%;">=0A                   =
+         <tr>=0A                                <td align=3D"left" style=3D=
+"font-size:0px;padding:10px 0px;word-break:break-word;">=0A                =
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0px=
+;">=0A                                        <tbody>=0A                   =
+                     <tr>=0A                                            <td=
+ style=3D"width:112px;">=0A                                                =
+<a href=3D"https://www.inoreader.com/" target=3D"_blank">=0A               =
+                                     <img height=3D"auto" src=3D"https://ww=
+w.inoreader.com/newsletter/images/email-logo.png" style=3D"border:0;display=
+:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:1=
+3px;" width=3D"112" />=0A                                                </=
+a>=0A                                            </td>=0A                  =
+                      </tr>=0A                                        </tbo=
+dy>=0A                                    </table>=0A                      =
+          </td>=0A                            </tr>=0A                     =
+       <tr>=0A                                <td align=3D"center" style=3D=
+"font-size:0px;padding:10px 0px;word-break:break-word;">=0A                =
+                    <p style=3D"border-top:solid 1px #efefef;font-size:1px;=
+margin:0px auto;width:100%;">=0A                                    </p>=0A=
+                                </td>=0A                            </tr>=
+=0A                        </table>=0A                        <table id=3D"=
+content_table" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;">=
+=0A                            <tr>=0A                                <td >=
+=0A                                    <table width=3D"100%" class=3D"inner=
+-table">=0A                                        <tr height=3D"20"></tr>=
+=0A                                        <tr>   =0A                      =
+                      <td width=3D"24px" align=3D"left" style=3D"vertical-a=
+lign: top;padding-top: 3px !important;">=0A                                =
+                <img src=3D"https://www.inoreader.com/camo/sIKNwYnoTPjcofk3=
+_K0ypGjWF8bEzQfxl8cZHq6O14TA,40x40,r20,b64/aHR0cHM6Ly93d3cuaW5vcmVhZGVyLmNv=
+bS9jZG4vcHJvZmlsZV9zb2NpYWxfcGljdHVyZS8xMDA2MDkxNTkyL2dvb2dsZV80MC9hNGM0ZDE=
+wZDNlNGYwNzJlNmM1ZWJjMWFlOWZkNTkwNGIyYzU1MjViZGI0YmFmZDlhMmVhNDA3YTQyYmNhZj=
+g1OTI1NjI1YWZkYzcwMjM3YzczMGQxMzViMTI4M2ZmZWY3MTI5ZmIyMmY3NTdkNjkzZjNjNThjM=
+2NjMWZjZTI0NWFjMzZhMjkzMWE4MGZmNWU0ZmMzNDlhMjU2ZWYwMGJlNjUwY2YyOTI0YjY2OGI5=
+M2RjYmQ0YTYyZDBhOWVkNzc0NTYzNjlkMWFmZWU" style=3D"width:20px;height:20px;ve=
+rtical-align:middle;" width=3D"20" height=3D"20">=0A                       =
+                     </td>=0A                                            <t=
+d>=0A                                                <span style=3D"font-si=
+ze:16px;margin:20px 0;padding-bottom:10px;font-weight:bold;">=0A           =
+                                         Lucy Keer=0A                      =
+                          </span>=0A                                       =
+         <span style=3D"font-size:16px;letter-spacing:-0.02rem;margin:20px =
+0;padding-bottom:10px;">=0A                                                =
+    shared this article with you from <a href=3D"https://www.inoreader.com/=
+article/3a9c6e778d9fc99c?utm_source=3Demail_sharing&utm_campaign=3Du1006091=
+592&utm_medium=3Demail" style=3D"text-decoration:underline;">Inoreader</a>=
+=0A                                                </span>=0A              =
+                              </td>=0A                                     =
+   </tr>=0A                                    </table>=0A                 =
+               </td>=0A                            </tr>=0A                =
+            <tr height=3D"20"></tr>=0A                                     =
+   <tr>=0A                                            <td>=0A              =
+                                  <table style=3D"padding: 20px;border: 1px=
+ solid #efefef;border-radius: 5px;" width=3D"100%" class=3D"inner-table">=
+=0A                                                    <tr>=0A             =
+                                           <td>=0A                         =
+                                   <div dir=3D"ltr">=0A                    =
+                                            <a href=3D"https://lucykeer.com=
+/notebucket/2024-review/" style=3D"font-size:24px;line-height:28px;text-dec=
+oration:none;font-weight:bold;color: #1a2433;">2024 review</a>=0A          =
+                                                  </div>=0A                =
+                                        </td>=0A                           =
+                         </tr>=0A                                          =
+          <tr>=0A                                                        <t=
+d>=0A                                                            <div style=
+=3D"margin-top:8px;">=0A                                                   =
+             <span style=3D"color: #828d9d;">via</span> <a style=3D"font-we=
+ight: normal;color: #828d9d; text-decoration: none;" href=3D"https://lucyke=
+er.com/">Lucy Keer</a>=0A                                                  =
+          </div>=0A                                                        =
+</td>=0A                                                    </tr>=0A       =
+                                             <tr>=0A                       =
+                                 <td>=0A                                   =
+                         <div class=3D"article-content" style=3D"font-size:=
+16px;margin-top:16px;line-height:28px;font-family:'Merriweather', Georgia, =
+serif;" dir=3D"ltr">=0A                                                    =
+            =0A=09=09=09=09=09=09<p class=3D"p_no_top">OK, I finally feel l=
+ike doing this.</p><p>I=E2=80=99ll keep the normal categories, but there ar=
+e two other new things that feel important. The first is that I fell into m=
+aybe the most intense internet rabbit hole of my life, where I went from id=
+ly typing "galant music" into Google Scholar to a full-blown attempt to lea=
+rn piano out of an 1801 rulebook in the space of a week. I'm still going on=
+ the rulebook, and <a href=3D"https://en.wikipedia.org/wiki/Partimento" tar=
+get=3D"_blank" rel=3D"noopener" class=3D"underlink bluelink" tabindex=3D"-1=
+">partimento</a> practice in general, and it's completely transformed how I=
+ understand classical music. It's sort of transformed my piano playing too,=
+ though I do feel like I should be better by now given the amount of work I=
+'ve put in. I think it just takes ages to build fluency unfortunately.</p><=
+p>I already wrote about this new obsession in <a href=3D"https://bucketover=
+flow.substack.com/p/june-2024-improvise-like-its-1799" target=3D"_blank" re=
+l=3D"noopener" class=3D"underlink bluelink" tabindex=3D"-1">Improvising lik=
+e it's 1799</a> and <a href=3D"https://lucykeer.com/notebucket/minimum-viab=
+le-music/" target=3D"_blank" rel=3D"noopener" class=3D"underlink bluelink" =
+tabindex=3D"-1">Minimal viable music</a>.</p><p>The other new thing is that=
+ I started Alexander Technique lessons with Peter Nobes, who runs the <a hr=
+ef=3D"https://www.alexandercentre.co.uk/" target=3D"_blank" rel=3D"noopener=
+" class=3D"underlink bluelink" tabindex=3D"-1">South Bank Alexander Techniq=
+ue Centre</a> (where <a href=3D"https://expandingawareness.org/" target=3D"=
+_blank" rel=3D"noopener" class=3D"underlink bluelink" tabindex=3D"-1">Micha=
+el Ashcroft</a> trained). Unlike partimento practice, where I=E2=80=99ve bo=
+red on at length about it to anyone who=E2=80=99ll tolerate listening, I=
+=E2=80=99ve been pretty quiet about the Alexander Technique, particularly i=
+n writing. That=E2=80=99s because it=E2=80=99s weird and subtle and I have =
+no idea what's going on most of the time, so it's hard to talk about. It's =
+really working though.</p><p>The effect of both of these is that after a co=
+uple of rather stuck years I feel like I=E2=80=99m back in an open world wi=
+th interesting new things in it. I don=E2=80=99t know where I=E2=80=99m goi=
+ng but at least I=E2=80=99m going somewhere.</p><h2>Notebook</h2><p>Nothing=
+ major happened here, but I still like it and write the odd post there. I a=
+lso still read it back a lot =E2=80=93 something about the design seems to =
+really work for that. I think it's mainly the high density list of posts.</=
+p><p><a href=3D"https://lucykeer.com/notebucket/variable-names-as-sigils-or=
+-handles/" target=3D"_blank" rel=3D"noopener" class=3D"underlink bluelink" =
+tabindex=3D"-1">Variable names as handles or sigils</a> got a bit of intere=
+st at the beginning of the year. I'd like to revisit that topic at some poi=
+nt and do a less half-arsed job. I also like <a href=3D"https://lucykeer.co=
+m/notebucket/three-pass-writing/" target=3D"_blank" rel=3D"noopener" class=
+=3D"underlink bluelink" tabindex=3D"-1">Three pass writing</a>.</p><h2>News=
+letter</h2><p>I wrote about a pretty random set of topics this year. As wel=
+l as the partimento post I covered <a href=3D"https://bucketoverflow.substa=
+ck.com/p/april-2024-what-the-hell-is-a-body" target=3D"_blank" rel=3D"noope=
+ner" class=3D"underlink bluelink" tabindex=3D"-1">Deleuze's "body without o=
+rgans"</a>, <a href=3D"https://bucketoverflow.substack.com/p/july-2024-real=
+ism-for-realistic-people" target=3D"_blank" rel=3D"noopener" class=3D"under=
+link bluelink" tabindex=3D"-1">Hasok Chang on realism</a>, <a href=3D"https=
+://bucketoverflow.substack.com/p/c-s-lewis-on-ai-art" target=3D"_blank" rel=
+=3D"noopener" class=3D"underlink bluelink" tabindex=3D"-1">C. S. Lewis's <e=
+m>An Experiment in Criticism</em></a>, <a href=3D"https://bucketoverflow.su=
+bstack.com/p/notes-on-notation-must-die" target=3D"_blank" rel=3D"noopener"=
+ class=3D"underlink bluelink" tabindex=3D"-1">Tantacrul's YouTube video on =
+music notation</a> and <a href=3D"https://bucketoverflow.substack.com/p/jan=
+uary-2024-relativity-cooked-three" target=3D"_blank" rel=3D"noopener" class=
+=3D"underlink bluelink" tabindex=3D"-1">special relativity</a>. </p><p>I'm =
+not sure it adds up to much but I had fun.</p><h2>Physics</h2><p>I've sligh=
+tly lost track of what I did here. At the beginning of the year I was in a =
+phase of reading about relativity. Then I think I just dropped physics for =
+a few months until the old negative probability obsession returned. In the =
+last couple of months I've been trying to finally write up some of my negat=
+ive probability stuff properly, which has been slow and frustrating. I'm cu=
+rrently procrastinating by reading some quantum foundations papers I've bee=
+n meaning to get to for ages.</p><p>I'm struggling a bit with being so isol=
+ated from any community of practice. I'm still in the physics society but i=
+t's been fairly quiet recently and I don't feel particularly connected to i=
+t.</p><h2>Reading</h2><p>Here's what I can remember (I never keep a list bu=
+t I like to try and figure it out at the end of the year):</p><ul><li>Alcot=
+t =E2=80=93 <em>Little Women</em></li><li>Austen =E2=80=93 <em>Mansfield Pa=
+rk</em></li><li>Montgomery =E2=80=93 <em>Anne of Green Gables</em> and many=
+ sequels</li><li>Sassoon =E2=80=93 <em>Memoirs of a Fox-hunting Man</em> an=
+d <em>Memoirs of an Infantry Officer</em></li><li>Rao =E2=80=93 <em>Tempo</=
+em></li><li>Harrison =E2=80=93 <em>Wish I Was Here</em></li><li>Nobes =
+=E2=80=93 <em>Illusion or reality? Are we teaching what FM Alexander was te=
+aching?</em></li><li>Alexander =E2=80=93 <em>The Use of the Self</em></li><=
+li>Jones =E2=80=93 <em>Freedom to Change. </em>Strong recommend for this on=
+e if you're going to read an Alexander Technique book.</li><li>Lewis =
+=E2=80=93 <em>An Experiment in Criticism</em>, <em>The Great Divorce</em>, =
+<em>They Asked for a Paper</em></li></ul><p>Plus some of:</p><ul><li>Gallwe=
+y =E2=80=93 <em>The Inner Game of Tennis</em></li><li>McLeod =E2=80=93 <em>=
+Wake up to your Life</em></li><li>Gjerdingen =E2=80=93 <em>Music in the Gal=
+ant Style. </em>"Some of" is a bit of an understatement, because I've spent=
+ a ton of time at the piano playing through the excerpts, but I haven't tri=
+ed to read through the whole thing. Instead I work through a new pattern wh=
+en I start to appreciate it.</li><li>Mortensen =E2=80=93 <em>The Pianist=
+=E2=80=99s Guide to Historic Improvisation</em></li><li>Chang =E2=80=93 <em=
+>Realism for Realistic People</em></li><li>Alexander =E2=80=93 <em>Construc=
+tive Conscious Control of the Individual</em></li><li>White =E2=80=93 <em>T=
+he Once and Future King</em></li></ul><p>No particular themes, except you c=
+an see the influence of my two new interests. </p><h2>Other stuff</h2><p>I =
+already talked about partimento practice and Alexander Technique. The other=
+ feature of 2024 was trying to adapt to the weird state of the internet. I =
+lost patience with Twitter but haven=E2=80=99t yet found a home anywhere el=
+se. Hanging around on discord is nice but I miss the open internet.</p><p>N=
+ear the end of the year I decided to reduce the amount of time I spend read=
+ing stuff on the internet, as it wasn't like I was having much fun there an=
+yway. I tried a drastic <a href=3D"https://lucykeer.com/notebucket/a-week-o=
+f-minimal-internet/" target=3D"_blank" rel=3D"noopener" class=3D"underlink =
+bluelink" tabindex=3D"-1">minimal internet experiment</a> and some other id=
+eas, but the final thing I've settled on is just to stay off my normal dist=
+ractions until 3pm. Simple but works. I'm reading a lot of books in a brows=
+er tab to satisfy my text addiction, so maybe that reading list will be lon=
+ger in 2025.</p><p>I also <a href=3D"https://drossbucket.com/2024/10/15/thi=
+s-blog-has-moved/" target=3D"_blank" rel=3D"noopener" class=3D"underlink bl=
+uelink" tabindex=3D"-1">gave up with Wordpress for good</a> (only somewhat =
+drama-related, mostly because I had to fix yet more broken formatting and d=
+ecided I was done there). Any new blog posts will be on Substack.</p>=0A=09=
+=09=09=09=09<div style=3D"clear:both;">=0A=09=09=09=09=09</div>=0A         =
+           =0A=0A=09=09=09=0A                                              =
+              </div>=0A                                                    =
+    </td>=0A                                                    </tr>=0A   =
+                                             </table>=0A                   =
+                         </td>=0A                                        </=
+tr>=0A                                <tr height=3D"40"></tr>=0A           =
+                     <tr>=0A                                    <td>=0A    =
+                                    <a href=3D"https://lucykeer.com/notebuc=
+ket/2024-review/" target=3D"_blank" style=3D"text-decoration:none;padding:1=
+0px 24px;font-weight:500;background-color:#3d6baa;color:#ffffff;border-radi=
+us:3px;border:1px solid #3d6baa; text-align: center;font-size: 16px;">View =
+on Web</a>=0A                                    </td>=0A                  =
+              </tr>=0A                                        <tr height=3D=
+"20"></tr>=0A                                    </table>=0A               =
+                 </td>=0A                            </tr>=0A              =
+          </table>=0A                        <table id=3D"footer_table" cel=
+lpadding=3D"0" cellspacing=3D"0" style=3D"100%">=0A                        =
+    <tr>=0A                                <td style=3D"font-size: 14px;tex=
+t-align: left;">=0A                                    <table width=3D"100%=
+" class=3D"inner-table">=0A                                        <tr>=0A =
+                                           <td>=0A                         =
+                       <p style=3D"border-top:1px solid #efefef;padding-top=
+:24px;margin-top:24px;color: #828d9d;">=0A                                 =
+                   <a href=3D"https://www.inoreader.com?utm_source=3Demail_=
+sharing&utm_campaign=3Du1006091592&utm_medium=3Demail" style=3D"text-decora=
+tion:none;color: #828d9d;">Inoreader</a>. Build your own newsfeed. Follow u=
+s on <a href=3D"http://www.x.com/Inoreader" style=3D"text-decoration:none;c=
+olor: #828d9d;">Twitter</a> and <a href=3D"http://www.facebook.com/Inoreade=
+r" style=3D"text-decoration:none;color: #828d9d;">Facebook</a>.=0A         =
+                                       </p>=0A                             =
+               </td>=0A                                        </tr>=0A    =
+                                </table>=0A                                =
+</td>=0A                            </tr>=0A                        </table=
+>=0A                    </td>=0A                </tr>=0A            </table=
+>=0A        </body>=0A    </html>

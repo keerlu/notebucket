@@ -1,0 +1,213 @@
+Delivered-To: lucy.keer@gmail.com
+Received: by 2002:a05:6f02:839b:b0:11b:33ba:ca77 with SMTP id b27csp1473372rcf;
+        Sun, 19 Apr 2026 23:09:02 -0700 (PDT)
+X-Received: by 2002:a05:6a00:1251:b0:823:1c5f:1c43 with SMTP id d2e1a72fcca58-82f8c92e317mr12794837b3a.36.1776665342559;
+        Sun, 19 Apr 2026 23:09:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776665342; cv=none;
+        d=google.com; s=arc-20240605;
+        b=dGVicyIsg8dkCI8pdJQ4Wu43sLoeTisH0BgSK00AC+r/H7UtkhTWf2xbzfWYkNtsqF
+         eV7B8nzUA07opWQLd74YYGKcMj5Xj2AcpYZGi2TDt2F40qK5b1WoNIRgwG4bHp8/21VW
+         Q9qt9E78HI97wfD86USyJobc+BNTq2PcG0i3bi5l+uhNXCL8dcQzsaIJ66SC8RNQO4oB
+         twVoM+eJhrrcIzHIZo+X0Lf8KxyNtNm9p0zan8ry6Kovj/TAbznDI5thCT4rFFhVN1a/
+         SZqHLf0XQW0ghOEtg8aPbOBB+yU3ZGcQC7elbOOmtvDmrMSvqEpx/XPlw0zBdIJY9L7R
+         TCuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:subject:to:content-transfer-encoding:mime-version
+         :message-id:from:date:dkim-signature:dkim-signature;
+        bh=6nh5m/dReaWrsjfRiNusK4NMFhbo1BGLgPd1XVLM9yk=;
+        fh=JwfsPX49LvGWpxfhnaHX/uw+gtgnOWFOmOMTfOj14JE=;
+        b=FymfkiYxxrKbHb/cLUG7LsL7hCibz2jqKXj6+tgNqWdttHkMtU/L+ON+pyBucrEFbA
+         oCtzZSMd3zqrMV7ddOPd/E1PTtcIQgF29VRR6mcVLa50ALPq5tOXm0ZpS+Y8um4rjmVB
+         GjEbBvS5PhaAUkmq3GYsnejPxk8kudNv9hq4eJ7sfDLwlitMJMEhQxLbDmWM3B59aDH4
+         t/ygwgdONFQ00qPm/j5/D2c5dg2MC2TY/w1ZfDgk+8374Q+E7EzqCX5Qkvtxe1a+g1jr
+         Iy7/p0GVy3T0f7ZTu8CT1lTApX9ZzB6PB636W/3nRs1EPe+EFiad1YomSHQtvbA1+NEx
+         JV0A==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@inoreader.com header.s=ws6w5gysraqw5w6wf7scokrwk5pekv6e header.b=dwE7beg7;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=OpQyzkYg;
+       spf=pass (google.com: domain of 0101019da981b079-d3481a3e-4199-478d-95a0-b0d5e545d122-000000@ses.inoreader.com designates 54.240.27.249 as permitted sender) smtp.mailfrom=0101019da981b079-d3481a3e-4199-478d-95a0-b0d5e545d122-000000@ses.inoreader.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=inoreader.com
+Return-Path: <0101019da981b079-d3481a3e-4199-478d-95a0-b0d5e545d122-000000@ses.inoreader.com>
+Received: from a27-249.smtp-out.us-west-2.amazonses.com (a27-249.smtp-out.us-west-2.amazonses.com. [54.240.27.249])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-82f8ec464fesi21203373b3a.209.2026.04.19.23.09.02
+        for <lucy.keer@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 19 Apr 2026 23:09:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 0101019da981b079-d3481a3e-4199-478d-95a0-b0d5e545d122-000000@ses.inoreader.com designates 54.240.27.249 as permitted sender) client-ip=54.240.27.249;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@inoreader.com header.s=ws6w5gysraqw5w6wf7scokrwk5pekv6e header.b=dwE7beg7;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=OpQyzkYg;
+       spf=pass (google.com: domain of 0101019da981b079-d3481a3e-4199-478d-95a0-b0d5e545d122-000000@ses.inoreader.com designates 54.240.27.249 as permitted sender) smtp.mailfrom=0101019da981b079-d3481a3e-4199-478d-95a0-b0d5e545d122-000000@ses.inoreader.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=inoreader.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ws6w5gysraqw5w6wf7scokrwk5pekv6e; d=inoreader.com; t=1776665342;
+	h=Date:From:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Subject;
+	bh=Gf9Vm9VzivcA0R1wjIeqJ1zGrknD/7H9vx21VhYkQY8=;
+	b=dwE7beg7aVWQYxbE5KtGEL5cDTUeQUFutHfbMiGPBvwR8gehz0ohAnke74gXsOZz
+	X2miwXcC5fgKzsmmTaFJf5rUIGcSfz4gQ3NSZaLYJdgtsxZ+8MsoswJ8UcDXPBpOmlx
+	htZk50cOXatwlZR7lhbWu1FD/qcCuzYCRmb5W4hY=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1776665342;
+	h=Date:From:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Subject:Feedback-ID;
+	bh=Gf9Vm9VzivcA0R1wjIeqJ1zGrknD/7H9vx21VhYkQY8=;
+	b=OpQyzkYgplWCQjfzRoBrV/NKrDF5Ze6GtoYLE+AHZaiLrbZ4n3n6Crmcygbt2XQ7
+	Yhv/uW1IhqiUzKIrPtK9gapvTGvIUG20xLWu6It5qN2rEZzb4ZSPt+q/kFIgpFxk/G0
+	OPckv2pyeiTua73eestmsLg119hxGaJTxvIzuN1Q=
+Date: Mon, 20 Apr 2026 06:09:02 +0000
+From: Inoreader <no-reply@inoreader.com>
+Message-ID: <0101019da981b079-d3481a3e-4199-478d-95a0-b0d5e545d122-000000@us-west-2.amazonses.com>
+X-Mailer: PHPMailer 6.9.2 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+To: lucy.keer@gmail.com
+Subject: E. M. Forster on shoggoths
+Feedback-ID: ::1.us-west-2.jSwQrzA9cGpfEpPK0H1cVjuWGskaB8MqyKcE05V4EAg=:AmazonSES
+X-SES-Outgoing: 2026.04.20-54.240.27.249
+
+<!DOCTYPE HTML>
+    <html>
+        <head>
+        <meta name="x-apple-disable-message-reformatting" http-equiv="content-type" content="text/html; charset=UTF-8">
+        <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500;700&display=swap');
+        
+        a:link {text-decoration: none; }
+        a:hover {text-decoration: underline;}
+        a:visited {text-decoration: none;}
+        body {margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;font-family:Roboto, Arial, Helvetica, sans-serif;background:#fefefe;color:#000305;}
+        img {border:0; height:auto;line-height: 100%;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;max-width: 100%;}
+        iframe, hr{max-width: 100% !important;}
+        
+        
+        iframe {display: none !important;}
+        /* 
+        @media screen and (prefers-color-scheme: light) {
+            body{background:#292929;color:#fefefe;}
+            .light-mode-logo{display:none;}
+            .dark-mode-logo{display:block;}
+        }
+        */
+        @media only screen and (max-device-width:480px){
+            img {max-width:100% !important; height:auto !important;}
+            iframe, hr{max-width: 100% !important;}
+            iframe {display: none !important;}
+            #header_table, #subheader_table, #content_table, #footer_table {width:100% !important;border-left: 0 none !important;border-right: 0 none !important;}
+            .inner-table { width: 100% !important;}
+        }
+        </style>
+        </head>
+        <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"  style="padding:16px;width: 100%;max-width: 608px;margin:0px auto;">
+            <table class="arial" cellpadding="0" cellspacing="0" style="width:100%;font-family:'Roboto', Arial, sans-serif">
+                <tr>
+                    <td align="center">
+                        <table id="header_table" cellpadding="0" cellspacing="0" style="width:100%;">
+                            <tr>
+                                <td align="left" style="font-size:0px;padding:10px 0px;word-break:break-word;">
+                                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+                                        <tbody>
+                                        <tr>
+                                            <td style="width:112px;">
+                                                <a href="https://www.inoreader.com/" target="_blank">
+                                                    <img height="auto" src="https://www.inoreader.com/newsletter/images/email-logo.png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="112" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="font-size:0px;padding:10px 0px;word-break:break-word;">
+                                    <p style="border-top:solid 1px #efefef;font-size:1px;margin:0px auto;width:100%;">
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="content_table" cellpadding="0" cellspacing="0" style="width:100%;">
+                            <tr>
+                                <td >
+                                    <table width="100%" class="inner-table">
+                                        <tr height="20"></tr>
+                                        <tr>   
+                                            <td width="24px" align="left" style="vertical-align: top;padding-top: 3px !important;">
+                                                <img src="https://www.inoreader.com/camo/sIKNwYnoTPjcofk3_K0ypGjWF8bEzQfxl8cZHq6O14TA,40x40,r20,b64/aHR0cHM6Ly93d3cuaW5vcmVhZGVyLmNvbS9jZG4vcHJvZmlsZV9zb2NpYWxfcGljdHVyZS8xMDA2MDkxNTkyL2dvb2dsZV80MC9hNGM0ZDEwZDNlNGYwNzJlNmM1ZWJjMWFlOWZkNTkwNGIyYzU1MjViZGI0YmFmZDlhMmVhNDA3YTQyYmNhZjg1OTI1NjI1YWZkYzcwMjM3YzczMGQxMzViMTI4M2ZmZWY3MTI5ZmIyMmY3NTdkNjkzZjNjNThjM2NjMWZjZTI0NWFjMzZhMjkzMWE4MGZmNWU0ZmMzNDlhMjU2ZWYwMGJlNjUwY2YyOTI0YjY2OGI5M2RjYmQ0YTYyZDBhOWVkNzc0NTYzNjlkMWFmZWU" style="width:20px;height:20px;vertical-align:middle;" width="20" height="20">
+                                            </td>
+                                            <td>
+                                                <span style="font-size:16px;margin:20px 0;padding-bottom:10px;font-weight:bold;">
+                                                    Lucy Keer
+                                                </span>
+                                                <span style="font-size:16px;letter-spacing:-0.02rem;margin:20px 0;padding-bottom:10px;">
+                                                    shared this article with you from <a href="https://www.inoreader.com/article/3a9c6e77f532d36a?utm_source=email_sharing&utm_campaign=u1006091592&utm_medium=email" style="text-decoration:underline;">Inoreader</a>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr height="20"></tr>
+                                        <tr>
+                                            <td>
+                                                <table style="padding: 20px;border: 1px solid #efefef;border-radius: 5px;" width="100%" class="inner-table">
+                                                    <tr>
+                                                        <td>
+                                                            <div dir="ltr">
+                                                                <a href="https://lucykeer.com/notebucket/e-m-forster-on-shoggoths/" style="font-size:24px;line-height:28px;text-decoration:none;font-weight:bold;color: #1a2433;">E. M. Forster on shoggoths</a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div style="margin-top:8px;">
+                                                                <span style="color: #828d9d;">via</span> <a style="font-weight: normal;color: #828d9d; text-decoration: none;" href="https://lucykeer.com/">Lucy Keer</a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="article-content" style="font-size:16px;margin-top:16px;line-height:28px;font-family:'Merriweather', Georgia, serif;" dir="ltr">
+                                                                
+						<blockquote>The upper personality has a name. It is called S. T. Coleridge, or William Shakespeare, or Mrs. Humphry Ward. It is conscious and alert, it does things like dining out, answering letters, and so forth, and it differs vividly and amusingly from other personalities. The lower personality is a very queer affair. In many ways it is a perfect fool, but without it there is no literature, because unless a man dips a bucket down into it occasionally he cannot produce first-class work. There is something general about it. Although it is inside S. T. Coleridge, it cannot be labeled with his name.</blockquote><p>– from <a href="https://www.theatlantic.com/magazine/archive/1925/11/anonymity-an-inquiry/648184/" target="_blank" rel="noopener" class="underlink bluelink" tabindex="-1">Anonymity: An Inquiry</a></p>
+					<div style="clear:both;">
+					</div>
+                    
+
+			
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                <tr height="40"></tr>
+                                <tr>
+                                    <td>
+                                        <a href="https://lucykeer.com/notebucket/e-m-forster-on-shoggoths/" target="_blank" style="text-decoration:none;padding:10px 24px;font-weight:500;background-color:#3d6baa;color:#ffffff;border-radius:3px;border:1px solid #3d6baa; text-align: center;font-size: 16px;">View on Web</a>
+                                    </td>
+                                </tr>
+                                        <tr height="20"></tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="footer_table" cellpadding="0" cellspacing="0" style="100%">
+                            <tr>
+                                <td style="font-size: 14px;text-align: left;">
+                                    <table width="100%" class="inner-table">
+                                        <tr>
+                                            <td>
+                                                <p style="border-top:1px solid #efefef;padding-top:24px;margin-top:24px;color: #828d9d;">
+                                                    <a href="https://www.inoreader.com?utm_source=email_sharing&utm_campaign=u1006091592&utm_medium=email" style="text-decoration:none;color: #828d9d;">Inoreader</a>. Build your own newsfeed. Follow us on <a href="http://www.x.com/Inoreader" style="text-decoration:none;color: #828d9d;">Twitter</a> and <a href="http://www.facebook.com/Inoreader" style="text-decoration:none;color: #828d9d;">Facebook</a>.
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </body>
+    </html>

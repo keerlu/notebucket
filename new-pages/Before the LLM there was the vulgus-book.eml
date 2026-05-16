@@ -1,0 +1,255 @@
+Delivered-To: lucy.keer@gmail.com
+Received: by 2002:a05:6f02:839b:b0:11b:33ba:ca77 with SMTP id b27csp1473249rcf;
+        Sun, 19 Apr 2026 23:08:47 -0700 (PDT)
+X-Received: by 2002:a17:903:2783:b0:2b2:4a9a:b168 with SMTP id d9443c01a7336-2b5f9e80db8mr89335515ad.11.1776665327159;
+        Sun, 19 Apr 2026 23:08:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776665327; cv=none;
+        d=google.com; s=arc-20240605;
+        b=aaN6p5sg8roV5Ab4GWhlImNYz3pP6WqWfsXQtG3Ia+2DtYxlNe0n2X/TZvgmZvIPno
+         iJ5P5BvpuDBV+P8FtWm4kH23nK5g2/vAD+QgzgtdLzQu4sriT76RK+WkXiV99+qsy2zm
+         mmbSuNb/LJqSYDDiKiI153eZmPlrxM6SarDJz566N8WKFSnGcauyZfBnuXxgRcVoY5SY
+         zNvmTyl2rweb2yt7g2ecOsji7ahfYObyVXXSHRL6/85mcwN0pkEsJmUbYLTLipgAbX8l
+         zwwbuBqrxoXcyZY16qrul20EmiMtX4fOUuCTrLBH2rmCauTlcORFHRmPpX5Xr9knQrMa
+         kcGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:subject:to:content-transfer-encoding:mime-version
+         :message-id:from:date:dkim-signature:dkim-signature;
+        bh=mmAcXsaOLvYh+ITkJPduJLQ7I2wov/RIEkLg8s0CI40=;
+        fh=JwfsPX49LvGWpxfhnaHX/uw+gtgnOWFOmOMTfOj14JE=;
+        b=hnEBlIROKQIfLrri/V/yuONUES7AUmOER2BB+RS7dU82mxQJfgf3qZdAfUqsUtk7/e
+         fHXfBIsez0KMtSG74mpDpwrJvU3CE3yT/RxWen3nlly3yrqdMEyAuW95ypBWCm9eqFv5
+         NqR2y2+1roz6N4mP9R6zsuzi/L1G+VtnbGjq0EVsXWrkwkNj2pOAiysmki1wEL0Bk0VX
+         TPzNoN0sTfsQZlZfB/8n63WYwI7ukItH44cvopQU2PwPY/UMsb1vGL+XvC68veGdqAcs
+         LOPzCyr4cAutcQ2ZxboiICh7iBNvOJU4W/eJ+IuOjUq2BcS5jmUvYh1I7TFvHeMh01WA
+         t7Yw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@inoreader.com header.s=ws6w5gysraqw5w6wf7scokrwk5pekv6e header.b=kGGThllq;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=hxmVDjZ4;
+       spf=pass (google.com: domain of 0101019da9817467-b9a350c7-31b5-4e33-84f1-58f8ece68ef4-000000@ses.inoreader.com designates 54.240.27.74 as permitted sender) smtp.mailfrom=0101019da9817467-b9a350c7-31b5-4e33-84f1-58f8ece68ef4-000000@ses.inoreader.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=inoreader.com
+Return-Path: <0101019da9817467-b9a350c7-31b5-4e33-84f1-58f8ece68ef4-000000@ses.inoreader.com>
+Received: from a27-74.smtp-out.us-west-2.amazonses.com (a27-74.smtp-out.us-west-2.amazonses.com. [54.240.27.74])
+        by mx.google.com with ESMTPS id d9443c01a7336-2b5faa33454si168421555ad.3.2026.04.19.23.08.46
+        for <lucy.keer@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 19 Apr 2026 23:08:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 0101019da9817467-b9a350c7-31b5-4e33-84f1-58f8ece68ef4-000000@ses.inoreader.com designates 54.240.27.74 as permitted sender) client-ip=54.240.27.74;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@inoreader.com header.s=ws6w5gysraqw5w6wf7scokrwk5pekv6e header.b=kGGThllq;
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=hxmVDjZ4;
+       spf=pass (google.com: domain of 0101019da9817467-b9a350c7-31b5-4e33-84f1-58f8ece68ef4-000000@ses.inoreader.com designates 54.240.27.74 as permitted sender) smtp.mailfrom=0101019da9817467-b9a350c7-31b5-4e33-84f1-58f8ece68ef4-000000@ses.inoreader.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=inoreader.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ws6w5gysraqw5w6wf7scokrwk5pekv6e; d=inoreader.com; t=1776665326;
+	h=Date:From:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Subject;
+	bh=NWIEzQpyjJxUU4OvrFpfnZlsIj47jo7vw3KZqzyDsxs=;
+	b=kGGThllqXKnA4HDg/f88NosDNF7AVg58nqR7bk1uEmw6nUn/u2uUmIHU4NdbSeE1
+	KiDkkPUjpXtSDZsitDZ8/gXtZEAcFBX3sn4zjR9Zo5oehHTwrxFjfNN3B0wmscHgcaX
+	G/7NYxPxEsJa3+a26M6m9s1l55PDumSBTV/KrJLE=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1776665326;
+	h=Date:From:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Subject:Feedback-ID;
+	bh=NWIEzQpyjJxUU4OvrFpfnZlsIj47jo7vw3KZqzyDsxs=;
+	b=hxmVDjZ4d5avxLV8gHMk2uXSeTG+gRgunfVq3QKuWovapruxJ3B5WLphNVoYgGDT
+	JQ4aKGGmeMu7sywlbbVvHG/Kwn45FOROCrCdk+6HPemO3rr7bPzP03Nek4xe8KZO+9v
+	pQANa7Ro+WZfVrdxL8fd6VmgmFK2IvxhPDyBR0qQ=
+Date: Mon, 20 Apr 2026 06:08:46 +0000
+From: Inoreader <no-reply@inoreader.com>
+Message-ID: <0101019da9817467-b9a350c7-31b5-4e33-84f1-58f8ece68ef4-000000@us-west-2.amazonses.com>
+X-Mailer: PHPMailer 6.9.2 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+To: lucy.keer@gmail.com
+Subject: Before the LLM there was the vulgus-book
+Feedback-ID: ::1.us-west-2.jSwQrzA9cGpfEpPK0H1cVjuWGskaB8MqyKcE05V4EAg=:AmazonSES
+X-SES-Outgoing: 2026.04.20-54.240.27.74
+
+<!DOCTYPE HTML>=0A    <html>=0A        <head>=0A        <meta name=3D"x-app=
+le-disable-message-reformatting" http-equiv=3D"content-type" content=3D"tex=
+t/html; charset=3DUTF-8">=0A        <style type=3D"text/css">=0A        @im=
+port url('https://fonts.googleapis.com/css2?family=3DMerriweather:wght@400;=
+700&family=3DRoboto:wght@400;500;700&display=3Dswap');=0A        =0A       =
+ a:link {text-decoration: none; }=0A        a:hover {text-decoration: under=
+line;}=0A        a:visited {text-decoration: none;}=0A        body {margin:=
+0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;font-fa=
+mily:Roboto, Arial, Helvetica, sans-serif;background:#fefefe;color:#000305;=
+}=0A        img {border:0; height:auto;line-height: 100%;outline: none;text=
+-decoration: none;-ms-interpolation-mode: bicubic;max-width: 100%;}=0A     =
+   iframe, hr{max-width: 100% !important;}=0A        =0A        =0A        =
+iframe {display: none !important;}=0A        /* =0A        @media screen an=
+d (prefers-color-scheme: light) {=0A            body{background:#292929;col=
+or:#fefefe;}=0A            .light-mode-logo{display:none;}=0A            .d=
+ark-mode-logo{display:block;}=0A        }=0A        */=0A        @media onl=
+y screen and (max-device-width:480px){=0A            img {max-width:100% !i=
+mportant; height:auto !important;}=0A            iframe, hr{max-width: 100%=
+ !important;}=0A            iframe {display: none !important;}=0A          =
+  #header_table, #subheader_table, #content_table, #footer_table {width:100=
+% !important;border-left: 0 none !important;border-right: 0 none !important=
+;}=0A            .inner-table { width: 100% !important;}=0A        }=0A    =
+    </style>=0A        </head>=0A        <body leftmargin=3D"0" topmargin=
+=3D"0" marginwidth=3D"0" marginheight=3D"0"  style=3D"padding:16px;width: 1=
+00%;max-width: 608px;margin:0px auto;">=0A            <table class=3D"arial=
+" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;font-family:'Robo=
+to', Arial, sans-serif">=0A                <tr>=0A                    <td a=
+lign=3D"center">=0A                        <table id=3D"header_table" cellp=
+adding=3D"0" cellspacing=3D"0" style=3D"width:100%;">=0A                   =
+         <tr>=0A                                <td align=3D"left" style=3D=
+"font-size:0px;padding:10px 0px;word-break:break-word;">=0A                =
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0px=
+;">=0A                                        <tbody>=0A                   =
+                     <tr>=0A                                            <td=
+ style=3D"width:112px;">=0A                                                =
+<a href=3D"https://www.inoreader.com/" target=3D"_blank">=0A               =
+                                     <img height=3D"auto" src=3D"https://ww=
+w.inoreader.com/newsletter/images/email-logo.png" style=3D"border:0;display=
+:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:1=
+3px;" width=3D"112" />=0A                                                </=
+a>=0A                                            </td>=0A                  =
+                      </tr>=0A                                        </tbo=
+dy>=0A                                    </table>=0A                      =
+          </td>=0A                            </tr>=0A                     =
+       <tr>=0A                                <td align=3D"center" style=3D=
+"font-size:0px;padding:10px 0px;word-break:break-word;">=0A                =
+                    <p style=3D"border-top:solid 1px #efefef;font-size:1px;=
+margin:0px auto;width:100%;">=0A                                    </p>=0A=
+                                </td>=0A                            </tr>=
+=0A                        </table>=0A                        <table id=3D"=
+content_table" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;">=
+=0A                            <tr>=0A                                <td >=
+=0A                                    <table width=3D"100%" class=3D"inner=
+-table">=0A                                        <tr height=3D"20"></tr>=
+=0A                                        <tr>   =0A                      =
+                      <td width=3D"24px" align=3D"left" style=3D"vertical-a=
+lign: top;padding-top: 3px !important;">=0A                                =
+                <img src=3D"https://www.inoreader.com/camo/sIKNwYnoTPjcofk3=
+_K0ypGjWF8bEzQfxl8cZHq6O14TA,40x40,r20,b64/aHR0cHM6Ly93d3cuaW5vcmVhZGVyLmNv=
+bS9jZG4vcHJvZmlsZV9zb2NpYWxfcGljdHVyZS8xMDA2MDkxNTkyL2dvb2dsZV80MC9hNGM0ZDE=
+wZDNlNGYwNzJlNmM1ZWJjMWFlOWZkNTkwNGIyYzU1MjViZGI0YmFmZDlhMmVhNDA3YTQyYmNhZj=
+g1OTI1NjI1YWZkYzcwMjM3YzczMGQxMzViMTI4M2ZmZWY3MTI5ZmIyMmY3NTdkNjkzZjNjNThjM=
+2NjMWZjZTI0NWFjMzZhMjkzMWE4MGZmNWU0ZmMzNDlhMjU2ZWYwMGJlNjUwY2YyOTI0YjY2OGI5=
+M2RjYmQ0YTYyZDBhOWVkNzc0NTYzNjlkMWFmZWU" style=3D"width:20px;height:20px;ve=
+rtical-align:middle;" width=3D"20" height=3D"20">=0A                       =
+                     </td>=0A                                            <t=
+d>=0A                                                <span style=3D"font-si=
+ze:16px;margin:20px 0;padding-bottom:10px;font-weight:bold;">=0A           =
+                                         Lucy Keer=0A                      =
+                          </span>=0A                                       =
+         <span style=3D"font-size:16px;letter-spacing:-0.02rem;margin:20px =
+0;padding-bottom:10px;">=0A                                                =
+    shared this article with you from <a href=3D"https://www.inoreader.com/=
+article/3a9c6e773bdc0e59?utm_source=3Demail_sharing&utm_campaign=3Du1006091=
+592&utm_medium=3Demail" style=3D"text-decoration:underline;">Inoreader</a>=
+=0A                                                </span>=0A              =
+                              </td>=0A                                     =
+   </tr>=0A                                    </table>=0A                 =
+               </td>=0A                            </tr>=0A                =
+            <tr height=3D"20"></tr>=0A                                     =
+   <tr>=0A                                            <td>=0A              =
+                                  <table style=3D"padding: 20px;border: 1px=
+ solid #efefef;border-radius: 5px;" width=3D"100%" class=3D"inner-table">=
+=0A                                                    <tr>=0A             =
+                                           <td>=0A                         =
+                                   <div dir=3D"ltr">=0A                    =
+                                            <a href=3D"https://lucykeer.com=
+/notebucket/before-the-llm-there-was-the-vulgus-book/" style=3D"font-size:2=
+4px;line-height:28px;text-decoration:none;font-weight:bold;color: #1a2433;"=
+>Before the LLM there was the vulgus-book</a>=0A                           =
+                                 </div>=0A                                 =
+                       </td>=0A                                            =
+        </tr>=0A                                                    <tr>=0A=
+                                                        <td>=0A            =
+                                                <div style=3D"margin-top:8p=
+x;">=0A                                                                <spa=
+n style=3D"color: #828d9d;">via</span> <a style=3D"font-weight: normal;colo=
+r: #828d9d; text-decoration: none;" href=3D"https://lucykeer.com/">Lucy Kee=
+r</a>=0A                                                            </div>=
+=0A                                                        </td>=0A        =
+                                            </tr>=0A                       =
+                             <tr>=0A                                       =
+                 <td>=0A                                                   =
+         <div class=3D"article-content" style=3D"font-size:16px;margin-top:=
+16px;line-height:28px;font-family:'Merriweather', Georgia, serif;" dir=3D"l=
+tr">=0A                                                                =0A=
+=09=09=09=09=09=09<p class=3D"p_no_top">I like the section from <em>Tom Bro=
+wn's School Days </em>that explains a 19th century public school method for=
+ cheating on your homework.</p><p>One of the standard pieces of homework at=
+ Rugby was the vulgus, a short Latin composition on a given theme. Masters =
+had to assign a <em>lot </em>of these, and so would eventually resort to re=
+using the same theme.</p><p>This led to the technology of the vulgus-book:<=
+/p><blockquote>To meet and rebuke this bad habit of the masters, the school=
+boy mind, with its accustomed ingenuity, had invented an elaborate system o=
+f tradition. Almost every boy kept his own vulgus written out in a book, an=
+d these books were duly handed down from boy to boy, till (if the tradition=
+ has gone on till now) I suppose the popular boys, in whose hands bequeathe=
+d vulgus-books have accumulated, are prepared with three or four vulguses o=
+n any subject in heaven or earth, or in =E2=80=9Cmore worlds than one,=
+=E2=80=9D which an unfortunate master can pitch upon. At any rate, such luc=
+ky fellows had generally one for themselves and one for a friend in my time=
+. The only objection to the traditionary method of doing your vulguses was =
+the risk that the successions might have become confused, and so that you a=
+nd another follower of traditions should show up the same identical vulgus =
+some fine morning; in which case, when it happened, considerable grief was =
+the result. But when did such risk hinder boys or men from short cuts and p=
+leasant paths?</blockquote><p>To create your vulgus, you would stitch toget=
+her pieces from several different examples in the vulgus-book, as many as y=
+ou thought you'd need to hide your tracks:</p><blockquote>Now in the study =
+that night Tom was the upholder of the traditionary method of vulgus doing.=
+ He carefully produced two large vulgus-books, and began diving into them, =
+and picking out a line here, and an ending there (tags, as they were vulgar=
+ly called), till he had gotten all that he thought he could make fit. He th=
+en proceeded to patch his tags together with the help of his Gradus, produc=
+ing an incongruous and feeble result of eight elegiac lines, the minimum qu=
+antity for his form, and finishing up with two highly moral lines extra, ma=
+king ten in all, which he cribbed entire from one of his books, beginning =
+=E2=80=9CO genus humanum,=E2=80=9D and which he himself must have used a do=
+zen times before, whenever an unfortunate or wicked hero, of whatever natio=
+n or language under the sun, was the subject. Indeed he began to have great=
+ doubts whether the master wouldn't remember them, and so only throw them i=
+n as extra lines, because in any case they would call off attention from th=
+e other tags, and if detected, being extra lines, he wouldn't be sent back =
+to do more in their place, while if they passed muster again he would get m=
+arks for them. </blockquote><p>I wondered if anyone else had noticed how mu=
+ch this method was like being a human ChatGPT (with a somewhat smaller corp=
+us of text), and, yep, here's a short paper by Tom Ue: &nbsp;<a href=3D"htt=
+ps://muse.jhu.edu/pub/1/article/925211/pdf" target=3D"_blank" rel=3D"noopen=
+er" class=3D"underlink bluelink" tabindex=3D"-1">Thomas Hughes=E2=80=99s To=
+m Brown=E2=80=99s Schooldays , ChatGPT, and Academic Integrity</a>.</p>=0A=
+=09=09=09=09=09<div style=3D"clear:both;">=0A=09=09=09=09=09</div>=0A      =
+              =0A=0A=09=09=09=0A                                           =
+                 </div>=0A                                                 =
+       </td>=0A                                                    </tr>=0A=
+                                                </table>=0A                =
+                            </td>=0A                                       =
+ </tr>=0A                                <tr height=3D"40"></tr>=0A        =
+                        <tr>=0A                                    <td>=0A =
+                                       <a href=3D"https://lucykeer.com/note=
+bucket/before-the-llm-there-was-the-vulgus-book/" target=3D"_blank" style=
+=3D"text-decoration:none;padding:10px 24px;font-weight:500;background-color=
+:#3d6baa;color:#ffffff;border-radius:3px;border:1px solid #3d6baa; text-ali=
+gn: center;font-size: 16px;">View on Web</a>=0A                            =
+        </td>=0A                                </tr>=0A                   =
+                     <tr height=3D"20"></tr>=0A                            =
+        </table>=0A                                </td>=0A                =
+            </tr>=0A                        </table>=0A                    =
+    <table id=3D"footer_table" cellpadding=3D"0" cellspacing=3D"0" style=3D=
+"100%">=0A                            <tr>=0A                              =
+  <td style=3D"font-size: 14px;text-align: left;">=0A                      =
+              <table width=3D"100%" class=3D"inner-table">=0A              =
+                          <tr>=0A                                          =
+  <td>=0A                                                <p style=3D"border=
+-top:1px solid #efefef;padding-top:24px;margin-top:24px;color: #828d9d;">=
+=0A                                                    <a href=3D"https://w=
+ww.inoreader.com?utm_source=3Demail_sharing&utm_campaign=3Du1006091592&utm_=
+medium=3Demail" style=3D"text-decoration:none;color: #828d9d;">Inoreader</a=
+>. Build your own newsfeed. Follow us on <a href=3D"http://www.x.com/Inorea=
+der" style=3D"text-decoration:none;color: #828d9d;">Twitter</a> and <a href=
+=3D"http://www.facebook.com/Inoreader" style=3D"text-decoration:none;color:=
+ #828d9d;">Facebook</a>.=0A                                                =
+</p>=0A                                            </td>=0A                =
+                        </tr>=0A                                    </table=
+>=0A                                </td>=0A                            </t=
+r>=0A                        </table>=0A                    </td>=0A       =
+         </tr>=0A            </table>=0A        </body>=0A    </html>

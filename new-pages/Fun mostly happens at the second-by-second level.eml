@@ -1,0 +1,272 @@
+Delivered-To: lucy.keer@gmail.com
+Received: by 2002:a05:6f02:839b:b0:11b:33ba:ca77 with SMTP id b27csp1473177rcf;
+        Sun, 19 Apr 2026 23:08:34 -0700 (PDT)
+X-Received: by 2002:a05:6a00:2ea8:b0:82f:4a4d:3793 with SMTP id d2e1a72fcca58-82f8c8c25f3mr12740812b3a.28.1776665314496;
+        Sun, 19 Apr 2026 23:08:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1776665314; cv=none;
+        d=google.com; s=arc-20240605;
+        b=hBueeTqwYUbZ8LqT+FusOjzKH4Se/a6renEi9XaBgK/mT+zUMJ763Y/f9hdkMRpJ2E
+         2YEMZMeeZDwaqcmPfQ3/fMlMioUUowIwJ2+Tew8RBlLpW0t/Hyq+dwQo0nhGV1v2rbN5
+         WKy7PCn2kzx+o+u4Wh6Oc3vhsSm5X5oQy5qGiTrenYwj95rFRPCI5zsHL7Z2vqK1qUpn
+         uPTGsWVtSFB9tXsm4PkVJ7FcM9MCglro/7wVb9al55hLPmTyr+TgII+4QDvguQyD77W6
+         qfVrOlZ9+MWG5Gm/MfdTDaMj0uvivziVvDOsqsYPaEUOQ3APF1iO/8ots+LhbZHQyHoB
+         4Yvw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:subject:to:content-transfer-encoding:mime-version
+         :message-id:from:date:dkim-signature:dkim-signature;
+        bh=YaJh5dnwLN1n732JI7pw/sbJfWeyLJTJHpsWpB5EQxY=;
+        fh=JwfsPX49LvGWpxfhnaHX/uw+gtgnOWFOmOMTfOj14JE=;
+        b=NNcKYQaB+AL/3aLt2oDJT59+4Xh4eFrfSAanZnbw3kgqyr9eMuFgDEaWsDWyNTBWpW
+         u0dpNI0X0rnwvwdgdConwzaBJAQ7uClVqKPMRDy5AmKOvW7oJG17zEewmiWpFZfRYQoY
+         bnsHmFPWXrRbboU+VXRdR/zvU0KmQ9xCYiAzhPOM6/bhHVIXMa4SkO/5bomr1fqxFAjs
+         j7ZePMaEdlPmmnLL5CuY/PsDd+UrLPiYYcwR1q4eAcHq6kDxHKJth7SZI/EorHFl58/m
+         7cA8BXXBibLQ7b0V9ZwkYFQ3kVk0Krl0shlftgeihrBrkdsvhEWer2eiX+u6XELw4XJs
+         1s/w==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@inoreader.com header.s=ws6w5gysraqw5w6wf7scokrwk5pekv6e header.b="wI5ufja/";
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=azfB3A2o;
+       spf=pass (google.com: domain of 0101019da98142d7-e308d93e-b9c4-433d-a1bb-31b93f3cba6d-000000@ses.inoreader.com designates 54.240.27.162 as permitted sender) smtp.mailfrom=0101019da98142d7-e308d93e-b9c4-433d-a1bb-31b93f3cba6d-000000@ses.inoreader.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=inoreader.com
+Return-Path: <0101019da98142d7-e308d93e-b9c4-433d-a1bb-31b93f3cba6d-000000@ses.inoreader.com>
+Received: from a27-162.smtp-out.us-west-2.amazonses.com (a27-162.smtp-out.us-west-2.amazonses.com. [54.240.27.162])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-82f8e9fa3basi20140494b3a.62.2026.04.19.23.08.34
+        for <lucy.keer@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 19 Apr 2026 23:08:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 0101019da98142d7-e308d93e-b9c4-433d-a1bb-31b93f3cba6d-000000@ses.inoreader.com designates 54.240.27.162 as permitted sender) client-ip=54.240.27.162;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@inoreader.com header.s=ws6w5gysraqw5w6wf7scokrwk5pekv6e header.b="wI5ufja/";
+       dkim=pass header.i=@amazonses.com header.s=hsbnp7p3ensaochzwyq5wwmceodymuwv header.b=azfB3A2o;
+       spf=pass (google.com: domain of 0101019da98142d7-e308d93e-b9c4-433d-a1bb-31b93f3cba6d-000000@ses.inoreader.com designates 54.240.27.162 as permitted sender) smtp.mailfrom=0101019da98142d7-e308d93e-b9c4-433d-a1bb-31b93f3cba6d-000000@ses.inoreader.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=inoreader.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ws6w5gysraqw5w6wf7scokrwk5pekv6e; d=inoreader.com; t=1776665314;
+	h=Date:From:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Subject;
+	bh=hwIW+eLfcIjKx5snrZA5KJVqiPs8RpIW3ODHr6baX4o=;
+	b=wI5ufja//qCaaI9NniZXJZdd4eje7g6xUlP4nm5IbjXQoIQ4iuZUBnC2DFaXJy1H
+	2ZCFOWXNkN9IALQUjREJtUW/BCYQ5vAb49T2h39Yip1Q6siwy5md5bPn0U3ylk0OKwS
+	7/KrZb/iwrWlrksKyaJ6AvrDMskdcDmBsDFh4+4I=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1776665314;
+	h=Date:From:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Subject:Feedback-ID;
+	bh=hwIW+eLfcIjKx5snrZA5KJVqiPs8RpIW3ODHr6baX4o=;
+	b=azfB3A2oAzh2upxEoCW7nKWDWa+Tnre+KX5dnXudUiZnlfB5wGY7GT/PHi1jBZrh
+	B7wE5nPsaY10brkeqe9q7MVYJ7Wm+tYk3A/sDJTSg20g5aww5GwlhLezygVgJgOBzoU
+	KkO71bn593RqJAGYwl26AobWPzEK6zV++4LEXr48=
+Date: Mon, 20 Apr 2026 06:08:34 +0000
+From: Inoreader <no-reply@inoreader.com>
+Message-ID: <0101019da98142d7-e308d93e-b9c4-433d-a1bb-31b93f3cba6d-000000@us-west-2.amazonses.com>
+X-Mailer: PHPMailer 6.9.2 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+To: lucy.keer@gmail.com
+Subject: =?us-ascii?Q?Fun_mostly_happens_at_the_second-by-second_leve?=
+ =?us-ascii?Q?l?=
+Feedback-ID: ::1.us-west-2.jSwQrzA9cGpfEpPK0H1cVjuWGskaB8MqyKcE05V4EAg=:AmazonSES
+X-SES-Outgoing: 2026.04.20-54.240.27.162
+
+<!DOCTYPE HTML>=0A    <html>=0A        <head>=0A        <meta name=3D"x-app=
+le-disable-message-reformatting" http-equiv=3D"content-type" content=3D"tex=
+t/html; charset=3DUTF-8">=0A        <style type=3D"text/css">=0A        @im=
+port url('https://fonts.googleapis.com/css2?family=3DMerriweather:wght@400;=
+700&family=3DRoboto:wght@400;500;700&display=3Dswap');=0A        =0A       =
+ a:link {text-decoration: none; }=0A        a:hover {text-decoration: under=
+line;}=0A        a:visited {text-decoration: none;}=0A        body {margin:=
+0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;font-fa=
+mily:Roboto, Arial, Helvetica, sans-serif;background:#fefefe;color:#000305;=
+}=0A        img {border:0; height:auto;line-height: 100%;outline: none;text=
+-decoration: none;-ms-interpolation-mode: bicubic;max-width: 100%;}=0A     =
+   iframe, hr{max-width: 100% !important;}=0A        =0A        =0A        =
+iframe {display: none !important;}=0A        /* =0A        @media screen an=
+d (prefers-color-scheme: light) {=0A            body{background:#292929;col=
+or:#fefefe;}=0A            .light-mode-logo{display:none;}=0A            .d=
+ark-mode-logo{display:block;}=0A        }=0A        */=0A        @media onl=
+y screen and (max-device-width:480px){=0A            img {max-width:100% !i=
+mportant; height:auto !important;}=0A            iframe, hr{max-width: 100%=
+ !important;}=0A            iframe {display: none !important;}=0A          =
+  #header_table, #subheader_table, #content_table, #footer_table {width:100=
+% !important;border-left: 0 none !important;border-right: 0 none !important=
+;}=0A            .inner-table { width: 100% !important;}=0A        }=0A    =
+    </style>=0A        </head>=0A        <body leftmargin=3D"0" topmargin=
+=3D"0" marginwidth=3D"0" marginheight=3D"0"  style=3D"padding:16px;width: 1=
+00%;max-width: 608px;margin:0px auto;">=0A            <table class=3D"arial=
+" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;font-family:'Robo=
+to', Arial, sans-serif">=0A                <tr>=0A                    <td a=
+lign=3D"center">=0A                        <table id=3D"header_table" cellp=
+adding=3D"0" cellspacing=3D"0" style=3D"width:100%;">=0A                   =
+         <tr>=0A                                <td align=3D"left" style=3D=
+"font-size:0px;padding:10px 0px;word-break:break-word;">=0A                =
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"border-collapse:collapse;border-spacing:0px=
+;">=0A                                        <tbody>=0A                   =
+                     <tr>=0A                                            <td=
+ style=3D"width:112px;">=0A                                                =
+<a href=3D"https://www.inoreader.com/" target=3D"_blank">=0A               =
+                                     <img height=3D"auto" src=3D"https://ww=
+w.inoreader.com/newsletter/images/email-logo.png" style=3D"border:0;display=
+:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:1=
+3px;" width=3D"112" />=0A                                                </=
+a>=0A                                            </td>=0A                  =
+                      </tr>=0A                                        </tbo=
+dy>=0A                                    </table>=0A                      =
+          </td>=0A                            </tr>=0A                     =
+       <tr>=0A                                <td align=3D"center" style=3D=
+"font-size:0px;padding:10px 0px;word-break:break-word;">=0A                =
+                    <p style=3D"border-top:solid 1px #efefef;font-size:1px;=
+margin:0px auto;width:100%;">=0A                                    </p>=0A=
+                                </td>=0A                            </tr>=
+=0A                        </table>=0A                        <table id=3D"=
+content_table" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%;">=
+=0A                            <tr>=0A                                <td >=
+=0A                                    <table width=3D"100%" class=3D"inner=
+-table">=0A                                        <tr height=3D"20"></tr>=
+=0A                                        <tr>   =0A                      =
+                      <td width=3D"24px" align=3D"left" style=3D"vertical-a=
+lign: top;padding-top: 3px !important;">=0A                                =
+                <img src=3D"https://www.inoreader.com/camo/sIKNwYnoTPjcofk3=
+_K0ypGjWF8bEzQfxl8cZHq6O14TA,40x40,r20,b64/aHR0cHM6Ly93d3cuaW5vcmVhZGVyLmNv=
+bS9jZG4vcHJvZmlsZV9zb2NpYWxfcGljdHVyZS8xMDA2MDkxNTkyL2dvb2dsZV80MC9hNGM0ZDE=
+wZDNlNGYwNzJlNmM1ZWJjMWFlOWZkNTkwNGIyYzU1MjViZGI0YmFmZDlhMmVhNDA3YTQyYmNhZj=
+g1OTI1NjI1YWZkYzcwMjM3YzczMGQxMzViMTI4M2ZmZWY3MTI5ZmIyMmY3NTdkNjkzZjNjNThjM=
+2NjMWZjZTI0NWFjMzZhMjkzMWE4MGZmNWU0ZmMzNDlhMjU2ZWYwMGJlNjUwY2YyOTI0YjY2OGI5=
+M2RjYmQ0YTYyZDBhOWVkNzc0NTYzNjlkMWFmZWU" style=3D"width:20px;height:20px;ve=
+rtical-align:middle;" width=3D"20" height=3D"20">=0A                       =
+                     </td>=0A                                            <t=
+d>=0A                                                <span style=3D"font-si=
+ze:16px;margin:20px 0;padding-bottom:10px;font-weight:bold;">=0A           =
+                                         Lucy Keer=0A                      =
+                          </span>=0A                                       =
+         <span style=3D"font-size:16px;letter-spacing:-0.02rem;margin:20px =
+0;padding-bottom:10px;">=0A                                                =
+    shared this article with you from <a href=3D"https://www.inoreader.com/=
+article/3a9c6e7739e9cec7?utm_source=3Demail_sharing&utm_campaign=3Du1006091=
+592&utm_medium=3Demail" style=3D"text-decoration:underline;">Inoreader</a>=
+=0A                                                </span>=0A              =
+                              </td>=0A                                     =
+   </tr>=0A                                    </table>=0A                 =
+               </td>=0A                            </tr>=0A                =
+            <tr height=3D"20"></tr>=0A                                     =
+   <tr>=0A                                            <td>=0A              =
+                                  <table style=3D"padding: 20px;border: 1px=
+ solid #efefef;border-radius: 5px;" width=3D"100%" class=3D"inner-table">=
+=0A                                                    <tr>=0A             =
+                                           <td>=0A                         =
+                                   <div dir=3D"ltr">=0A                    =
+                                            <a href=3D"https://lucykeer.com=
+/notebucket/fun-happens-at-the-second-by-second-level/" style=3D"font-size:=
+24px;line-height:28px;text-decoration:none;font-weight:bold;color: #1a2433;=
+">Fun mostly happens at the second-by-second level</a>=0A                  =
+                                          </div>=0A                        =
+                                </td>=0A                                   =
+                 </tr>=0A                                                  =
+  <tr>=0A                                                        <td>=0A   =
+                                                         <div style=3D"marg=
+in-top:8px;">=0A                                                           =
+     <span style=3D"color: #828d9d;">via</span> <a style=3D"font-weight: no=
+rmal;color: #828d9d; text-decoration: none;" href=3D"https://lucykeer.com/"=
+>Lucy Keer</a>=0A                                                          =
+  </div>=0A                                                        </td>=0A=
+                                                    </tr>=0A               =
+                                     <tr>=0A                               =
+                         <td>=0A                                           =
+                 <div class=3D"article-content" style=3D"font-size:16px;mar=
+gin-top:16px;line-height:28px;font-family:'Merriweather', Georgia, serif;" =
+dir=3D"ltr">=0A                                                            =
+    =0A=09=09=09=09=09=09<p class=3D"p_no_top"><em>This has been stuck half=
+-written in my drafts for three years because it was a bit too much like ye=
+lling at depressed people for being depressed, and I was having trouble fin=
+ding a framing that avoided that.</em></p><p><em>I still haven't solved the=
+ problem, so sorry in advance if this post is annoying, but I got reminded =
+of the Lurpak anecdote in it today and thought I'd chance finishing and pub=
+lishing it anyway.</em></p><hr><p>Earlier in the week <em>[edit: well, actu=
+ally back in 2022]</em> I was getting frustrated at some people on Hacker N=
+ews who were bad at having fun, and started writing a rant. This seems mean=
+. It's not their fault that they don't know how to have fun, and of course =
+they are already suffering by not having fun. This is my attempt to make it=
+ a bit more constructive.</p><p>The thread was <a href=3D"https://news.ycom=
+binator.com/item?id=3D32226910" target=3D"_blank" rel=3D"noopener" class=3D=
+"underlink bluelink" tabindex=3D"-1">this one</a> where the OP is stuck in =
+a rut and asking for help to get out. A lot of the practical advice is good=
+, but then one of the top-rated replies starts with the following:</p><bloc=
+kquote>It looks like you have discovered that life is boring. Doesn't matte=
+r in tech or any profession, we work to create wealth and get so engrossed =
+in it. Once we conquer the "wealth" part we feel we don't have a meaning or=
+ a purpose anymore. And life is actually boring. To see life is boring and =
+has no meaning is intelligence. I would go as far as to say only fools don'=
+t realize that life is boring and go on distracting themselves endlessly...=
+</blockquote><p>and keeps on in the same nihilist vein.</p><p>The top-rated=
+ reply to the reply starts as follows:</p><blockquote>I don't think life is=
+ _necessarily_ boring as you claim. It's just that a lot about life is bori=
+ng, particularly working at a job you don't intrinsically enjoy as well as =
+things like commuting, preparing/waiting for food, etc.<br><br>But a best f=
+riend? A delicious meal? Making love? Learning something you want to know a=
+bout? I could go on.</blockquote><p>This is pushback of a sort, and sounds =
+like a more enjoyable worldview than the one it's responding to, but it sti=
+ll has a weird-to-me ontology of fun where fun either does or does not atta=
+ch to whole lumped activities like "commuting" or "a delicious meal".</p><p=
+>Anyway, at this point I got frustrated and went to fill my recycling bag w=
+ith cardboard:</p><img src=3D"https://lucykeer.com/content/images/2025/05/I=
+MG_20220726_101324--1-.jpg" alt=3D"" width=3D"650" height=3D"2664" referrer=
+policy=3D"no-referrer" style=3D"max-width: 650px; height: auto; object-fit:=
+ contain;"><p>I'm really enjoying disassembling cardboard boxes at the mome=
+nt <em>[edit: still enjoying this in 2025]</em>. I got some Ikea furniture =
+recently so there's lots of cardboard in the flat. The most satisfying part=
+ is where you score a line roughly in the cardboard with scissors, and then=
+ bend it, and then the whole thing snaps nicely along the line. Filling up =
+the bag neatly like in the photo is also pretty good.</p><p>Another story: =
+a while back, I had a bug where I couldn't taste much (not covid, just your=
+ standard issue pre-covid crappy bug), so I was wondering what to eat, and =
+trying to figure out what I might enjoy. After considering some options, th=
+e only thing I felt really excited about was "opening a new tub of Lurpak b=
+utter and seeing the nice flat surface". Which sounds very stupid, but I di=
+d genuinely enjoy that!</p><p>Anyway, the point is that things that are fun=
+ are often very small, and sound kind of trivial and silly when you write a=
+bout them. My sense though is that they are actually very important, and th=
+at <em>most </em>fun bubbles up from this kind of second-by-second experien=
+ce. There just isn't much fun available in big pre-packaged narrative lumps=
+, even the apparently positive ones like "having a delicious meal". Whereas=
+ you could break open even the duller-sounding lumps like "commuting" and f=
+ind a decent amount of second-by-second fun inside. If you are spending you=
+r life up at the level of the lumps, then fun is going to top out at a pret=
+ty low level.</p><p>I wish I could shout at the Hacker News repliers to JUS=
+T GO LOOK AT SOME THINGS, LIKE ACTUALLY LOOK AT THEM FOR ONCE, AND SEE WHIC=
+H BITS YOU LIKE in a way that would actually help. I can't, so instead I wr=
+ote this annoying post.</p>=0A=09=09=09=09=09<div style=3D"clear:both;">=0A=
+=09=09=09=09=09</div>=0A                    =0A=0A=09=09=09=0A             =
+                                               </div>=0A                   =
+                                     </td>=0A                              =
+                      </tr>=0A                                             =
+   </table>=0A                                            </td>=0A         =
+                               </tr>=0A                                <tr =
+height=3D"40"></tr>=0A                                <tr>=0A              =
+                      <td>=0A                                        <a hre=
+f=3D"https://lucykeer.com/notebucket/fun-happens-at-the-second-by-second-le=
+vel/" target=3D"_blank" style=3D"text-decoration:none;padding:10px 24px;fon=
+t-weight:500;background-color:#3d6baa;color:#ffffff;border-radius:3px;borde=
+r:1px solid #3d6baa; text-align: center;font-size: 16px;">View on Web</a>=
+=0A                                    </td>=0A                            =
+    </tr>=0A                                        <tr height=3D"20"></tr>=
+=0A                                    </table>=0A                         =
+       </td>=0A                            </tr>=0A                        =
+</table>=0A                        <table id=3D"footer_table" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"100%">=0A                            <tr>=
+=0A                                <td style=3D"font-size: 14px;text-align:=
+ left;">=0A                                    <table width=3D"100%" class=
+=3D"inner-table">=0A                                        <tr>=0A        =
+                                    <td>=0A                                =
+                <p style=3D"border-top:1px solid #efefef;padding-top:24px;m=
+argin-top:24px;color: #828d9d;">=0A                                        =
+            <a href=3D"https://www.inoreader.com?utm_source=3Demail_sharing=
+&utm_campaign=3Du1006091592&utm_medium=3Demail" style=3D"text-decoration:no=
+ne;color: #828d9d;">Inoreader</a>. Build your own newsfeed. Follow us on <a=
+ href=3D"http://www.x.com/Inoreader" style=3D"text-decoration:none;color: #=
+828d9d;">Twitter</a> and <a href=3D"http://www.facebook.com/Inoreader" styl=
+e=3D"text-decoration:none;color: #828d9d;">Facebook</a>.=0A                =
+                                </p>=0A                                    =
+        </td>=0A                                        </tr>=0A           =
+                         </table>=0A                                </td>=
+=0A                            </tr>=0A                        </table>=0A =
+                   </td>=0A                </tr>=0A            </table>=0A =
+       </body>=0A    </html>

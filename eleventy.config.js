@@ -5,6 +5,7 @@ module.exports = function (eleventyConfig) {
   // Passthrough
   // ---------------------------------------------------------------------------
   eleventyConfig.addPassthroughCopy('src/css');
+  eleventyConfig.addPassthroughCopy('src/content');
 
   // ---------------------------------------------------------------------------
   // Filters

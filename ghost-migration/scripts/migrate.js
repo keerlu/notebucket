@@ -2,7 +2,7 @@
 /**
  * Migrate Ghost JSON export to Eleventy Markdown files.
  *
- * Usage: node scripts/migrate.js [--drafts]
+ * Usage: node ghost-migration/scripts/migrate.js [--drafts]
  *
  * Outputs:
  *   src/posts/YYYY-MM-DD-slug.md  — blog posts
@@ -13,8 +13,8 @@ const fs = require('fs');
 const path = require('path');
 
 const GHOST_EXPORT = path.resolve(__dirname, '../lucy-keer.ghost.2024-08-05-07-24-57.json');
-const POSTS_DIR = path.resolve(__dirname, '../src/posts');
-const PAGES_DIR = path.resolve(__dirname, '../src/pages');
+const POSTS_DIR = path.resolve(__dirname, '../../src/posts');
+const PAGES_DIR = path.resolve(__dirname, '../../src/pages');
 
 const includeDrafts = process.argv.includes('--drafts');
 

@@ -2,7 +2,7 @@
 /**
  * Convert an Inoreader share .eml file to an Eleventy post in src/posts/.
  *
- * Usage: node scripts/eml-to-post.js <path-to.eml> [--date YYYY-MM-DD]
+ * Usage: node ghost-migration/scripts/eml-to-post.js <path-to.eml> [--date YYYY-MM-DD]
  *
  * The post date defaults to the Date: header in the email.
  * Override with --date if the publish date differs from the email date.
@@ -11,7 +11,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const POSTS_DIR = path.resolve(__dirname, '../src/posts');
+const POSTS_DIR = path.resolve(__dirname, '../../src/posts');
 
 // ---------------------------------------------------------------------------
 // Args
@@ -22,7 +22,7 @@ const dateArgIdx = args.indexOf('--date');
 const dateOverride = dateArgIdx !== -1 ? args[dateArgIdx + 1] : null;
 
 if (!emlPath) {
-  console.error('Usage: node scripts/eml-to-post.js <path-to.eml> [--date YYYY-MM-DD]');
+  console.error('Usage: node ghost-migration/scripts/eml-to-post.js <path-to.eml> [--date YYYY-MM-DD]');
   process.exit(1);
 }
 

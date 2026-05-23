@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Context
 
-Ghost CMS to Eleventy (11ty) static site migration for Lucy Keer's personal blog. The Ghost data export lives at the root; migrated content lives in `src/`.
+Ghost CMS to Eleventy (11ty) static site migration for Lucy Keer's personal blog. The Ghost data export and migration scripts live in `ghost-migration/`; migrated content lives in `src/`.
 
 ## Commands
 
@@ -37,8 +37,12 @@ src/
     index.njk             # /tags/ listing page
     tag.njk               # Paginated tag pages → /tags/<slug>/
   css/style.css
-scripts/
-  migrate.js              # Ghost JSON → Markdown conversion script
+ghost-migration/
+  lucy-keer.ghost.2024-08-05-07-24-57.json  # Ghost export (gitignored)
+  scripts/
+    migrate.js            # Ghost JSON → Markdown conversion script
+    eml-to-post.js        # .eml → Eleventy post converter
+  missing-pages/          # Unconverted .eml drafts
 ```
 
 ### Collections (eleventy.config.js)
@@ -50,9 +54,9 @@ scripts/
 
 Posts use the Ghost slug directly: `permalink: /{{ slug }}/`. This preserves any existing external links to the old Ghost site.
 
-### Migration script details (`scripts/migrate.js`)
+### Migration script details (`ghost-migration/scripts/migrate.js`)
 
-Reads `lucy-keer.ghost.2024-08-05-07-24-57.json`. Key behaviours:
+Reads `ghost-migration/lucy-keer.ghost.2024-08-05-07-24-57.json`. Key behaviours:
 - Strips internal Ghost tags (slugs starting with `hash-`)
 - Rewrites `__GHOST_URL__/notebucket/slug/` → `/slug/` and `__GHOST_URL__/` → `/`
 - Uses the `html` field (rendered output), not `mobiledoc`/`lexical`

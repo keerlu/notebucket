@@ -5,7 +5,7 @@
   "scripts": {
     "build": "eleventy",
     "start": "eleventy --serve",
-    "migrate": "node scripts/migrate.js"
+    "migrate": "node ghost-migration/scripts/migrate.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0"

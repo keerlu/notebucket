@@ -13,7 +13,7 @@ eleventyExcludeFromCollections: true
   <author>
     <name>{{ site.title }}</name>
   </author>
-  {% for post in collections.posts | slice(0, 20) %}
+  {% for post in collections.posts | limit(20) %}
   <entry>
     <title>{{ post.data.title | escape }}</title>
     <link href="{{ site.url }}{{ post.url }}"/>

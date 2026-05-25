@@ -19,6 +19,8 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(new Date(dateObj), { zone: 'utc' }).toISO();
   });
 
+  eleventyConfig.addFilter('limit', (arr, n) => arr.slice(0, n));
+
   // ---------------------------------------------------------------------------
   // Collections
   // ---------------------------------------------------------------------------

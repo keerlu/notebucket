@@ -2,14 +2,26 @@
 permalink: /notebucket/rss/index.html
 eleventyExcludeFromCollections: true
 ---
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=/notebucket/rss.xml">
-  <link rel="canonical" href="/notebucket/rss.xml">
-</head>
-<body>
-  <a href="/notebucket/rss.xml">RSS feed moved to /notebucket/rss.xml</a>
-</body>
-</html>
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title }}</title>
+  <subtitle>{{ site.description }}</subtitle>
+  <link href="{{ site.url }}/notebucket/rss.xml" rel="self"/>
+  <link href="{{ site.url }}/"/>
+  <updated>{{ collections.posts[0].data.date | isoDate }}</updated>
+  <id>{{ site.url }}/</id>
+  <author>
+    <name>{{ site.title }}</name>
+  </author>
+  {% for post in collections.posts | limit(20) %}
+  <entry>
+    <title>{{ post.data.title | escape }}</title>
+    <link href="{{ site.url }}{{ post.url }}"/>
+    <id>{{ site.url }}{{ post.url }}</id>
+    <published>{{ post.data.date | isoDate }}</published>
+    <updated>{{ post.data.date | isoDate }}</updated>
+    {% if post.data.excerpt %}<summary>{{ post.data.excerpt | escape }}</summary>{% endif %}
+    <content type="html">{{ post.templateContent | escape }}</content>
+  </entry>
+  {% endfor %}
+</feed>

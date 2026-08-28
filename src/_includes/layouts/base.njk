@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if title %}{{ title }} – {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <title>{% if title %}{{ title }} – {{ site.wordmark }}{% else %}{{ site.wordmark }}{% endif %}</title>
   <meta name="description" content="{{ excerpt or site.description }}">
   {% if canonical_url %}<link rel="canonical" href="{{ canonical_url }}">{% endif %}
+  <link rel="icon" href="/img/favicon-32.png" type="image/png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/notebucket/rss.xml">
   <script>
@@ -18,7 +20,10 @@
 <body>
   <header class="site-header">
     <div class="site-header-inner">
-      <a class="site-title" href="/">{{ site.title }}</a>
+      <a class="site-title" href="/">
+        <img src="/img/bucket-sparkle-128.png" alt="" width="40" height="40">
+        {{ site.wordmark }}
+      </a>
       <nav class="site-nav">
         <a href="/">Posts</a>
         <a href="/about/">About</a>

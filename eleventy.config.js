@@ -45,9 +45,12 @@ module.exports = function (eleventyConfig) {
   // Also builds the global tag list used by the /tags/ index
   eleventyConfig.addCollection('tagList', (collectionApi) => {
     const tagSet = new Set();
-    collectionApi.getFilteredByGlob('src/posts/*.md').forEach(item => {
-      (item.data.tags || []).forEach(tag => tagSet.add(tag));
-    });
+    collectionApi
+      .getFilteredByGlob('src/posts/*.md')
+      .filter(p => !p.data.draft)
+      .forEach(item => {
+        (item.data.tags || []).forEach(tag => tagSet.add(tag));
+      });
     return [...tagSet].sort();
   });
 

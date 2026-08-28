@@ -6,7 +6,11 @@ pagination:
   alias: tag
 permalink: /tags/{{ tag }}/
 ---
-<h1>Posts tagged "{{ tag }}"</h1>
-
 {% set posts = collections.posts | byTag(tag) %}
+
+<header class="page-header">
+  <h1 class="page-title">{{ tag }}</h1>
+  <p class="page-meta">{{ posts.length }} post{% if posts.length != 1 %}s{% endif %}</p>
+</header>
+
 {% include "post-list.njk" %}

@@ -140,6 +140,12 @@ img { max-width: 100%; height: auto; }
   line-height: 1.25;
 }
 
+.page-meta {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
 .post-meta {
   font-size: 0.85rem;
   color: var(--color-muted);

@@ -15,11 +15,19 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(new Date(dateObj), { zone: 'utc' }).toFormat('d LLLL yyyy');
   });
 
+  eleventyConfig.addFilter('compactDate', (dateObj) => {
+    return DateTime.fromJSDate(new Date(dateObj), { zone: 'utc' }).toFormat('dd LLL yyyy');
+  });
+
   eleventyConfig.addFilter('isoDate', (dateObj) => {
     return DateTime.fromJSDate(new Date(dateObj), { zone: 'utc' }).toISO();
   });
 
   eleventyConfig.addFilter('limit', (arr, n) => arr.slice(0, n));
+
+  eleventyConfig.addFilter('byTag', (posts, tag) => {
+    return posts.filter(p => (p.data.tags || []).includes(tag));
+  });
 
   // ---------------------------------------------------------------------------
   // Collections

@@ -13,3 +13,6 @@ _site/
 # env files (precautionary)
 .env
 .env.*
+
+# Dawn theme, kept locally as style reference only
+Dawn-main/

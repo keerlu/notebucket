@@ -98,6 +98,18 @@ function rewriteGhostUrls(html) {
     .replace(/__GHOST_URL__\//g, '/');
 }
 
+/**
+ * Ghost generated /content/images/size/wNNN/... variants on the fly; the
+ * export only contains the originals, so every srcset candidate 404s.
+ * Drop srcset (and the now-meaningless sizes) and let src do the work.
+ */
+function stripGhostSrcset(html) {
+  if (!html) return html;
+  return html.replace(/<img\b[^>]*>/g, (tag) =>
+    tag.replace(/\s+(?:srcset|sizes)="[^"]*"/g, '')
+  );
+}
+
 function writePost(post) {
   const tags = getPostTags(post.id);
   const date = isoDate(post.published_at || post.created_at);
@@ -113,7 +125,7 @@ function writePost(post) {
     excerpt: post.custom_excerpt || undefined,
   });
 
-  const html = rewriteGhostUrls(post.html);
+  const html = stripGhostSrcset(rewriteGhostUrls(post.html));
   const content = `${frontmatter}\n\n${html || ''}\n`;
 
   const prefix = datePrefix(post.published_at || post.created_at);
@@ -134,7 +146,7 @@ function writePage(page) {
     excerpt: page.custom_excerpt || undefined,
   });
 
-  const html = rewriteGhostUrls(page.html);
+  const html = stripGhostSrcset(rewriteGhostUrls(page.html));
   const content = `${frontmatter}\n\n${html || ''}\n`;
 
   const filename = `${page.slug}.md`;

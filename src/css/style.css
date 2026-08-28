@@ -246,6 +246,15 @@ img {
   margin: 2rem 0;
 }
 
+/* Wide figures (timelines, diagrams) break out of the text column and centre
+   themselves on it, shrinking back to the viewport on narrow screens. */
+.post-content figure.wide,
+.page-content figure.wide {
+  width: min(1000px, 92vw);
+  max-width: none;
+  margin-left: calc(50% - min(500px, 46vw));
+}
+
 /* Images are inline by default, which leaves a descender gap under them
    inside the figure — block removes it so the caption sits true. */
 .post-content figure img,

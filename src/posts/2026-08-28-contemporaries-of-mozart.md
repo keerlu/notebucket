@@ -4,6 +4,15 @@ date: "2026-08-28T12:00:00.000Z"
 slug: "contemporaries-of-mozart"
 ---
 
+!! more tet
+
+<figure class="wide">
+  <img src="/content/images/2026/08/timeline.svg" alt="Timeline showing how composers overlap with Mozart" width="990" height="780" loading="lazy">
+</figure>
+
+<!-- Or, without a caption, plain markdown works: -->
+<!-- ![Describe the image here](/content/images/2026/08/PLACEHOLDER.jpg) -->
+
 !! intro
 
 ## Full list

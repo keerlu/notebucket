@@ -1,12 +1,16 @@
 /* =========================================================
    Reset & base
    ========================================================= */
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 :root {
   --color-text: #1a1a1a;
   --color-muted: #666;
-  --color-accent: #7c3aed;
+  --color-accent: #4b65c3;
   --color-bg: #fff;
   --color-border: #e5e5e5;
   --font-sans: system-ui, -apple-system, sans-serif;
@@ -24,10 +28,17 @@ body {
   line-height: 1.7;
 }
 
-a { color: var(--color-accent); }
-a:hover { text-decoration: none; }
+a {
+  color: var(--color-accent);
+}
+a:hover {
+  text-decoration: none;
+}
 
-img { max-width: 100%; height: auto; }
+img {
+  max-width: 100%;
+  height: auto;
+}
 
 /* =========================================================
    Layout
@@ -71,7 +82,9 @@ img { max-width: 100%; height: auto; }
   color: var(--color-muted);
   text-decoration: none;
 }
-.site-nav a:hover { color: var(--color-accent); }
+.site-nav a:hover {
+  color: var(--color-accent);
+}
 
 .site-footer {
   margin-top: 4rem;
@@ -122,8 +135,13 @@ img { max-width: 100%; height: auto; }
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.post-card-title a { text-decoration: none; color: var(--color-text); }
-.post-card-title a:hover { color: var(--color-accent); }
+.post-card-title a {
+  text-decoration: none;
+  color: var(--color-text);
+}
+.post-card-title a:hover {
+  color: var(--color-accent);
+}
 
 /* =========================================================
    Post / Page
@@ -166,7 +184,9 @@ img { max-width: 100%; height: auto; }
   text-decoration: none;
 }
 .post-tags a:hover,
-.post-card-tags a:hover { color: var(--color-accent); }
+.post-card-tags a:hover {
+  color: var(--color-accent);
+}
 
 .post-feature-image {
   margin: 0 0 2rem;

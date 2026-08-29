@@ -2,19 +2,25 @@
 title: "Listening to 24 contemporaries of Mozart"
 date: "2026-08-28T12:00:00.000Z"
 slug: "contemporaries-of-mozart"
+tags:
+  - "music"
 ---
 
-!! more tet
+This is a sort of low-intensity listening project I've had going on in the background for about the past year. I stumbled across the [Contemporaries of Mozart](https://www.chandos.net/products/catalogue/CHUSB%200018) series of recordings by the London Mozart Players and thought it would be interesting to listen to the whole lot, for a few reasons:
+
+- I love the [galant](https://en.wikipedia.org/wiki/Galant_music) style and expected to turn up a few new discoveries that I'd enjoy investigating further.
+- There's something that appeals to me about exploring one artistic period in depth, so that I don't just know the famous highlights but have an understanding of the background culture of practice that they emerged from. I expect that this would work well in any genre and period, and that for example you'd learn a lot by reading and watching a whole bunch of random Elizabethan plays and not just Shakespeare, but for most things I am never going to put the effort in. For galant music I actually care enough to do it.
+- I work full time in an open office now and to keep my sanity I need quick access to a constant stream of undemanding background music.
+
+## The composers
+
+All the composers overlap with a significant chunk of Mozart's life, but overall they span a wide range of time rather than being exact contemporaries. Here's a diagram I got Claude to make:
 
 <figure class="wide">
   <img src="/content/images/2026/08/timeline.svg" alt="Timeline showing how composers overlap with Mozart" width="990" height="780" loading="lazy">
 </figure>
 
-!! intro
-
-## Full list
-
-Anyway, here's my notes at the time on everything I listened to:
+Here's my notes at the time on everything I listened to:
 
 **William Herschel:** the astronomer, who also did some composing on the side. I like this! Some striking atmospheric moments, though some of the linking passages feel pretty paint-by-numbers.
 
@@ -48,11 +54,7 @@ Anyway, here's my notes at the time on everything I listened to:
 
 **Antonio Rosetti:** This is fine but as with Pleyel I'm not getting excited by it.
 
----
-
 _At this point I was starting to feel pretty burned out on mid tier 18th-century music and had a break for a bit. Back to it a month or so later..._
-
----
 
 **Luigi Boccherini:** I love Streets of Madrid but haven't got much out of any other Boccherini. This is pretty listenable but there's nothing that really jumps out as interesting. Might be worth a relisten.
 
@@ -68,11 +70,11 @@ _At this point I was starting to feel pretty burned out on mid tier 18th-century
 
 **Franz Xaver Richter:** ok this last one is more in the style I was looking for. I liked the trumpet symphony.
 
-## Summary
+## Overall ranking
 
-Mostly for my own benefit when I figure out what to listen to next.
+Reading back the notes, they fall into the following rough categories:
 
-| Category               | Composer                |
+|                        | Composer                |
 | ---------------------- | ----------------------- |
 | **Loved it**           | Carl Stamitz            |
 |                        | Michael Haydn           |
@@ -97,3 +99,5 @@ Mostly for my own benefit when I figure out what to listen to next.
 |                        | Franz Krommer           |
 |                        | Muzio Clementi          |
 |                        | Paul Wranitzky          |
+
+Everything in the top three categories feels worth revisiting. So roughly half of the total list. Not a bad hit rate actually!

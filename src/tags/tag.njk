@@ -5,6 +5,9 @@ pagination:
   size: 1
   alias: tag
 permalink: /tags/{{ tag }}/
+eleventyComputed:
+  # Frontmatter isn't template-rendered (bar permalink), so the alias is read here.
+  title: "{{ tag }}"
 ---
 {% set posts = collections.posts | byTag(tag) %}
 

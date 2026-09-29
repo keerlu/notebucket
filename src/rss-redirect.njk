@@ -20,7 +20,7 @@ eleventyExcludeFromCollections: true
     <id>{{ site.url }}{{ post.url }}</id>
     <published>{{ post.data.date | isoDate }}</published>
     <updated>{{ post.data.date | isoDate }}</updated>
-    {% if post.data.excerpt %}<summary>{{ post.data.excerpt | escape }}</summary>{% endif %}
+    {% if post.data.description %}<summary>{{ post.data.description | escape }}</summary>{% endif %}
     <content type="html">{{ post.templateContent | escape }}</content>
   </entry>
   {% endfor %}

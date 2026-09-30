@@ -1,4 +1,5 @@
 const { DateTime } = require('luxon');
+const markdownItFootnote = require('markdown-it-footnote');
 
 module.exports = function (eleventyConfig) {
   // ---------------------------------------------------------------------------
@@ -8,6 +9,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/content');
   eleventyConfig.addPassthroughCopy('src/img');
   eleventyConfig.addPassthroughCopy('src/CNAME');
+
+  // ---------------------------------------------------------------------------
+  // Markdown
+  // ---------------------------------------------------------------------------
+  // Footnotes: [^1] in text, [^1]: note text at the end of the post
+  eleventyConfig.amendLibrary('md', (md) => md.use(markdownItFootnote));
 
   // ---------------------------------------------------------------------------
   // Filters
